@@ -150,4 +150,3 @@ IELTS App/
 ## 👨‍🏫 Contact Abraham Rifat
 - **Email**: [rifatmiah1992003@gmail.com](mailto:rifatmiah1992003@gmail.com)
 - **Phone / WhatsApp**: [+880 1314078510](tel:+8801314078510)
-- **Telegram Community**: [Study_Abroad_Group](https://t.me/Study_Abroad_Group)
