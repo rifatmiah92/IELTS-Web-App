@@ -425,10 +425,36 @@ footer {
   border-top: 2px solid #1d3557;
   background: #eef1f5;
   padding: 8px 14px;
+  padding-right: 210px; /* safe spacing so Netlify badge never covers submit button */
   display: flex;
   align-items: center;
   gap: 12px;
   flex-shrink: 0;
+  position: relative;
+  z-index: 100;
+}
+@media (max-width: 768px) {
+  footer {
+    padding-right: 140px;
+  }
+}
+#sub {
+  background: #1d3557;
+  color: #fff;
+  border: none;
+  padding: 9px 22px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  transition: all 0.2s ease;
+  margin-right: 10px;
+}
+#sub:hover {
+  background: #0f172a;
+  transform: translateY(-1px);
 }
 #pal {
   flex: 1;
@@ -971,7 +997,8 @@ function hideHighlightPopup() {
 const leftPane = document.getElementById("left");
 
 // 1. Delegated click on highlighted text to remove it immediately
-leftPane.addEventListener("click", function(e) {
+// 1. Delegated click on highlight marks to remove them in BOTH passage and questions
+document.addEventListener("click", function(e) {
   const mark = e.target.closest(".ielts-hl");
   if (mark) {
     e.stopPropagation();
@@ -981,18 +1008,25 @@ leftPane.addEventListener("click", function(e) {
   }
 });
 
-// 2. Mouseup in passage to detect selection
-leftPane.addEventListener("mouseup", function(e) {
-  // If clicked a mark, delegation handles it
+// 2. Mouseup in passage or questions to detect text selection
+function handleSelectionMouseup(e) {
   if (e.target.closest(".ielts-hl")) return;
+  if (e.target.closest("input, button, select, textarea")) {
+    hideHighlightPopup();
+    return;
+  }
 
   const sel = window.getSelection();
   if (sel && !sel.isCollapsed && sel.toString().trim().length > 0) {
     const range = sel.getRangeAt(0);
-    if (leftPane.contains(range.commonAncestorContainer)) {
+    const inLeft = leftPane && leftPane.contains(range.commonAncestorContainer);
+    const inRight = rightPane && rightPane.contains(range.commonAncestorContainer);
+
+    if (inLeft || inRight) {
       activeRange = range.cloneRange();
       const rect = range.getBoundingClientRect();
-      const mainRect = document.querySelector("main").getBoundingClientRect();
+      const mainEl = document.querySelector("main") || document.body;
+      const mainRect = mainEl.getBoundingClientRect();
       if (hlPopup) {
         hlPopup.style.display = "flex";
         hlPopup.style.top = (rect.top - mainRect.top) + "px";
@@ -1002,10 +1036,13 @@ leftPane.addEventListener("mouseup", function(e) {
     }
   }
   hideHighlightPopup();
-});
+}
+
+if (leftPane) leftPane.addEventListener("mouseup", handleSelectionMouseup);
+if (rightPane) rightPane.addEventListener("mouseup", handleSelectionMouseup);
 
 document.addEventListener("mousedown", function(e) {
-  if (hlPopup && !hlPopup.contains(e.target) && !leftPane.contains(e.target)) {
+  if (hlPopup && !hlPopup.contains(e.target) && !e.target.closest(".tool-btn")) {
     hideHighlightPopup();
   }
 });
@@ -1015,7 +1052,15 @@ function highlightSelection() {
   const range = activeRange || (sel && !sel.isCollapsed ? sel.getRangeAt(0) : null);
   if (!range) return;
 
-  if (leftPane.contains(range.commonAncestorContainer)) {
+  const inLeft = leftPane && leftPane.contains(range.commonAncestorContainer);
+  const inRight = rightPane && rightPane.contains(range.commonAncestorContainer);
+
+  if (inLeft || inRight) {
+    if (range.startContainer && range.startContainer.parentElement &&
+        /INPUT|BUTTON|SELECT|TEXTAREA/i.test(range.startContainer.parentElement.tagName)) {
+      return;
+    }
+
     const mark = document.createElement("mark");
     mark.className = "ielts-hl";
     mark.title = "Click to remove this highlight";
@@ -1036,7 +1081,7 @@ function clearSelectionHighlight() {
   const sel = window.getSelection();
   const range = activeRange || (sel && !sel.isCollapsed ? sel.getRangeAt(0) : null);
   if (range) {
-    const allMarks = Array.from(leftPane.querySelectorAll(".ielts-hl"));
+    const allMarks = Array.from(document.querySelectorAll("#left .ielts-hl, #right .ielts-hl"));
     let removed = 0;
     allMarks.forEach(m => {
       let isIntersect = false;
@@ -1051,7 +1096,7 @@ function clearSelectionHighlight() {
 
     if (removed === 0) {
       let cur = range.commonAncestorContainer;
-      while (cur && cur !== leftPane) {
+      while (cur && cur !== document.body) {
         if (cur.nodeType === 1 && cur.classList.contains("ielts-hl")) {
           removeHighlightNode(cur);
           removed++;
@@ -1076,7 +1121,7 @@ function removeHighlightNode(node) {
 }
 
 function clearAllHighlights() {
-  document.querySelectorAll("#left .ielts-hl").forEach(mark => {
+  document.querySelectorAll("#left .ielts-hl, #right .ielts-hl").forEach(mark => {
     removeHighlightNode(mark);
   });
   hideHighlightPopup();

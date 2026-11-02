@@ -3238,34 +3238,66 @@
       const isDone = completed.includes(day.day);
       const wordsPreview = (day.words || []).slice(0, 4).map(function(w) { return w.word; }).join(', ');
 
-      html += '<div class="vocab-macro-card" onclick="window.ieltsApp.openVocabDayModal(' + day.day + ')" style="' + (isDone ? 'border-color:#16a34a;' : '') + '">' +
-        '<div class="vocab-macro-card-top">' +
-          '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">' +
-            '<span style="background:' + c.bg + '; color:' + c.text + '; border:1px solid ' + c.border + '; font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.05em; padding:4px 10px; border-radius:20px; display:inline-flex; align-items:center; gap:6px;">' +
-              '<strong>' + c.icon + '</strong>' +
-              '<span>' + escapeHtml(day.category) + '</span>' +
-            '</span>' +
-            '<span style="font-size:0.82rem; font-weight:800; color:' + (isDone ? '#16a34a' : '#64748b') + '; display:flex; align-items:center; gap:4px;">' +
-              (isDone ? '✓ Completed' : 'Day ' + day.day) +
-            '</span>' +
+      html += '<div class="vocab-flip-card ' + (isDone ? 'is-completed' : '') + '" id="vocab-card-' + day.day + '">' +
+        '<div class="vocab-flip-inner">' +
+          // FRONT FACE
+          '<div class="vocab-flip-front" onclick="window.ieltsApp.openVocabDayModal(' + day.day + ')">' +
+            '<div class="vocab-macro-card-top">' +
+              '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">' +
+                '<span style="background:' + c.bg + '; color:' + c.text + '; border:1px solid ' + c.border + '; font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.05em; padding:4px 10px; border-radius:20px; display:inline-flex; align-items:center; gap:6px;">' +
+                  '<strong>' + c.icon + '</strong>' +
+                  '<span>' + escapeHtml(day.category) + '</span>' +
+                '</span>' +
+                '<span style="font-size:0.82rem; font-weight:800; color:#64748b; display:flex; align-items:center; gap:4px;">' +
+                  'Day ' + day.day +
+                '</span>' +
+              '</div>' +
+              '<h3 style="font-size:1.18rem; font-weight:800; color:#0f172a; margin:0 0 8px; line-height:1.4;">' +
+                escapeHtml(day.theme) +
+              '</h3>' +
+              '<div style="margin-bottom:12px;">' +
+                '<span style="font-size:0.8rem; font-weight:700; color:#475569; display:block; margin-bottom:4px;">Core Lexical Preview:</span>' +
+                '<p style="margin:0; font-size:0.88rem; color:#64748b; font-style:italic; line-height:1.4;">' + escapeHtml(wordsPreview) + '...</p>' +
+              '</div>' +
+              '<div style="display:flex; gap:6px; flex-wrap:wrap;">' +
+                '<span class="vocab-subtopic-chip">10 Words</span>' +
+                '<span class="vocab-subtopic-chip">3 Phrasals</span>' +
+                '<span class="vocab-subtopic-chip">2 Idioms</span>' +
+                '<span class="vocab-subtopic-chip" style="background:#eff6ff; color:#2563eb; font-weight:700;">Band 7.5-9.0</span>' +
+              '</div>' +
+            '</div>' +
+            '<div style="margin-top:16px; padding-top:14px; border-top:1px solid #f1f5f9; display:flex; justify-content:space-between; align-items:center;">' +
+              '<span style="font-size:0.84rem; font-weight:800; color:#2563eb;">Study Module &rarr;</span>' +
+              '<button type="button" class="btn alt" style="font-size:0.78rem; padding:4px 10px;" onclick="event.stopPropagation(); window.ieltsApp.openVocabDayModal(' + day.day + ')">Open</button>' +
+            '</div>' +
           '</div>' +
-          '<h3 style="font-size:1.18rem; font-weight:800; color:#0f172a; margin:0 0 8px; line-height:1.4;">' +
-            escapeHtml(day.theme) +
-          '</h3>' +
-          '<div style="margin-bottom:12px;">' +
-            '<span style="font-size:0.8rem; font-weight:700; color:#475569; display:block; margin-bottom:4px;">Core Lexical Preview:</span>' +
-            '<p style="margin:0; font-size:0.88rem; color:#64748b; font-style:italic; line-height:1.4;">' + escapeHtml(wordsPreview) + '...</p>' +
+          // BACK FACE (COMPLETED)
+          '<div class="vocab-flip-back" onclick="window.ieltsApp.openVocabDayModal(' + day.day + ')">' +
+            '<div>' +
+              '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">' +
+                '<span style="background:#16a34a; color:#ffffff; font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.05em; padding:4px 12px; border-radius:20px; display:inline-flex; align-items:center; gap:6px; box-shadow:0 2px 6px rgba(22,163,74,0.3);">' +
+                  '<span>✓</span> <strong>COMPLETED</strong>' +
+                '</span>' +
+                '<span style="font-size:0.82rem; font-weight:800; color:#15803d; background:rgba(255,255,255,0.7); padding:3px 10px; border-radius:12px;">Day ' + day.day + '</span>' +
+              '</div>' +
+              '<div style="text-align:center; padding:10px 0 14px;">' +
+                '<div style="font-size:2.2rem; line-height:1; margin-bottom:8px;">🎉</div>' +
+                '<h3 style="font-size:1.18rem; font-weight:800; color:#064e3b; margin:0 0 6px; line-height:1.35;">' + escapeHtml(day.theme) + '</h3>' +
+                '<p style="margin:0; font-size:0.86rem; color:#166534; font-weight:600;">15/15 Items Mastered (10 Words, 3 Phrasals, 2 Idioms)</p>' +
+              '</div>' +
+              '<div style="background:rgba(255,255,255,0.8); border:1px solid rgba(22,163,74,0.2); border-radius:10px; padding:10px 14px; text-align:center;">' +
+                '<span style="font-size:0.82rem; color:#14532d; font-weight:700;">Status: Band 8.5+ Ready</span>' +
+              '</div>' +
+            '</div>' +
+            '<div style="margin-top:16px; padding-top:14px; border-top:1px solid rgba(22,163,74,0.2); display:flex; justify-content:space-between; align-items:center; gap:8px;">' +
+              '<button type="button" class="btn" style="background:#15803d; color:#fff; border:none; padding:7px 14px; font-size:0.82rem; font-weight:700; border-radius:8px; display:inline-flex; align-items:center; gap:5px;" onclick="event.stopPropagation(); window.ieltsApp.openVocabDayModal(' + day.day + ')">' +
+                '<span>📖 Review</span>' +
+              '</button>' +
+              '<button type="button" class="btn alt" style="background:#fff; color:#dc2626; border:1px solid #fca5a5; padding:7px 12px; font-size:0.8rem; font-weight:700; border-radius:8px; display:inline-flex; align-items:center; gap:4px;" onclick="event.stopPropagation(); window.ieltsApp.markVocabIncomplete(' + day.day + ')" title="Reset this topic to incomplete">' +
+                '<span>↺ Incomplete</span>' +
+              '</button>' +
+            '</div>' +
           '</div>' +
-          '<div style="display:flex; gap:6px; flex-wrap:wrap;">' +
-            '<span class="vocab-subtopic-chip">10 Words</span>' +
-            '<span class="vocab-subtopic-chip">3 Phrasals</span>' +
-            '<span class="vocab-subtopic-chip">2 Idioms</span>' +
-            '<span class="vocab-subtopic-chip" style="background:#eff6ff; color:#2563eb; font-weight:700;">Band 7.5-9.0</span>' +
-          '</div>' +
-        '</div>' +
-        '<div style="margin-top:16px; padding-top:14px; border-top:1px solid #f1f5f9; display:flex; justify-content:space-between; align-items:center;">' +
-          '<span style="font-size:0.84rem; font-weight:800; color:#2563eb;">Study Module &rarr;</span>' +
-          '<button type="button" class="btn alt" style="font-size:0.78rem; padding:4px 10px;" onclick="event.stopPropagation(); window.ieltsApp.openVocabDayModal(' + day.day + ')">Open</button>' +
         '</div>' +
       '</div>';
     });
@@ -3300,8 +3332,10 @@
     const completed = getCompletedVocabDays();
     const isDone = completed.includes(dayData.day);
     if (completeBtn) {
-      completeBtn.textContent = isDone ? '✓ Mark Day Incomplete' : '✓ Mark Day Complete';
-      completeBtn.style.background = isDone ? '#15803d' : '#2563eb';
+      completeBtn.textContent = isDone ? '↺ Mark as Incomplete' : '✓ Mark as Complete';
+      completeBtn.style.background = isDone ? '#dc2626' : '#15803d';
+      completeBtn.style.color = '#ffffff';
+      completeBtn.style.borderColor = isDone ? '#b91c1c' : '#166534';
     }
 
     let html = '<div style="margin-bottom:20px;">' +
@@ -3412,6 +3446,24 @@
     }
   }
 
+  function markVocabIncomplete(dayNum) {
+    dayNum = parseInt(dayNum, 10) || 1;
+    let completed = getCompletedVocabDays();
+    completed = completed.filter(function(d) { return d !== dayNum; });
+    setCompletedVocabDays(completed);
+    renderVocabTopicsHub();
+  }
+
+  function markVocabComplete(dayNum) {
+    dayNum = parseInt(dayNum, 10) || 1;
+    let completed = getCompletedVocabDays();
+    if (!completed.includes(dayNum)) {
+      completed.push(dayNum);
+    }
+    setCompletedVocabDays(completed);
+    renderVocabTopicsHub();
+  }
+
   function toggleVocabDayComplete() {
     const dayNum = state.currentSelectedVocabDay || 1;
     let completed = getCompletedVocabDays();
@@ -3423,7 +3475,6 @@
     setCompletedVocabDays(completed);
 
     openVocabDayModal(dayNum);
-    renderVocabCalendar();
     if (state.currentVocabMode === 'topics') renderVocabTopicsHub();
   }
 
@@ -4340,6 +4391,8 @@
     openVocabDayModal,
     closeVocabModal,
     toggleVocabDayComplete,
+    markVocabIncomplete,
+    markVocabComplete,
     navigateVocabModal,
     openVocabCheatSheet,
     closeVocabCheatSheet,
