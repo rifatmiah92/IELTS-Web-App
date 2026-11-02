@@ -6574,9 +6574,14 @@ input[type=text].cd-gap-input:focus,
    ========================================================================== */
 .practice-sub-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-top: 16px;
+}
+@media (max-width: 992px) {
+  .practice-sub-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
 }
 .practice-featured-card {
   background: var(--surface, #ffffff);
