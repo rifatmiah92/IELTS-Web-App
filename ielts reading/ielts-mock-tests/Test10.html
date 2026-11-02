@@ -642,6 +642,105 @@ footer {
     max-height: 42vh;
   }
 }
+
+/* Evidence Highlighting & Interactive Navigation */
+.ielts-evidence-hl {
+  background: #fef08a !important;
+  color: #0f172a !important;
+  border-bottom: 2px solid #ca8a04;
+  border-radius: 4px;
+  padding: 1px 4px;
+  margin: 0 1px;
+  display: inline;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.ielts-evidence-hl:hover {
+  background: #fde047 !important;
+  box-shadow: 0 0 0 3px rgba(202, 138, 4, 0.4);
+}
+.evidence-pill {
+  display: inline-block;
+  background: #1e293b;
+  color: #fef08a;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 10px;
+  margin-right: 4px;
+  vertical-align: 1px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+}
+.evidence-pulse {
+  animation: evGlowPulse 1.8s ease-in-out infinite alternate !important;
+}
+@keyframes evGlowPulse {
+  0% { background: #fef08a !important; box-shadow: 0 0 0 4px #2563eb, 0 0 10px rgba(37,99,235,0.4) !important; }
+  100% { background: #bbf7d0 !important; box-shadow: 0 0 0 6px #16a34a, 0 0 18px rgba(22,163,74,0.6) !important; }
+}
+.q-focus-pulse {
+  animation: qFocusGlow 1.6s ease-in-out 2 alternate !important;
+}
+@keyframes qFocusGlow {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+  50% { box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.5); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+.locate-evidence-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(37,99,235,0.3);
+  transition: all 0.2s ease;
+}
+.locate-evidence-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(37,99,235,0.4);
+}
+.expl-user-ans {
+  margin: 6px 0;
+  font-size: 13px;
+  color: #991b1b;
+  background: #fef2f2;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px dashed #fca5a5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.expl-ans-val {
+  color: #15803d;
+  background: #dcfce7;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid #86efac;
+  font-weight: 800;
+  display: inline-block;
+}
+.evidence-banner {
+  background: #eff6ff;
+  border-bottom: 2px solid #bfdbfe;
+  padding: 8px 14px;
+  font-size: 12.5px;
+  color: #1e40af;
+  line-height: 1.4;
+  animation: fadeIn 0.3s ease;
+}
+
 </style>
 </head>
 <body>
@@ -668,11 +767,13 @@ footer {
     <div class="pane-toolbar">
       <span class="pane-toolbar-title">📖 Reading Passage</span>
       <div style="display:flex; gap:6px;">
+        <button type="button" class="tool-btn" id="btn-toggle-evidence" onclick="toggleEvidenceHighlights()" title="Toggle answer evidence highlights" style="display:none; font-weight:700; color:#1d4ed8;">💡 Evidence</button>
         <button type="button" class="tool-btn" id="btn-hl" onmousedown="event.preventDefault()" onclick="highlightSelection()" title="Highlight selected text in the passage">🖍️ Highlight</button>
         <button type="button" class="tool-btn" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()" title="Clear highlight from selected text">✕ Clear</button>
         <button type="button" class="tool-btn" onclick="clearAllHighlights()" title="Clear all text highlights">↺ Clear All</button>
       </div>
     </div>
+    <div id="passage-evidence-banner" class="evidence-banner" style="display:none;"><span style="font-size:14px; margin-right:4px;">💡</span> <b>Passage Evidence Highlighted:</b> Click any <span class="evidence-pill">Q#</span> in the passage to jump to its question, or click <b>📍 Show in Passage</b> under any explanation.</div>
     <div class="passage-body">
       <h2>Think Small</h2>
       <p class="sb">Izon is a New Zealand company specialising in nanoscience - the study of atoms, molecules and other very small pieces of matter</p>
@@ -797,8 +898,8 @@ footer {
 <script>
 const MIN_Q = 1;
 const MAX_Q = 13;
-const KEY = {"1":[""],"2":[""],"3":[""],"4":[""],"5":[""],"6":[""],"7":[""],"8":[""],"9":[""],"10":[""],"11":[""],"12":[""],"13":[""]};
-const EXPLANATIONS = {"1":{"answer":"","explanation":"Located in Cambridge, MA, where half the other offices in the building have scientific names.","evidence":"Half the other offices in the building Izon shares have scientific names like Stemtech, or the word ‘pharmaceutical’ in the name."},"2":{"answer":"","explanation":"It grew 17 times its size, but there is no mention of what the company had predicted.","evidence":"In the past three years, Izon has expanded to 17 times its previous size."},"3":{"answer":"","explanation":"It has expanded selling only one product developed since 2004, the qNano.","evidence":"It's done so selling only one product that's been developing since 2004, the qNano."},"4":{"answer":"","explanation":"Similar machines have the same price ($27,000), but qNano provides precise measurements instead of averaging.","evidence":"qNano machine provides precise measurements, while similar machines of the same price only offer averaging techniques."},"5":{"answer":"","explanation":"Drug delivery analysis is mentioned as an application, but not as the most profitable one.","evidence":"and it has many possible applications from drug delivery analysis through to environmental research."},"6":{"answer":"","explanation":"He has just finished the fifth semester of six, so he is still completing his degree.","evidence":"he's just finished the fifth semester of six for his High Tech Masters of Business Administration"},"7":{"answer":"","explanation":"His job depends on being able to manage sales and comprehend in depth a very complicated piece of technology.","evidence":"which depends on him being able to manage the sales process and also comprehend in depth a very complicated piece of technology."},"8":{"answer":"","explanation":"He put up an investment of $1.5 million to develop a prototype.","evidence":"Initially he put up an investment of $1.5 million to move the process forwards to the development of a prototype"},"9":{"answer":"","explanation":"His long experience in engineering was crucial to the company's success.","evidence":"he thinks that engineering can be a bridge between the two, and his long experience in that field has been crucial to the company's success."},"10":{"answer":"","explanation":"Critical marketing comes from articles clients publish describing their work with the qNano.","evidence":"critical part of the company's marketing is articles that clients publish describing what they have performed with the qNano."},"11":{"answer":"","explanation":"Gaynor switched from a role as teacher at the University of Minnesota to Izon.","evidence":"switched from a role as teacher at the University of Minnesota to his first private sector role with Izon."},"12":{"answer":"","explanation":"They hope to design a simple test for thrombosis.","evidence":"If in the future they can identify this particle, they can design a simple test for it."},"13":{"answer":"","explanation":"With larger headquarters, the company will bring clients into the building for training.","evidence":"the company will be able to bring clients into the Izon building for training with its product"}};
+const KEY = {"1":["TRUE"],"2":["NOT GIVEN"],"3":["FALSE"],"4":["FALSE"],"5":["NOT GIVEN"],"6":["TRUE"],"7":["TRUE"],"8":["investment"],"9":["engineering"],"10":["articles"],"11":["teacher"],"12":["test"],"13":["training"]};
+const EXPLANATIONS = {"1":{"answer":"TRUE","explanation":"Located in Cambridge, MA, where half the other offices in the building have scientific names.","evidence":"Half the other offices in the building Izon shares have scientific names like Stemtech, or the word ‘pharmaceutical’ in the name.","passageTarget":"Half the other offices in the building Izon shares have scientific names like Stemtech, or the word ‘pharmaceutical’ in the name."},"2":{"answer":"NOT GIVEN","explanation":"It grew 17 times its size, but there is no mention of what the company had predicted.","evidence":"In the past three years, Izon has expanded to 17 times its previous size.","passageTarget":"In the past three years, Izon has expanded to 17 times its previous size."},"3":{"answer":"FALSE","explanation":"It has expanded selling only one product developed since 2004, the qNano.","evidence":"It's done so selling only one product that's been developing since 2004, the qNano.","passageTarget":"It&#39;s done so selling only one product that&#39;s been developing since 2004, the qNano."},"4":{"answer":"FALSE","explanation":"Similar machines have the same price ($27,000), but qNano provides precise measurements instead of averaging.","evidence":"qNano machine provides precise measurements, while similar machines of the same price only offer averaging techniques.","passageTarget":"Izon&#39;s success results from the fact that the qNano machine provides precise measurements, while similar machines of the same price only offer averaging techniques."},"5":{"answer":"NOT GIVEN","explanation":"Drug delivery analysis is mentioned as an application, but not as the most profitable one.","evidence":"and it has many possible applications from drug delivery analysis through to environmental research.","passageTarget":"In effect, researchers using the qNano are able to gather information about very small things, and it has many possible applications from drug delivery analysis through to environmental research."},"6":{"answer":"TRUE","explanation":"He has just finished the fifth semester of six, so he is still completing his degree.","evidence":"he's just finished the fifth semester of six for his High Tech Masters of Business Administration","passageTarget":"Alongside his full-time role with the company, he&#39;s just finished the fifth semester of six for his High Tech Masters of Business Administration at Northeastern University, which will be his second Masters degree alongside a Masters of Science."},"7":{"answer":"TRUE","explanation":"His job depends on being able to manage sales and comprehend in depth a very complicated piece of technology.","evidence":"which depends on him being able to manage the sales process and also comprehend in depth a very complicated piece of technology.","passageTarget":"These soon to be twin Masters degrees provide Bolen with the perfect combination of skills for his job, which depends on him being able to manage the sales process and also comprehend in depth a very complicated piece of technology."},"8":{"answer":"investment","explanation":"He put up an investment of $1.5 million to develop a prototype.","evidence":"Initially he put up an investment of $1.5 million to move the process forwards to the development of a prototype","passageTarget":"5 million to move the process forwards to the development of a prototype, and this led to the founding of Izon and the production of the qNano."},"9":{"answer":"engineering","explanation":"His long experience in engineering was crucial to the company's success.","evidence":"he thinks that engineering can be a bridge between the two, and his long experience in that field has been crucial to the company's success.","passageTarget":"However, he thinks that engineering can be a bridge between the two, and his long experience in that field has been crucial to the company&#39;s success."},"10":{"answer":"articles","explanation":"Critical marketing comes from articles clients publish describing their work with the qNano.","evidence":"critical part of the company's marketing is articles that clients publish describing what they have performed with the qNano.","passageTarget":"As a result, the critical part of the company&#39;s marketing is articles that clients publish describing what they have performed with the qNano."},"11":{"answer":"teacher","explanation":"Gaynor switched from a role as teacher at the University of Minnesota to Izon.","evidence":"switched from a role as teacher at the University of Minnesota to his first private sector role with Izon.","passageTarget":"The sales process is new for Gaynor, who shifted cities and switched from a role as teacher at the University of Minnesota to his first private sector role with Izon."},"12":{"answer":"test","explanation":"They hope to design a simple test for thrombosis.","evidence":"If in the future they can identify this particle, they can design a simple test for it.","passageTarget":"If in the future they can identify this particle, they can design a simple test for it."},"13":{"answer":"training","explanation":"With larger headquarters, the company will bring clients into the building for training.","evidence":"the company will be able to bring clients into the Izon building for training with its product","passageTarget":"With larger headquarters, the company will be able to bring clients into the Izon building for training with its product, rather than travelling to them, which will hopefully result in an even closer relationship between the company and its customers."}};
 
 function escapeHtml(s) {
   if (s === null || s === undefined) return "";
@@ -1002,6 +1103,197 @@ function norm(s) {
   return (s || "").toLowerCase().replace(/[^a-z0-9]/g, " ").replace(/\s+/g, " ").trim();
 }
 
+
+function isAnswerCorrect(userVal, acceptedArr) {
+  const u = norm(userVal);
+  if (!u) return false;
+  const uCompact = u.replace(/[\s\-_]/g, "");
+  return (acceptedArr || []).some(acc => {
+    const a = norm(acc);
+    if (u === a) return true;
+    const aCompact = a.replace(/[\s\-_]/g, "");
+    if (uCompact === aCompact) return true;
+    if (a.length > 2 && (u.includes(a) || a.includes(u))) {
+      if (!/^[a-h]$|^[ivx]+$/i.test(a)) return true;
+    }
+    return false;
+  });
+}
+
+function highlightAllPassageEvidence() {
+  const container = document.querySelector(".passage-body");
+  if (!container) return;
+
+  const btnToggle = document.getElementById("btn-toggle-evidence");
+  if (btnToggle) btnToggle.style.display = "inline-flex";
+  const banner = document.getElementById("passage-evidence-banner");
+  if (banner) banner.style.display = "block";
+
+  // Clear previous evidence highlights if any
+  container.querySelectorAll(".ielts-evidence-hl").forEach(el => {
+    const parent = el.parentNode;
+    const badge = el.querySelector(".evidence-pill");
+    if (badge) badge.remove();
+    while (el.firstChild) {
+      parent.insertBefore(el.firstChild, el);
+    }
+    parent.removeChild(el);
+  });
+  container.normalize();
+
+  const paragraphs = Array.from(container.querySelectorAll("p, li, blockquote, div.table-row, td"));
+
+  for (let q = MIN_Q; q <= MAX_Q; q++) {
+    const exp = EXPLANATIONS[q];
+    if (!exp) continue;
+    const target = (exp.passageTarget || exp.evidence || "").trim();
+    if (!target) continue;
+
+    const cleanTarget = target.replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, " ");
+
+    let targetP = null;
+    let snippet = "";
+
+    for (const p of paragraphs) {
+      const pText = p.textContent.replace(/\s+/g, " ");
+      if (pText.includes(cleanTarget)) {
+        targetP = p;
+        snippet = cleanTarget;
+        break;
+      }
+    }
+
+    if (!targetP) {
+      const words = cleanTarget.replace(/[.,;:!?()\[\]"']/g, " ").split(/\s+/).filter(w => w.length > 2);
+      for (let len = Math.min(words.length, 6); len >= 3; len--) {
+        for (let s = 0; s <= words.length - len; s++) {
+          const phrase = words.slice(s, s + len).join(" ");
+          for (const p of paragraphs) {
+            const pText = p.textContent.replace(/\s+/g, " ");
+            if (pText.toLowerCase().includes(phrase.toLowerCase())) {
+              targetP = p;
+              snippet = phrase;
+              break;
+            }
+          }
+          if (targetP) break;
+        }
+        if (targetP) break;
+      }
+    }
+
+    if (targetP && snippet) {
+      markSnippetInElement(targetP, snippet, q);
+    }
+  }
+}
+
+function markSnippetInElement(el, snippet, q) {
+  if (el.querySelector("#evidence-q" + q)) return;
+
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+  const textNodes = [];
+  let n;
+  while ((n = walker.nextNode())) {
+    if (n.parentElement && n.parentElement.classList.contains("evidence-pill")) continue;
+    textNodes.push(n);
+  }
+
+  const sLower = snippet.toLowerCase();
+
+  for (const tNode of textNodes) {
+    const val = tNode.nodeValue;
+    const vLower = val.toLowerCase();
+    let idx = vLower.indexOf(sLower);
+    let matchLen = snippet.length;
+
+    if (idx === -1) {
+      const firstWords = snippet.split(" ").slice(0, 3).join(" ").toLowerCase();
+      if (firstWords.length >= 8) {
+        idx = vLower.indexOf(firstWords);
+        matchLen = firstWords.length;
+      }
+    }
+
+    if (idx !== -1) {
+      const span = document.createElement("mark");
+      span.className = "ielts-evidence-hl";
+      span.id = "evidence-q" + q;
+      span.dataset.q = q;
+      span.title = "Evidence for Question " + q + " (Click to view question)";
+      span.onclick = function() { jumpToQuestion(q); };
+
+      const pill = document.createElement("span");
+      pill.className = "evidence-pill";
+      pill.textContent = "Q" + q;
+      span.appendChild(pill);
+
+      const before = val.substring(0, idx);
+      const match = val.substring(idx, idx + matchLen);
+      const after = val.substring(idx + matchLen);
+
+      span.appendChild(document.createTextNode(match));
+
+      const parent = tNode.parentNode;
+      if (before) parent.insertBefore(document.createTextNode(before), tNode);
+      parent.insertBefore(span, tNode);
+      if (after) parent.insertBefore(document.createTextNode(after), tNode);
+      parent.removeChild(tNode);
+      return;
+    }
+  }
+}
+
+function locatePassageEvidence(q) {
+  let evMark = document.getElementById("evidence-q" + q);
+  const leftPane = document.getElementById("left");
+  if (!evMark) {
+    highlightAllPassageEvidence();
+    evMark = document.getElementById("evidence-q" + q);
+  }
+  if (evMark && leftPane) {
+    const rect = evMark.getBoundingClientRect();
+    const paneRect = leftPane.getBoundingClientRect();
+    const targetScroll = leftPane.scrollTop + (rect.top - paneRect.top) - (paneRect.height / 2) + (rect.height / 2);
+    leftPane.scrollTo({ top: Math.max(0, targetScroll), behavior: "smooth" });
+
+    evMark.classList.remove("evidence-pulse");
+    void evMark.offsetWidth;
+    evMark.classList.add("evidence-pulse");
+    setTimeout(() => evMark.classList.remove("evidence-pulse"), 3000);
+  }
+}
+
+function jumpToQuestion(q) {
+  const qEl = document.getElementById("q" + q) || document.getElementById("expl-" + q);
+  const rightPane = document.getElementById("right");
+  if (qEl && rightPane) {
+    const rect = qEl.getBoundingClientRect();
+    const paneRect = rightPane.getBoundingClientRect();
+    const targetScroll = rightPane.scrollTop + (rect.top - paneRect.top) - 60;
+    rightPane.scrollTo({ top: Math.max(0, targetScroll), behavior: "smooth" });
+
+    qEl.classList.remove("q-focus-pulse");
+    void qEl.offsetWidth;
+    qEl.classList.add("q-focus-pulse");
+    setTimeout(() => qEl.classList.remove("q-focus-pulse"), 2500);
+  }
+}
+
+let evidenceVisible = true;
+function toggleEvidenceHighlights() {
+  evidenceVisible = !evidenceVisible;
+  const marks = document.querySelectorAll(".ielts-evidence-hl");
+  marks.forEach(m => {
+    m.style.background = evidenceVisible ? "#fef08a" : "transparent";
+    m.style.borderBottom = evidenceVisible ? "2px solid #ca8a04" : "none";
+    const pill = m.querySelector(".evidence-pill");
+    if (pill) pill.style.display = evidenceVisible ? "inline-block" : "none";
+  });
+  const btn = document.getElementById("btn-toggle-evidence");
+  if (btn) btn.textContent = evidenceVisible ? "💡 Evidence (ON)" : "💡 Evidence (OFF)";
+}
+
 function finish(auto) {
   if (done) return;
   if (!auto) {
@@ -1021,9 +1313,9 @@ function finish(auto) {
 
   for (let i = MIN_Q; i <= MAX_Q; i++) {
     tot++;
-    const v = norm(val(i));
-    const accepted = (KEY[i] || []).map(norm);
-    const ok = v && accepted.some(a => a === v || (a.length > 2 && v.includes(a)));
+    const userRaw = val(i);
+    const accepted = KEY[i] || [];
+    const ok = isAnswerCorrect(userRaw, accepted);
 
     if (ok) sc++;
 
@@ -1040,7 +1332,7 @@ function finish(auto) {
       radios.forEach(r => {
         r.disabled = true;
         const l = r.parentElement;
-        const correctNorm = (KEY[i] || []).map(norm);
+        const correctNorm = accepted.map(norm);
         if (correctNorm.includes(norm(r.value))) {
           l.classList.add("ok");
         } else if (r.checked) {
@@ -1073,11 +1365,18 @@ function finish(auto) {
       explDiv.id = "expl-" + i;
       explDiv.innerHTML = `
         <div class="expl-header">
-          <span class="expl-tag">${ok ? '✓ Correct' : '✗ Incorrect'}</span>
-          <span class="expl-ans"><b>Question ${i} Official Answer:</b> ${escapeHtml(exp.answer || ((KEY[i] || [])[0] || ''))}</span>
+          <span class="expl-tag ${ok ? 'expl-tag-ok' : 'expl-tag-bad'}">${ok ? '✓ Correct' : '✗ Incorrect'}</span>
+          <span class="expl-ans"><b>Question ${i} Official Answer:</b> <span class="expl-ans-val">${escapeHtml(exp.answer || (accepted[0] || ''))}</span></span>
         </div>
+        ${!ok ? `<div class="expl-user-ans"><b>Your Answer:</b> <span style="font-weight:700;">${escapeHtml(userRaw || '(No answer provided)')}</span></div>` : ''}
         ${exp.explanation ? `<div class="expl-body"><b>Explanation:</b> ${escapeHtml(exp.explanation)}</div>` : ''}
-        ${exp.evidence ? `<div class="expl-evidence"><b>Passage Evidence:</b> &ldquo;${escapeHtml(exp.evidence)}&rdquo;</div>` : ''}
+        ${(exp.evidence || exp.passageTarget) ? `
+          <div class="expl-evidence">
+            <div><b>Passage Evidence:</b> &ldquo;${escapeHtml(exp.evidence || exp.passageTarget)}&rdquo;</div>
+            <button type="button" class="locate-evidence-btn" onclick="locatePassageEvidence(${i})">
+              <span>📍</span> Show in Passage
+            </button>
+          </div>` : ''}
       `;
 
       if (qEl.classList.contains("gap-wrap") || qEl.tagName === "SPAN") {
@@ -1103,7 +1402,7 @@ function finish(auto) {
         Your Score: ${sc} / ${tot} (${pct}%) ${auto ? ' — Time is up' : ''}
       </div>
       <div style="font-size:14px; color:#475569; margin-bottom:12px;">
-        Detailed answer explanations and text evidence have been loaded under each question below.
+        Detailed answer explanations and text evidence have been loaded under each question below, and all text evidence is highlighted in the left passage.
       </div>
       <div class="res-actions">
         <button class="res-btn" onclick="scrollToFirstIncorrect()">View Incorrect Questions</button>
@@ -1119,6 +1418,9 @@ function finish(auto) {
   }
   const rightPane = document.getElementById("right");
   if (rightPane) rightPane.scrollTop = 0;
+
+  // Highlight all passage evidence and display banner
+  highlightAllPassageEvidence();
 }
 
 function scrollToFirstIncorrect() {

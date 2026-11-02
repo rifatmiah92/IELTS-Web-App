@@ -642,6 +642,105 @@ footer {
     max-height: 42vh;
   }
 }
+
+/* Evidence Highlighting & Interactive Navigation */
+.ielts-evidence-hl {
+  background: #fef08a !important;
+  color: #0f172a !important;
+  border-bottom: 2px solid #ca8a04;
+  border-radius: 4px;
+  padding: 1px 4px;
+  margin: 0 1px;
+  display: inline;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.ielts-evidence-hl:hover {
+  background: #fde047 !important;
+  box-shadow: 0 0 0 3px rgba(202, 138, 4, 0.4);
+}
+.evidence-pill {
+  display: inline-block;
+  background: #1e293b;
+  color: #fef08a;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 10px;
+  margin-right: 4px;
+  vertical-align: 1px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+}
+.evidence-pulse {
+  animation: evGlowPulse 1.8s ease-in-out infinite alternate !important;
+}
+@keyframes evGlowPulse {
+  0% { background: #fef08a !important; box-shadow: 0 0 0 4px #2563eb, 0 0 10px rgba(37,99,235,0.4) !important; }
+  100% { background: #bbf7d0 !important; box-shadow: 0 0 0 6px #16a34a, 0 0 18px rgba(22,163,74,0.6) !important; }
+}
+.q-focus-pulse {
+  animation: qFocusGlow 1.6s ease-in-out 2 alternate !important;
+}
+@keyframes qFocusGlow {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+  50% { box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.5); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+.locate-evidence-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(37,99,235,0.3);
+  transition: all 0.2s ease;
+}
+.locate-evidence-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(37,99,235,0.4);
+}
+.expl-user-ans {
+  margin: 6px 0;
+  font-size: 13px;
+  color: #991b1b;
+  background: #fef2f2;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px dashed #fca5a5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.expl-ans-val {
+  color: #15803d;
+  background: #dcfce7;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid #86efac;
+  font-weight: 800;
+  display: inline-block;
+}
+.evidence-banner {
+  background: #eff6ff;
+  border-bottom: 2px solid #bfdbfe;
+  padding: 8px 14px;
+  font-size: 12.5px;
+  color: #1e40af;
+  line-height: 1.4;
+  animation: fadeIn 0.3s ease;
+}
+
 </style>
 </head>
 <body>
@@ -668,11 +767,13 @@ footer {
     <div class="pane-toolbar">
       <span class="pane-toolbar-title">📖 Reading Passage</span>
       <div style="display:flex; gap:6px;">
+        <button type="button" class="tool-btn" id="btn-toggle-evidence" onclick="toggleEvidenceHighlights()" title="Toggle answer evidence highlights" style="display:none; font-weight:700; color:#1d4ed8;">💡 Evidence</button>
         <button type="button" class="tool-btn" id="btn-hl" onmousedown="event.preventDefault()" onclick="highlightSelection()" title="Highlight selected text in the passage">🖍️ Highlight</button>
         <button type="button" class="tool-btn" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()" title="Clear highlight from selected text">✕ Clear</button>
         <button type="button" class="tool-btn" onclick="clearAllHighlights()" title="Clear all text highlights">↺ Clear All</button>
       </div>
     </div>
+    <div id="passage-evidence-banner" class="evidence-banner" style="display:none;"><span style="font-size:14px; margin-right:4px;">💡</span> <b>Passage Evidence Highlighted:</b> Click any <span class="evidence-pill">Q#</span> in the passage to jump to its question, or click <b>📍 Show in Passage</b> under any explanation.</div>
     <div class="passage-body">
       <h2>Starting school later has positive effects on teens</h2>
       <p class="sb">A growing body of evidence demonstrates that adolescents benefit from more sleep</p>
@@ -775,8 +876,8 @@ footer {
 <script>
 const MIN_Q = 1;
 const MAX_Q = 13;
-const KEY = {"1":[""],"2":[""],"3":[""],"4":[""],"5":[""],"6":[""],"7":[""],"8":[""],"9":[""],"10":[""],"11":[""],"12":[""],"13":[""]};
-const EXPLANATIONS = {"1":{"answer":"","explanation":"Paragraph 1 explicitly links early class start times to 80% of students being sleep deprived.","evidence":"With classes that start as early as 7 am and buses that pull up long before sunrise, some 80% of US children in grades 6 through 12 are not getting the recommended amount of sleep"},"2":{"answer":"","explanation":"The passage mentions that too little sleep releases hunger hormones, but does not state that most overweight children need more sleep.","evidence":""},"3":{"answer":"","explanation":"Paragraph 2 mentions resistance from administrators and parents who think 'bus schedules will get too complicated'.","evidence":"there are strong pockets of resistance to change from administrators and parents who think that bus schedules will get too complicated"},"4":{"answer":"","explanation":"Paragraph 3: 'the two districts could not be more different in terms of race, socioeconomics and other factors'.","evidence":"even though the two districts could not be more different in terms of race, socioeconomics and other factors"},"5":{"answer":"","explanation":"Paragraph 3: 'parents told teachers they thought their kids were easier to live with.'","evidence":"Even parents told teachers they thought their kids were easier to live with."},"6":{"answer":"","explanation":"Paragraph 4: 'As children grow older and approach puberty...'","evidence":"approach puberty, a period of important biological change, their bodies circulate melatonin... two hours later"},"7":{"answer":"","explanation":"Paragraph 4: 'melatonin, the hormone that brings on sleepiness...'","evidence":"melatonin, the hormone that brings on sleepiness"},"8":{"answer":"","explanation":"Paragraph 5: 'low point in alertness hits between 3 a.m. and 5 a.m.; in adolescents, it falls between about 5 a.m. and 7 a.m.'","evidence":"In adults this low point in alertness hits between 3 a.m. and 5 a.m.; in adolescents, it falls between about 5 a.m. and 7 a.m."},"9":{"answer":"","explanation":"Paragraph 6: 'the body releases higher levels of hormones that induce hunger...'","evidence":"the body releases higher levels of hormones that induce hunger, possibly contributing to growing rates of obesity."},"10":{"answer":"","explanation":"Paragraph 6: 'mostly in the form of soda as opposed to coffee...'","evidence":"mostly in the form of soda as opposed to coffee"},"11":{"answer":"","explanation":"Paragraph 6: 'the substance stays in the body for up to five hours...'","evidence":"the substance stays in the body for up to five hours"},"12":{"answer":"","explanation":"Paragraph 6: 'caffeine worsens the quality of their sleep.'","evidence":"caffeine worsens the quality of their sleep."},"13":{"answer":"","explanation":"Paragraph 6: 'how caffeine might affect developing brains...'","evidence":"no one knows how caffeine might affect developing brains"}};
+const KEY = {"1":["TRUE"],"2":["NOT GIVEN"],"3":["TRUE"],"4":["FALSE"],"5":["TRUE"],"6":["puberty"],"7":["sleepiness"],"8":["alertness"],"9":["hunger"],"10":["soda"],"11":["5","five"],"12":["quality"],"13":["brains"]};
+const EXPLANATIONS = {"1":{"answer":"TRUE","explanation":"Paragraph 1 explicitly links early class start times to 80% of students being sleep deprived.","evidence":"With classes that start as early as 7 am and buses that pull up long before sunrise, some 80% of US children in grades 6 through 12 are not getting the recommended amount of sleep","passageTarget":"With classes that start as early as 7 am and buses that pull up long before sunrise, some 80% of US children in grades 6 through 12 are not getting the recommended amount of sleep during the school year, according to research by the National Sleep Foundation, a sleep advocacy group."},"2":{"answer":"NOT GIVEN","explanation":"The passage mentions that too little sleep releases hunger hormones, but does not state that most overweight children need more sleep.","evidence":"","passageTarget":"Others suggest that, with too little sleep, the body releases higher levels of hormones that induce hunger, possibly contributing to growing rates of obesity."},"3":{"answer":"TRUE","explanation":"Paragraph 2 mentions resistance from administrators and parents who think 'bus schedules will get too complicated'.","evidence":"there are strong pockets of resistance to change from administrators and parents who think that bus schedules will get too complicated","passageTarget":"At the same time, however, there are strong pockets of resistance to change from administrators and parents who think that bus schedules will get too complicated, that starting later will interfere with after-school programs or that children will simply stay up later if they know they can sleep in a little more."},"4":{"answer":"FALSE","explanation":"Paragraph 3: 'the two districts could not be more different in terms of race, socioeconomics and other factors'.","evidence":"even though the two districts could not be more different in terms of race, socioeconomics and other factors","passageTarget":"According to Kyla Wahlstrom, director of the Center for Applied Research and Educational Improvement at the University of Minnesota, even though the two districts could not be more different in terms of race, socioeconomics and other factors, changes in both places appeared immediately."},"5":{"answer":"TRUE","explanation":"Paragraph 3: 'parents told teachers they thought their kids were easier to live with.'","evidence":"Even parents told teachers they thought their kids were easier to live with.","passageTarget":"Even parents told teachers they thought their kids were easier to live with."},"6":{"answer":"puberty","explanation":"Paragraph 4: 'As children grow older and approach puberty...'","evidence":"approach puberty, a period of important biological change, their bodies circulate melatonin... two hours later","passageTarget":"As children grow older and approach puberty, a period of important biological change, their bodies circulate melatonin, the hormone that brings on sleepiness, two hours later than before."},"7":{"answer":"sleepiness","explanation":"Paragraph 4: 'melatonin, the hormone that brings on sleepiness...'","evidence":"melatonin, the hormone that brings on sleepiness","passageTarget":"As children grow older and approach puberty, a period of important biological change, their bodies circulate melatonin, the hormone that brings on sleepiness, two hours later than before."},"8":{"answer":"alertness","explanation":"Paragraph 5: 'low point in alertness hits between 3 a.m. and 5 a.m.; in adolescents, it falls between about 5 a.m. and 7 a.m.'","evidence":"In adults this low point in alertness hits between 3 a.m. and 5 a.m.; in adolescents, it falls between about 5 a.m. and 7 a.m.","passageTarget":"In adults this low point in alertness hits between 3 a."},"9":{"answer":"hunger","explanation":"Paragraph 6: 'the body releases higher levels of hormones that induce hunger...'","evidence":"the body releases higher levels of hormones that induce hunger, possibly contributing to growing rates of obesity.","passageTarget":"Others suggest that, with too little sleep, the body releases higher levels of hormones that induce hunger, possibly contributing to growing rates of obesity."},"10":{"answer":"soda","explanation":"Paragraph 6: 'mostly in the form of soda as opposed to coffee...'","evidence":"mostly in the form of soda as opposed to coffee","passageTarget":"In a public high school in the eastern US state of Massachusetts, 95% of polled students reported drinking caffeine in the prior two weeks, mostly in the form of soda as opposed to coffee, and most often in the afternoon and evening hours."},"11":{"answer":"5","explanation":"Paragraph 6: 'the substance stays in the body for up to five hours...'","evidence":"the substance stays in the body for up to five hours","passageTarget":"Caffeine stays in the body for up to five hours, worsening sleep quality."},"12":{"answer":"quality","explanation":"Paragraph 6: 'caffeine worsens the quality of their sleep.'","evidence":"caffeine worsens the quality of their sleep.","passageTarget":"Caffeine stays in the body for up to five hours, worsening sleep quality."},"13":{"answer":"brains","explanation":"Paragraph 6: 'how caffeine might affect developing brains...'","evidence":"no one knows how caffeine might affect developing brains","passageTarget":"They gain weight and their grades suffer, and many turn to caffeine, with questionable results for productivity and unknown effects on the development of young brains."}};
 
 function escapeHtml(s) {
   if (s === null || s === undefined) return "";
@@ -980,6 +1081,197 @@ function norm(s) {
   return (s || "").toLowerCase().replace(/[^a-z0-9]/g, " ").replace(/\s+/g, " ").trim();
 }
 
+
+function isAnswerCorrect(userVal, acceptedArr) {
+  const u = norm(userVal);
+  if (!u) return false;
+  const uCompact = u.replace(/[\s\-_]/g, "");
+  return (acceptedArr || []).some(acc => {
+    const a = norm(acc);
+    if (u === a) return true;
+    const aCompact = a.replace(/[\s\-_]/g, "");
+    if (uCompact === aCompact) return true;
+    if (a.length > 2 && (u.includes(a) || a.includes(u))) {
+      if (!/^[a-h]$|^[ivx]+$/i.test(a)) return true;
+    }
+    return false;
+  });
+}
+
+function highlightAllPassageEvidence() {
+  const container = document.querySelector(".passage-body");
+  if (!container) return;
+
+  const btnToggle = document.getElementById("btn-toggle-evidence");
+  if (btnToggle) btnToggle.style.display = "inline-flex";
+  const banner = document.getElementById("passage-evidence-banner");
+  if (banner) banner.style.display = "block";
+
+  // Clear previous evidence highlights if any
+  container.querySelectorAll(".ielts-evidence-hl").forEach(el => {
+    const parent = el.parentNode;
+    const badge = el.querySelector(".evidence-pill");
+    if (badge) badge.remove();
+    while (el.firstChild) {
+      parent.insertBefore(el.firstChild, el);
+    }
+    parent.removeChild(el);
+  });
+  container.normalize();
+
+  const paragraphs = Array.from(container.querySelectorAll("p, li, blockquote, div.table-row, td"));
+
+  for (let q = MIN_Q; q <= MAX_Q; q++) {
+    const exp = EXPLANATIONS[q];
+    if (!exp) continue;
+    const target = (exp.passageTarget || exp.evidence || "").trim();
+    if (!target) continue;
+
+    const cleanTarget = target.replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, " ");
+
+    let targetP = null;
+    let snippet = "";
+
+    for (const p of paragraphs) {
+      const pText = p.textContent.replace(/\s+/g, " ");
+      if (pText.includes(cleanTarget)) {
+        targetP = p;
+        snippet = cleanTarget;
+        break;
+      }
+    }
+
+    if (!targetP) {
+      const words = cleanTarget.replace(/[.,;:!?()\[\]"']/g, " ").split(/\s+/).filter(w => w.length > 2);
+      for (let len = Math.min(words.length, 6); len >= 3; len--) {
+        for (let s = 0; s <= words.length - len; s++) {
+          const phrase = words.slice(s, s + len).join(" ");
+          for (const p of paragraphs) {
+            const pText = p.textContent.replace(/\s+/g, " ");
+            if (pText.toLowerCase().includes(phrase.toLowerCase())) {
+              targetP = p;
+              snippet = phrase;
+              break;
+            }
+          }
+          if (targetP) break;
+        }
+        if (targetP) break;
+      }
+    }
+
+    if (targetP && snippet) {
+      markSnippetInElement(targetP, snippet, q);
+    }
+  }
+}
+
+function markSnippetInElement(el, snippet, q) {
+  if (el.querySelector("#evidence-q" + q)) return;
+
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+  const textNodes = [];
+  let n;
+  while ((n = walker.nextNode())) {
+    if (n.parentElement && n.parentElement.classList.contains("evidence-pill")) continue;
+    textNodes.push(n);
+  }
+
+  const sLower = snippet.toLowerCase();
+
+  for (const tNode of textNodes) {
+    const val = tNode.nodeValue;
+    const vLower = val.toLowerCase();
+    let idx = vLower.indexOf(sLower);
+    let matchLen = snippet.length;
+
+    if (idx === -1) {
+      const firstWords = snippet.split(" ").slice(0, 3).join(" ").toLowerCase();
+      if (firstWords.length >= 8) {
+        idx = vLower.indexOf(firstWords);
+        matchLen = firstWords.length;
+      }
+    }
+
+    if (idx !== -1) {
+      const span = document.createElement("mark");
+      span.className = "ielts-evidence-hl";
+      span.id = "evidence-q" + q;
+      span.dataset.q = q;
+      span.title = "Evidence for Question " + q + " (Click to view question)";
+      span.onclick = function() { jumpToQuestion(q); };
+
+      const pill = document.createElement("span");
+      pill.className = "evidence-pill";
+      pill.textContent = "Q" + q;
+      span.appendChild(pill);
+
+      const before = val.substring(0, idx);
+      const match = val.substring(idx, idx + matchLen);
+      const after = val.substring(idx + matchLen);
+
+      span.appendChild(document.createTextNode(match));
+
+      const parent = tNode.parentNode;
+      if (before) parent.insertBefore(document.createTextNode(before), tNode);
+      parent.insertBefore(span, tNode);
+      if (after) parent.insertBefore(document.createTextNode(after), tNode);
+      parent.removeChild(tNode);
+      return;
+    }
+  }
+}
+
+function locatePassageEvidence(q) {
+  let evMark = document.getElementById("evidence-q" + q);
+  const leftPane = document.getElementById("left");
+  if (!evMark) {
+    highlightAllPassageEvidence();
+    evMark = document.getElementById("evidence-q" + q);
+  }
+  if (evMark && leftPane) {
+    const rect = evMark.getBoundingClientRect();
+    const paneRect = leftPane.getBoundingClientRect();
+    const targetScroll = leftPane.scrollTop + (rect.top - paneRect.top) - (paneRect.height / 2) + (rect.height / 2);
+    leftPane.scrollTo({ top: Math.max(0, targetScroll), behavior: "smooth" });
+
+    evMark.classList.remove("evidence-pulse");
+    void evMark.offsetWidth;
+    evMark.classList.add("evidence-pulse");
+    setTimeout(() => evMark.classList.remove("evidence-pulse"), 3000);
+  }
+}
+
+function jumpToQuestion(q) {
+  const qEl = document.getElementById("q" + q) || document.getElementById("expl-" + q);
+  const rightPane = document.getElementById("right");
+  if (qEl && rightPane) {
+    const rect = qEl.getBoundingClientRect();
+    const paneRect = rightPane.getBoundingClientRect();
+    const targetScroll = rightPane.scrollTop + (rect.top - paneRect.top) - 60;
+    rightPane.scrollTo({ top: Math.max(0, targetScroll), behavior: "smooth" });
+
+    qEl.classList.remove("q-focus-pulse");
+    void qEl.offsetWidth;
+    qEl.classList.add("q-focus-pulse");
+    setTimeout(() => qEl.classList.remove("q-focus-pulse"), 2500);
+  }
+}
+
+let evidenceVisible = true;
+function toggleEvidenceHighlights() {
+  evidenceVisible = !evidenceVisible;
+  const marks = document.querySelectorAll(".ielts-evidence-hl");
+  marks.forEach(m => {
+    m.style.background = evidenceVisible ? "#fef08a" : "transparent";
+    m.style.borderBottom = evidenceVisible ? "2px solid #ca8a04" : "none";
+    const pill = m.querySelector(".evidence-pill");
+    if (pill) pill.style.display = evidenceVisible ? "inline-block" : "none";
+  });
+  const btn = document.getElementById("btn-toggle-evidence");
+  if (btn) btn.textContent = evidenceVisible ? "💡 Evidence (ON)" : "💡 Evidence (OFF)";
+}
+
 function finish(auto) {
   if (done) return;
   if (!auto) {
@@ -999,9 +1291,9 @@ function finish(auto) {
 
   for (let i = MIN_Q; i <= MAX_Q; i++) {
     tot++;
-    const v = norm(val(i));
-    const accepted = (KEY[i] || []).map(norm);
-    const ok = v && accepted.some(a => a === v || (a.length > 2 && v.includes(a)));
+    const userRaw = val(i);
+    const accepted = KEY[i] || [];
+    const ok = isAnswerCorrect(userRaw, accepted);
 
     if (ok) sc++;
 
@@ -1018,7 +1310,7 @@ function finish(auto) {
       radios.forEach(r => {
         r.disabled = true;
         const l = r.parentElement;
-        const correctNorm = (KEY[i] || []).map(norm);
+        const correctNorm = accepted.map(norm);
         if (correctNorm.includes(norm(r.value))) {
           l.classList.add("ok");
         } else if (r.checked) {
@@ -1051,11 +1343,18 @@ function finish(auto) {
       explDiv.id = "expl-" + i;
       explDiv.innerHTML = `
         <div class="expl-header">
-          <span class="expl-tag">${ok ? '✓ Correct' : '✗ Incorrect'}</span>
-          <span class="expl-ans"><b>Question ${i} Official Answer:</b> ${escapeHtml(exp.answer || ((KEY[i] || [])[0] || ''))}</span>
+          <span class="expl-tag ${ok ? 'expl-tag-ok' : 'expl-tag-bad'}">${ok ? '✓ Correct' : '✗ Incorrect'}</span>
+          <span class="expl-ans"><b>Question ${i} Official Answer:</b> <span class="expl-ans-val">${escapeHtml(exp.answer || (accepted[0] || ''))}</span></span>
         </div>
+        ${!ok ? `<div class="expl-user-ans"><b>Your Answer:</b> <span style="font-weight:700;">${escapeHtml(userRaw || '(No answer provided)')}</span></div>` : ''}
         ${exp.explanation ? `<div class="expl-body"><b>Explanation:</b> ${escapeHtml(exp.explanation)}</div>` : ''}
-        ${exp.evidence ? `<div class="expl-evidence"><b>Passage Evidence:</b> &ldquo;${escapeHtml(exp.evidence)}&rdquo;</div>` : ''}
+        ${(exp.evidence || exp.passageTarget) ? `
+          <div class="expl-evidence">
+            <div><b>Passage Evidence:</b> &ldquo;${escapeHtml(exp.evidence || exp.passageTarget)}&rdquo;</div>
+            <button type="button" class="locate-evidence-btn" onclick="locatePassageEvidence(${i})">
+              <span>📍</span> Show in Passage
+            </button>
+          </div>` : ''}
       `;
 
       if (qEl.classList.contains("gap-wrap") || qEl.tagName === "SPAN") {
@@ -1081,7 +1380,7 @@ function finish(auto) {
         Your Score: ${sc} / ${tot} (${pct}%) ${auto ? ' — Time is up' : ''}
       </div>
       <div style="font-size:14px; color:#475569; margin-bottom:12px;">
-        Detailed answer explanations and text evidence have been loaded under each question below.
+        Detailed answer explanations and text evidence have been loaded under each question below, and all text evidence is highlighted in the left passage.
       </div>
       <div class="res-actions">
         <button class="res-btn" onclick="scrollToFirstIncorrect()">View Incorrect Questions</button>
@@ -1097,6 +1396,9 @@ function finish(auto) {
   }
   const rightPane = document.getElementById("right");
   if (rightPane) rightPane.scrollTop = 0;
+
+  // Highlight all passage evidence and display banner
+  highlightAllPassageEvidence();
 }
 
 function scrollToFirstIncorrect() {
