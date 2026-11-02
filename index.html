@@ -21,17 +21,28 @@
         IELTS with <span>Abraham Rifat</span>
       </a>
 
-      <div class="nav-menu">
-        <a class="nav-item" href="#" onclick="window.ieltsApp.showReadingSelection(); return false;">Mock Tests</a>
-        <a class="nav-item" href="#practice" onclick="window.ieltsApp.showHomeView();">Skill Drills</a>
-        <a class="nav-item" href="#" onclick="window.ieltsApp.showShadowingView(); return false;">Speaking &amp; Shadowing</a>
-        <a class="nav-item" href="#" onclick="window.ieltsApp.showPodcastView(); return false;">TED &amp; BBC</a>
-        <a class="nav-item" href="#" onclick="window.ieltsApp.showRoadmapView(); return false;">60-Day Routine</a>
-        <a class="nav-item" href="#" onclick="window.ieltsApp.showVocabularyView(); return false;">Vocabulary</a>
-        <a class="nav-item" href="#" onclick="window.ieltsApp.showGrammarView(); return false;">Grammar</a>
-        <button class="theme-pill" onclick="window.ieltsApp.cycleTheme()" title="Toggle Dark/Light Mode" style="font-size:0.85rem; font-weight:700; padding:6px 14px; border-radius:999px;">Theme</button>
-        <a class="cta" href="#contact" onclick="window.ieltsApp.showHomeView();">Contact</a>
+      <div class="nav-actions-mobile">
+        <button class="theme-pill nav-theme-pill-mobile" onclick="window.ieltsApp.cycleTheme()" title="Toggle Dark/Light Mode">Theme</button>
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" onclick="window.ieltsApp.toggleMobileMenu()">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
       </div>
+
+      <nav class="nav-menu" id="main-nav-menu">
+        <a class="nav-item" href="#" onclick="window.ieltsApp.showReadingSelection(); window.ieltsApp.closeMobileMenu(); return false;">Mock Tests</a>
+        <a class="nav-item" href="#" onclick="window.ieltsApp.showWritingView(); window.ieltsApp.closeMobileMenu(); return false;">Writing</a>
+        <a class="nav-item" href="#" onclick="window.ieltsApp.showListeningView(); window.ieltsApp.closeMobileMenu(); return false;">Listening</a>
+        <a class="nav-item" href="#practice" onclick="window.ieltsApp.showHomeView(); window.ieltsApp.closeMobileMenu();">Skill Drills</a>
+        <a class="nav-item" href="#" onclick="window.ieltsApp.showShadowingView(); window.ieltsApp.closeMobileMenu(); return false;">Speaking &amp; Shadowing</a>
+        <a class="nav-item" href="#" onclick="window.ieltsApp.showPodcastView(); window.ieltsApp.closeMobileMenu(); return false;">TED &amp; BBC</a>
+        <a class="nav-item" href="#" onclick="window.ieltsApp.showRoadmapView(); window.ieltsApp.closeMobileMenu(); return false;">60-Day Routine</a>
+        <a class="nav-item" href="#" onclick="window.ieltsApp.showVocabularyView(); window.ieltsApp.closeMobileMenu(); return false;">Vocabulary</a>
+        <a class="nav-item" href="#" onclick="window.ieltsApp.showGrammarView(); window.ieltsApp.closeMobileMenu(); return false;">Grammar</a>
+        <button class="theme-pill nav-theme-pill-desktop" onclick="window.ieltsApp.cycleTheme()" title="Toggle Dark/Light Mode">Theme</button>
+        <a class="cta" href="#contact" onclick="window.ieltsApp.showHomeView(); window.ieltsApp.closeMobileMenu();">Contact</a>
+      </nav>
     </div>
   </header>
 
@@ -254,7 +265,7 @@
           <h2 style="font-size:1.6rem; font-weight:800;">Authentic Reading Mock Tests &bull; 26 Scanned Papers</h2>
           <p>Official exam passages with original scanned layout, questions, 20-minute live timer, interactive answer sheet, and instant scoring.</p>
         </div>
-        <div style="min-width:280px;">
+        <div style="width:min(100%, 320px);">
           <input type="text" id="reading-test-search" class="search-input" placeholder="Search 26 tests by title or keyword..." oninput="window.ieltsApp.searchReadingPassages(this.value)" style="width:100%; padding:10px 16px; border-radius:10px; border:1px solid #cbd5e1; font-size:14px; background:#fff; outline:none; transition:border-color 0.2s;">
         </div>
       </div>

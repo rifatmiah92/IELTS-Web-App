@@ -206,7 +206,46 @@
     renderReaderPassage(passageId);
   }
 
+  
+  // Mobile Navigation Drawer Controls
+  function toggleMobileMenu() {
+    const navMenu = document.getElementById('main-nav-menu') || document.querySelector('.nav-menu');
+    const toggleBtn = document.getElementById('mobile-nav-toggle');
+    if (!navMenu) return;
+    const isOpen = navMenu.classList.toggle('is-open');
+    if (toggleBtn) {
+      toggleBtn.classList.toggle('active', isOpen);
+      toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+  }
+
+  function closeMobileMenu() {
+    const navMenu = document.getElementById('main-nav-menu') || document.querySelector('.nav-menu');
+    const toggleBtn = document.getElementById('mobile-nav-toggle');
+    if (navMenu && navMenu.classList.contains('is-open')) {
+      navMenu.classList.remove('is-open');
+      if (toggleBtn) {
+        toggleBtn.classList.remove('active');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      }
+    }
+  }
+
+  // Document listeners for closing mobile menu on outside tap or Escape
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.top')) {
+      closeMobileMenu();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMobileMenu();
+    }
+  });
+
   function hideAllViews() {
+    closeMobileMenu();
     const viewIds = [
       'home-view', 'exam-view', 'reader-view', 'writing-view',
       'listening-view', 'shadowing-view', 'podcast-view', 'roadmap-view', 'grammar-view',
@@ -4173,6 +4212,8 @@
   // WINDOW API (ALL USER ACTIONS & NAVIGATION)
   // ========================================================================
   window.ieltsApp = {
+    toggleMobileMenu,
+    closeMobileMenu,
     // Cambridge Guide Reference Modal
     openCambridgeModal,
     closeCambridgeModal,
