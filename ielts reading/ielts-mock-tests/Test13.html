@@ -809,6 +809,14 @@ footer {
   </div>
   </section>
   <section class="pane" id="right">
+    <div class="pane-toolbar">
+      <span class="pane-toolbar-title">📝 Questions &amp; Answers</span>
+      <div style="display:flex; gap:6px;">
+        <button type="button" class="tool-btn" id="btn-hl-right" onmousedown="event.preventDefault()" onclick="highlightSelection()" title="Highlight selected question text">🖍️ Highlight</button>
+        <button type="button" class="tool-btn" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()" title="Clear highlight from selected text">✕ Clear</button>
+        <button type="button" class="tool-btn" onclick="clearAllHighlights()" title="Clear all text highlights">↺ Clear All</button>
+      </div>
+    </div>
     <div id="res"></div>
 <div class="q-group">
 <h3>Questions 27–29</h3>
@@ -1002,7 +1010,8 @@ document.addEventListener("input", refresh);
 document.addEventListener("change", refresh);
 
 // =========================================================================
-// TEXT HIGHLIGHTER FEATURE
+// =========================================================================
+// TEXT HIGHLIGHTER FEATURE (PASSAGE & QUESTIONS)
 // =========================================================================
 const hlPopup = document.getElementById("hl-popup");
 let activeRange = null;
@@ -1013,8 +1022,8 @@ function hideHighlightPopup() {
 }
 
 const leftPane = document.getElementById("left");
+const rightPane = document.getElementById("right");
 
-// 1. Delegated click on highlighted text to remove it immediately
 // 1. Delegated click on highlight marks to remove them in BOTH passage and questions
 document.addEventListener("click", function(e) {
   const mark = e.target.closest(".ielts-hl");
@@ -1026,38 +1035,44 @@ document.addEventListener("click", function(e) {
   }
 });
 
-// 2. Mouseup in passage or questions to detect text selection
-function handleSelectionMouseup(e) {
-  if (e.target.closest(".ielts-hl")) return;
-  if (e.target.closest("input, button, select, textarea")) {
-    hideHighlightPopup();
+// 2. Detect text selection in either pane
+function checkSelection(e) {
+  if (e && e.target && (e.target.closest(".ielts-hl") || e.target.closest("input, select, textarea, button"))) {
     return;
   }
 
-  const sel = window.getSelection();
-  if (sel && !sel.isCollapsed && sel.toString().trim().length > 0) {
-    const range = sel.getRangeAt(0);
-    const inLeft = leftPane && leftPane.contains(range.commonAncestorContainer);
-    const inRight = rightPane && rightPane.contains(range.commonAncestorContainer);
+  setTimeout(() => {
+    const sel = window.getSelection();
+    if (sel && !sel.isCollapsed && sel.rangeCount > 0 && sel.toString().trim().length > 0) {
+      const range = sel.getRangeAt(0);
+      const inLeft = leftPane && leftPane.contains(range.commonAncestorContainer);
+      const inRight = rightPane && rightPane.contains(range.commonAncestorContainer);
 
-    if (inLeft || inRight) {
-      activeRange = range.cloneRange();
-      const rect = range.getBoundingClientRect();
-      const mainEl = document.querySelector("main") || document.body;
-      const mainRect = mainEl.getBoundingClientRect();
-      if (hlPopup) {
-        hlPopup.style.display = "flex";
-        hlPopup.style.top = (rect.top - mainRect.top) + "px";
-        hlPopup.style.left = (rect.left - mainRect.left + rect.width / 2) + "px";
+      if (inLeft || inRight) {
+        activeRange = range.cloneRange();
+        const rect = range.getBoundingClientRect();
+        const mainEl = document.querySelector("main") || document.body;
+        const mainRect = mainEl.getBoundingClientRect();
+        if (hlPopup) {
+          hlPopup.style.display = "flex";
+          hlPopup.style.top = Math.max(10, rect.top - mainRect.top - 8) + "px";
+          hlPopup.style.left = Math.max(50, rect.left - mainRect.left + rect.width / 2) + "px";
+        }
+        return;
       }
-      return;
     }
-  }
-  hideHighlightPopup();
+    hideHighlightPopup();
+  }, 15);
 }
 
-if (leftPane) leftPane.addEventListener("mouseup", handleSelectionMouseup);
-if (rightPane) rightPane.addEventListener("mouseup", handleSelectionMouseup);
+if (leftPane) {
+  leftPane.addEventListener("mouseup", checkSelection);
+  leftPane.addEventListener("touchend", checkSelection);
+}
+if (rightPane) {
+  rightPane.addEventListener("mouseup", checkSelection);
+  rightPane.addEventListener("touchend", checkSelection);
+}
 
 document.addEventListener("mousedown", function(e) {
   if (hlPopup && !hlPopup.contains(e.target) && !e.target.closest(".tool-btn")) {
@@ -1067,8 +1082,8 @@ document.addEventListener("mousedown", function(e) {
 
 function highlightSelection() {
   const sel = window.getSelection();
-  const range = activeRange || (sel && !sel.isCollapsed ? sel.getRangeAt(0) : null);
-  if (!range) return;
+  const range = (sel && !sel.isCollapsed && sel.rangeCount > 0) ? sel.getRangeAt(0) : activeRange;
+  if (!range || range.collapsed) return;
 
   const inLeft = leftPane && leftPane.contains(range.commonAncestorContainer);
   const inRight = rightPane && rightPane.contains(range.commonAncestorContainer);
@@ -1082,13 +1097,21 @@ function highlightSelection() {
     const mark = document.createElement("mark");
     mark.className = "ielts-hl";
     mark.title = "Click to remove this highlight";
+    mark.onclick = function(e) {
+      e.stopPropagation();
+      removeHighlightNode(this);
+    };
 
     try {
       range.surroundContents(mark);
     } catch (err) {
-      const fragment = range.extractContents();
-      mark.appendChild(fragment);
-      range.insertNode(mark);
+      try {
+        const fragment = range.extractContents();
+        mark.appendChild(fragment);
+        range.insertNode(mark);
+      } catch (err2) {
+        console.warn("Could not wrap selection:", err2);
+      }
     }
   }
   if (sel) sel.removeAllRanges();
@@ -1097,7 +1120,7 @@ function highlightSelection() {
 
 function clearSelectionHighlight() {
   const sel = window.getSelection();
-  const range = activeRange || (sel && !sel.isCollapsed ? sel.getRangeAt(0) : null);
+  const range = (sel && !sel.isCollapsed && sel.rangeCount > 0) ? sel.getRangeAt(0) : activeRange;
   if (range) {
     const allMarks = Array.from(document.querySelectorAll("#left .ielts-hl, #right .ielts-hl"));
     let removed = 0;
