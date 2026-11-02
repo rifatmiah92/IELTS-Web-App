@@ -240,6 +240,7 @@
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
+      closeYouTubeResourcesModal();
       closeMobileMenu();
     }
   });
@@ -4211,7 +4212,27 @@
   // ========================================================================
   // WINDOW API (ALL USER ACTIONS & NAVIGATION)
   // ========================================================================
+  
+  // YouTube Resources Modal Handlers
+  function openYouTubeResourcesModal() {
+    const modal = document.getElementById('youtube-resources-modal');
+    if (modal) {
+      modal.style.display = 'flex';
+      modal.classList.add('active');
+    }
+  }
+
+  function closeYouTubeResourcesModal() {
+    const modal = document.getElementById('youtube-resources-modal');
+    if (modal) {
+      modal.style.display = 'none';
+      modal.classList.remove('active');
+    }
+  }
+
   window.ieltsApp = {
+    openYouTubeResourcesModal,
+    closeYouTubeResourcesModal,
     toggleMobileMenu,
     closeMobileMenu,
     // Cambridge Guide Reference Modal
