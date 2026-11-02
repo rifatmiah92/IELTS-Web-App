@@ -10,7 +10,7 @@ Designed to mirror the official computer-delivered IELTS exam software (Cambridg
 
 1. **Option 1**: Double-click [`run.bat`](file:///c:/Users/Rifat/OneDrive/Documents/IELTS%20resorces/IELTS%20App/run.bat) to launch in your default web browser.
 2. **Option 2**: Open [`index.html`](file:///c:/Users/Rifat/OneDrive/Documents/IELTS%20resorces/IELTS%20App/index.html) directly (Chrome, Edge, Firefox, Brave, Safari).
-3. **Live Local Server**: Running at [http://localhost:8080/](http://localhost:8080/).
+3. **Live Local Server**: (https://ielts-with-abraham.netlify.app/)
 4. Zero external installations required—works 100% offline!
 
 ---
@@ -150,4 +150,4 @@ IELTS App/
 ## 👨‍🏫 Contact Abraham Rifat
 - **Email**: [rifatmiah1992003@gmail.com](mailto:rifatmiah1992003@gmail.com)
 - **Phone / WhatsApp**: [+880 1314078510](tel:+8801314078510)
-- **Telegram Community**: [Study_Abroad_Group](https://t.me/Study_Abroad_Group)
+Live Link :-  https://ielts-with-abraham.netlify.app/
