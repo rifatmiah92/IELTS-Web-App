@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IELTS Academic Reading – Test 16: Learning from the Romans</title>
+<style>
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1e293b;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+}
+
+header {
+  background: #1d3557;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 18px;
+  flex-shrink: 0;
+}
+.title-box { display: flex; align-items: center; gap: 12px; }
+.back-btn {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+.back-btn:hover { background: rgba(255,255,255,0.28); }
+header b { font-size: 16px; }
+
+#timer {
+  font-size: 18px;
+  font-weight: bold;
+  background: #fff;
+  color: #1d3557;
+  padding: 3px 12px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+#timer.low { color: #dc2626; animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0.5; } }
+
+.sub {
+  background: #f1f5f9;
+  padding: 8px 18px;
+  border-bottom: 1px solid #cbd5e1;
+  font-size: 13.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  color: #334155;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  position: relative;
+}
+.pane {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 28px;
+  line-height: 1.65;
+}
+#left {
+  border-right: 3px solid #cbd5e1;
+  background: #fcfcfc;
+  display: flex;
+  flex-direction: column;
+}
+.pane-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+.pane-toolbar-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #475569;
+}
+.tool-btn {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.tool-btn:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+}
+
+.passage-body {
+  flex: 1;
+}
+
+/* Text Highlighter Styling */
+.ielts-hl {
+  background-color: #fef08a !important;
+  color: #0f172a !important;
+  border-radius: 3px;
+  padding: 1px 3px;
+  cursor: pointer;
+  border-bottom: 2px solid #ca8a04;
+  transition: all 0.15s ease;
+  display: inline;
+}
+.ielts-hl:hover {
+  background-color: #fde047 !important;
+  border-bottom-color: #b45309;
+  box-shadow: 0 0 0 2px rgba(234, 179, 8, 0.4);
+}
+
+/* Floating Highlight Tooltip Popup */
+#hl-popup {
+  position: absolute;
+  display: none;
+  background: #0f172a;
+  color: #fff;
+  border-radius: 6px;
+  padding: 4px 6px;
+  gap: 4px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transform: translate(-50%, -100%);
+  margin-top: -6px;
+}
+#hl-popup button {
+  background: transparent;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+#hl-popup button:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+#right {
+  background: #ffffff;
+}
+
+h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  text-align: center;
+  color: #0f172a;
+}
+.sb {
+  text-align: center;
+  font-style: italic;
+  color: #475569;
+  margin: 0 0 18px;
+  font-size: 14.5px;
+}
+#left p {
+  margin: 0 0 14px;
+  text-align: justify;
+}
+
+.q-group {
+  margin-bottom: 26px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  background: #f1f5f9;
+  padding: 8px 12px;
+  border-left: 4px solid #1d3557;
+  color: #1e293b;
+  font-weight: 700;
+}
+.instr {
+  font-size: 14px;
+  color: #334155;
+  background: #f8fafc;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  border: 1px solid #e2e8f0;
+}
+.instr p { margin: 0; }
+
+.q {
+  margin: 14px 0;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.n {
+  font-weight: bold;
+  min-width: 28px;
+  height: 28px;
+  background: #1d3557;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.q-prompt {
+  font-size: 14.5px;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.opts {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.opts label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  background: #f8fafc;
+  transition: all 0.15s ease;
+}
+.opts label:hover {
+  background: #e2e8f0;
+}
+.opts label.selected {
+  background: #e0f2fe;
+  border-color: #0284c7;
+  font-weight: 600;
+}
+
+.block-opts {
+  flex-direction: column;
+  gap: 6px;
+}
+.block-opts label {
+  width: 100%;
+}
+
+.cd-select {
+  border: 1px solid #94a3b8;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 14px;
+  color: #1e293b;
+  cursor: pointer;
+  max-width: 100%;
+}
+.cd-select:focus {
+  border-color: #1d3557;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(29, 53, 87, 0.2);
+}
+
+.headings-box {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 12px 18px;
+  margin: 12px 0 16px;
+}
+.headings-box h4 {
+  margin: 0 0 8px;
+  color: #1d3557;
+  font-size: 15px;
+}
+.headings-box ol {
+  margin: 0;
+  padding-left: 24px;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.notes {
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  padding: 14px 20px;
+  margin: 12px 0;
+  background: #fafafa;
+}
+.notes-main-title {
+  margin: 0 0 12px;
+  font-size: 16px;
+  color: #0f172a;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 6px;
+}
+.notes p {
+  margin: 10px 0;
+  line-height: 1.8;
+  font-size: 14.5px;
+}
+
+.gap-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 4px;
+  background: #e2e8f0;
+  padding: 1px 6px;
+  border-radius: 4px;
+  vertical-align: baseline;
+}
+.gap-wrap b {
+  font-size: 12px;
+  color: #1e293b;
+}
+
+input.cd-gap-input {
+  border: 0;
+  border-bottom: 2px solid #1e293b;
+  width: 140px;
+  font-size: 14.5px;
+  padding: 2px 6px;
+  background: #f8fafc;
+  color: #0f172a;
+  outline: none;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+input.cd-gap-input:focus {
+  border-bottom-color: #2563eb;
+  background: #eff6ff;
+}
+
+.ok {
+  background: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #166534 !important;
+}
+.bad {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #991b1b !important;
+}
+
+/* Explanation Cards */
+.expl-box {
+  margin: 8px 0;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-left: 4px solid #3b82f6;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #1e293b;
+  animation: fadeIn 0.25s ease;
+  width: 100%;
+}
+.expl-box.expl-ok { border-left-color: #15803d; background: #f0fdf4; }
+.expl-box.expl-bad { border-left-color: #b91c1c; background: #fef2f2; }
+.expl-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+.expl-tag {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.expl-ok .expl-tag { background: #dcfce7; color: #166534; }
+.expl-bad .expl-tag { background: #fee2e2; color: #991b1b; }
+.expl-ans {
+  font-weight: 700;
+  color: #0f172a;
+}
+.expl-body {
+  margin-bottom: 6px;
+  color: #334155;
+}
+.expl-evidence {
+  background: rgba(59, 130, 246, 0.08);
+  border-radius: 4px;
+  padding: 6px 10px;
+  color: #1e3a8a;
+  font-size: 13px;
+  margin-top: 6px;
+  border-left: 3px solid #60a5fa;
+}
+
+footer {
+  border-top: 2px solid #1d3557;
+  background: #eef1f5;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+#pal {
+  flex: 1;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#pal span {
+  font-size: 13px;
+  font-weight: bold;
+  color: #334155;
+  margin-right: 4px;
+}
+#pal button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #1d3557;
+  background: #fff;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #1d3557;
+  transition: all 0.15s ease;
+}
+#pal button:hover {
+  background: #e0e7ff;
+}
+#pal button.done {
+  background: #1d3557;
+  color: #fff;
+}
+#pal button.pal-ok {
+  background: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #166534 !important;
+  font-weight: 800 !important;
+}
+#pal button.pal-bad {
+  background: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #991b1b !important;
+  font-weight: 800 !important;
+}
+
+#sub {
+  background: #1d3557;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  padding: 8px 22px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+#sub:hover { background: #2a4d7d; }
+
+#res {
+  display: none;
+  background: #f8fafc;
+  border: 2px solid #1d3557;
+  padding: 16px 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+.res-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.res-btn {
+  background: #1d3557;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.res-btn.alt {
+  background: #fff;
+  color: #1d3557;
+  border: 1px solid #1d3557;
+}
+
+@media (max-width: 850px) {
+  main { flex-direction: column; }
+  #left { border-right: 0; border-bottom: 3px solid #ccd; max-height: 50vh; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="title-box">
+    <a href="../../index.html" onclick="if(window.parent&&window.parent.ieltsApp){window.parent.ieltsApp.showReadingSelection();return false;}" class="back-btn">&larr; Back to Portal</a>
+    <b>IELTS Academic Reading &mdash; Test 16</b>
+  </div>
+  <span id="timer">20:00</span>
+</header>
+<div class="sub">
+  <span><b>Part 2</b> &nbsp;|&nbsp; Read the text and answer Questions 14–26. Spend about 20 minutes on this part.</span>
+  <span><b>Learning from the Romans</b></span>
+</div>
+<main>
+  <!-- Floating Highlight Popup -->
+  <div id="hl-popup">
+    <button type="button" onmousedown="event.preventDefault()" onclick="highlightSelection()">🖍️ Highlight</button>
+    <button type="button" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()">✕ Clear</button>
+  </div>
+
+  <section class="pane" id="left">
+    
+    <div class="pane-toolbar">
+      <span class="pane-toolbar-title">📖 Reading Passage</span>
+      <div style="display:flex; gap:6px;">
+        <button type="button" class="tool-btn" id="btn-hl" onmousedown="event.preventDefault()" onclick="highlightSelection()" title="Highlight selected text in the passage">🖍️ Highlight</button>
+        <button type="button" class="tool-btn" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()" title="Clear highlight from selected text">✕ Clear</button>
+        <button type="button" class="tool-btn" onclick="clearAllHighlights()" title="Clear all text highlights">↺ Clear All</button>
+      </div>
+    </div>
+    <div class="passage-body">
+      <h2>Learning from the Romans</h2>
+      <p class="sb">How an ancient building material is influencing modern sustainable construction</p>
+    <p><b>A</b> In a quest to make concrete more durable and sustainable, an international team of geologists and engineers has found inspiration in the concrete used by the ancient Romans. The chemical secrets of Roman concrete have been uncovered in samples taken from a concrete Roman breakwater. A breakwater is a barrier that is built out into the sea to protect coasts and harbors from the force of waves. This particular breakwater has spent the last 2,000 years submerged in seawater. The international team of researchers that collected the samples was led by Paulo Monteiro, a professor of civil and environmental engineering at the University of California, Berkeley. Analysis of samples from the ancient underwater site in Pozzuoli Bay near Naples in Italy, and pinpointed why the best Roman concrete was superior to most modern concrete.</p>
+    <p><b>B</b> Concrete was the Roman Empire&#39;s construction material of choice. It was used in land monuments such as the Pantheon in Rome, as well as in underwater and partially underwater coastal and harbor structures. Monteiro and his team were particularly interested in how the coastal and harbor structures endured the unforgiving saltwater environment. Chemical analysis of Roman concrete showed that it differs from the modern kind in several ways. One is the content of the cement that binds the material in the concrete. The most commonly used cement in recent decades has been Portland cement. Portland cement is a compound of calcium, silicates, and hydrates (C-S-H). However, analysis of Roman concrete shows that it contains a significantly different cement. Roman cement contains aluminum, which is not found in Portland cement, and less silicon than is found in Portland cement. The resulting calcium-aluminum-silicate-hydrate (C-A-S-H) is an exceptionally stable cement.</p>
+    <p><b>C</b> The recipe for the contents of Roman concrete was first described around 30 BC by Vitruvius, an engineer for the Roman Emperor Augustus. Volcanic ash was one of the ingredients, and it is now understood that this is crucial, as it is volcanic ash that contains the aluminum that ultimately gives Roman concrete its great durability. The Romans devised an efficient method of making concrete for coastal structures. They combined volcanic ash with lime, which added the calcium to the mix. This was then packed, together with stones and chunks of rock, into wooden molds, which were then immersed in seawater. The seawater instantly triggered a hot chemical reaction. The lime was hydrated by the seawater, which means that it incorporated water molecules into its structure, and reacted with the volcanic ash to cement the whole mixture together. This reaction formed the concrete that was used to build some of the most enduring structures in Western civilization.</p>
+    <p><b>D</b> According to Marie Jackson, a member of the research team, Roman concrete is one of the most durable construction materials on the planet, and that was no accident. Shipping was the lifeline of political, economic, and military stability for the Roman Empire, so constructing harbors that would last was critical. &#39;Over time, the Romans used less and less concrete.&#39; &#39;As the Roman Empire declined, and shipping declined, the need for the seawater concrete declined,&#39; said Jackson. &#39;You could also argue that the original structures were built so well that, once they were in place, they didn&#39;t need to be replaced,&#39; she added.</p>
+    <p><b>E</b> Producing Roman concrete also left a smaller carbon footprint than its modern counterpart. &#39;It&#39;s not that modern concrete isn&#39;t good—it&#39;s so good we use 19 billion tons of it a year,&#39; says Monteiro. &#39;The problem is that manufacturing Portland cement accounts for seven percent of the carbon dioxide that industry puts into the air.&#39; Portland cement holds most modern concrete together. However, making Portland cement releases carbon dioxide into the atmosphere from burning fuel in order to heat a mix of limestone and clays to 1,450 degrees Celsius. The production of Roman concrete, however, was much cleaner, as less heat was needed. A temperature that was a third lower than that required for making Portland cement was sufficient for making Roman concrete.</p>
+    <p><b>F</b> Some modern concrete no longer contains Portland cement; instead, fly ash is used, which causes fewer greenhouse gas emissions. Fly ash is a waste product from burning coal, and the researchers are investigating whether volcanic ash would be a good, large-volume replacement in countries that cannot access fly ash easily. &#39;There is not enough fly ash in this world to replace half of the Portland cement being used,&#39; said Monteiro. &#39;Many countries don&#39;t have fly ash, so the idea is to find alternative local materials that will work, including the kind of volcanic ash that Romans used. Using these alternatives could replace 40 percent of the world&#39;s demand for Portland cement.&#39;</p>
+    <p><b>G</b> Cutting greenhouse gas emissions is one powerful incentive for finding a better way to provide the concrete the world needs; another is the need for stronger, longer-lasting buildings, bridges, and other structures. &#39;In the middle 20th century, concrete structures were designed to last 50 years, and a lot of them are on borrowed time,&#39; Monteiro says. &#39;Now we design buildings to last 100 to 120 years.&#39; Yet Roman harbor installations have survived 2,000 years of chemical attack from seawater and wave action. Stronger, longer-lasting modern concrete may be the legacy of a deeper understanding of how the Romans made their incomparable concrete.</p>
+  </div>
+  </section>
+  <section class="pane" id="right">
+    <div id="res"></div>
+<div class="q-group">
+<h3>Questions 14–20</h3>
+
+<div class="options-box" style="background:#f1f5f9; border:1px solid #cbd5e1; border-radius:6px; padding:12px 16px; margin:12px 0;">
+  <h4 style="margin:0 0 8px; color:#1d3557; font-size:15px;">Options / Researchers</h4>
+  <ul style="margin:0; padding-left:20px; line-height:1.6; font-size:14px;">
+    <li><b>A</b> &nbsp; A</li>
+    <li><b>B</b> &nbsp; B</li>
+    <li><b>C</b> &nbsp; C</li>
+    <li><b>D</b> &nbsp; D</li>
+    <li><b>E</b> &nbsp; E</li>
+    <li><b>F</b> &nbsp; F</li>
+    <li><b>G</b> &nbsp; G</li>
+  </ul>
+</div>
+
+<div class="q match-feature-q" id="q14">
+  <span class="n">14</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="flex:1; min-width:220px;">an opinion on why the Romans reduced the amount of concrete they made for use in seawater</span>
+    <select name="r14" class="cd-select">
+      <option value="">-- Choose Option --</option>
+      <option value="A">A - A</option>
+      <option value="B">B - B</option>
+      <option value="C">C - C</option>
+      <option value="D">D - D</option>
+      <option value="E">E - E</option>
+      <option value="F">F - F</option>
+      <option value="G">G - G</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-feature-q" id="q15">
+  <span class="n">15</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="flex:1; min-width:220px;">a list of the contents of both Portland and Roman cement</span>
+    <select name="r15" class="cd-select">
+      <option value="">-- Choose Option --</option>
+      <option value="A">A - A</option>
+      <option value="B">B - B</option>
+      <option value="C">C - C</option>
+      <option value="D">D - D</option>
+      <option value="E">E - E</option>
+      <option value="F">F - F</option>
+      <option value="G">G - G</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-feature-q" id="q16">
+  <span class="n">16</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="flex:1; min-width:220px;">an argument for finding substitutes for a limited resource that is used in making cement</span>
+    <select name="r16" class="cd-select">
+      <option value="">-- Choose Option --</option>
+      <option value="A">A - A</option>
+      <option value="B">B - B</option>
+      <option value="C">C - C</option>
+      <option value="D">D - D</option>
+      <option value="E">E - E</option>
+      <option value="F">F - F</option>
+      <option value="G">G - G</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-feature-q" id="q17">
+  <span class="n">17</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="flex:1; min-width:220px;">information about the structure from which the scientists took their Roman concrete samples</span>
+    <select name="r17" class="cd-select">
+      <option value="">-- Choose Option --</option>
+      <option value="A">A - A</option>
+      <option value="B">B - B</option>
+      <option value="C">C - C</option>
+      <option value="D">D - D</option>
+      <option value="E">E - E</option>
+      <option value="F">F - F</option>
+      <option value="G">G - G</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-feature-q" id="q18">
+  <span class="n">18</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="flex:1; min-width:220px;">a comparison of the environmental impacts of making modern and Roman concrete</span>
+    <select name="r18" class="cd-select">
+      <option value="">-- Choose Option --</option>
+      <option value="A">A - A</option>
+      <option value="B">B - B</option>
+      <option value="C">C - C</option>
+      <option value="D">D - D</option>
+      <option value="E">E - E</option>
+      <option value="F">F - F</option>
+      <option value="G">G - G</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-feature-q" id="q19">
+  <span class="n">19</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="flex:1; min-width:220px;">a comparison of the durability of Roman concrete with concrete produced today</span>
+    <select name="r19" class="cd-select">
+      <option value="">-- Choose Option --</option>
+      <option value="A">A - A</option>
+      <option value="B">B - B</option>
+      <option value="C">C - C</option>
+      <option value="D">D - D</option>
+      <option value="E">E - E</option>
+      <option value="F">F - F</option>
+      <option value="G">G - G</option>
+    </select>
+  </div>
+</div>
+
+<div class="q match-feature-q" id="q20">
+  <span class="n">20</span>
+  <div style="flex:1; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <span class="q-prompt" style="flex:1; min-width:220px;">details of how the Romans used seawater to make concrete</span>
+    <select name="r20" class="cd-select">
+      <option value="">-- Choose Option --</option>
+      <option value="A">A - A</option>
+      <option value="B">B - B</option>
+      <option value="C">C - C</option>
+      <option value="D">D - D</option>
+      <option value="E">E - E</option>
+      <option value="F">F - F</option>
+      <option value="G">G - G</option>
+    </select>
+  </div>
+</div>
+</div>
+<div class="q-group">
+<h3>Questions 21–22</h3>
+
+<div class="q" id="q21">
+  <span class="n">21</span>
+  <div style="flex:1;">
+    <div class="q-prompt">First true statement about fly ash:</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r21" value="A"> <b>A</b> &nbsp; Fly ash results in less damage to the environment than Portland cement.</label>
+      <label><input type="radio" name="r21" value="B"> <b>B</b> &nbsp; Fly ash was used by the Romans as an alternative to volcanic ash.</label>
+      <label><input type="radio" name="r21" value="C"> <b>C</b> &nbsp; Fly ash is already used in the production of some concrete.</label>
+      <label><input type="radio" name="r21" value="D"> <b>D</b> &nbsp; All countries have access to fly ash resources.</label>
+      <label><input type="radio" name="r21" value="E Fly ash will soon replace volcanic ash."> <b>E Fly ash will soon replace volcanic ash.</b> &nbsp; E Fly ash will soon replace volcanic ash.</label>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="q22">
+  <span class="n">22</span>
+  <div style="flex:1;">
+    <div class="q-prompt">Second true statement about fly ash:</div>
+    <div class="opts block-opts">
+      <label><input type="radio" name="r22" value="A"> <b>A</b> &nbsp; Fly ash results in less damage to the environment than Portland cement.</label>
+      <label><input type="radio" name="r22" value="B"> <b>B</b> &nbsp; Fly ash was used by the Romans as an alternative to volcanic ash.</label>
+      <label><input type="radio" name="r22" value="C"> <b>C</b> &nbsp; Fly ash is already used in the production of some concrete.</label>
+      <label><input type="radio" name="r22" value="D"> <b>D</b> &nbsp; All countries have access to fly ash resources.</label>
+      <label><input type="radio" name="r22" value="E Fly ash will soon replace volcanic ash."> <b>E Fly ash will soon replace volcanic ash.</b> &nbsp; E Fly ash will soon replace volcanic ash.</label>
+    </div>
+  </div>
+</div>
+</div>
+<div class="q-group">
+<h3>Questions 23–26</h3>
+<div class="notes">
+
+<div class="q gap-item" id="q23">
+  <span class="n">23</span>
+  <div style="flex:1; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+    <span class="q-prompt">This is because a temperature of 1,450 degrees Celsius is needed to combine clays and</span>
+    <input type="text" name="t23" autocomplete="off" spellcheck="false" class="cd-gap-input">
+  </div>
+</div>
+
+<div class="q gap-item" id="q24">
+  <span class="n">24</span>
+  <div style="flex:1; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+    <span class="q-prompt">This level of heat was reduced by a</span>
+    <input type="text" name="t24" autocomplete="off" spellcheck="false" class="cd-gap-input">
+  </div>
+</div>
+
+<div class="q gap-item" id="q25">
+  <span class="n">25</span>
+  <div style="flex:1; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+    <span class="q-prompt">Needing less heat meant less</span>
+    <input type="text" name="t25" autocomplete="off" spellcheck="false" class="cd-gap-input">
+  </div>
+</div>
+
+<div class="q gap-item" id="q26">
+  <span class="n">26</span>
+  <div style="flex:1; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+    <span class="q-prompt">According to Monteiro, when considering the amount of carbon dioxide emitted by</span>
+    <input type="text" name="t26" autocomplete="off" spellcheck="false" class="cd-gap-input">
+  </div>
+</div>
+</div>
+</div>
+
+  </section>
+</main>
+<footer>
+  <div id="pal"><span>Questions:</span></div>
+  <button id="sub">Submit</button>
+</footer>
+
+<script>
+const MIN_Q = 14;
+const MAX_Q = 26;
+const KEY = {"14":[""],"15":[""],"16":[""],"17":[""],"18":[""],"19":[""],"20":[""],"21":[""],"22":[""],"23":[""],"24":[""],"25":[""],"26":[""]};
+const EXPLANATIONS = {"14":{"answer":"","explanation":"Paragraph D quotes Marie Jackson explaining that as shipping declined with the Empire, and because structures were built so well, fewer new ones were needed.","evidence":"'As the Roman Empire declined, and shipping declined, the need for the seawater concrete declined,' said Jackson. 'You could also argue that the original structures were built so well that, once they were in place, they didn't need to be replaced...'"},"15":{"answer":"","explanation":"Paragraph B lists the ingredients: Portland cement (calcium, silicates, C-S-H) vs Roman cement (aluminum, silicon, C-A-S-H).","evidence":"Portland cement is a compound of calcium, silicates, and hydrates (C-S-H)... Roman cement contains aluminum, which is not found in Portland cement, and less silicon..."},"16":{"answer":"","explanation":"Paragraph F discusses finding volcanic ash to replace fly ash because fly ash supplies are limited worldwide.","evidence":"'There is not enough fly ash in this world to replace half of the Portland cement being used,' said Monteiro. 'Many countries don't have fly ash, so the idea is to find alternative local materials...'"},"17":{"answer":"","explanation":"Paragraph A states samples were taken from a Roman breakwater submerged in seawater for 2,000 years in Pozzuoli Bay near Naples.","evidence":"The chemical secrets of Roman concrete have been uncovered in samples taken from a concrete Roman breakwater... submerged in seawater... in Pozzuoli Bay near Naples in Italy..."},"18":{"answer":"","explanation":"Paragraph E contrasts Portland cement accounting for 7% of industrial CO2 requiring 1,450°C with cleaner Roman concrete requiring one-third less heat.","evidence":"Producing Roman concrete also left a smaller carbon footprint than its modern counterpart... manufacturing Portland cement accounts for seven percent of the carbon dioxide... A temperature that was a third lower... was sufficient..."},"19":{"answer":"","explanation":"Paragraph G compares 20th-century concrete designed to last 50–120 years against Roman harbors surviving 2,000 years.","evidence":"'In the middle 20th century, concrete structures were designed to last 50 years... Now we design buildings to last 100 to 120 years.' Yet Roman harbor installations have survived 2,000 years of chemical attack..."},"20":{"answer":"","explanation":"Paragraph C describes immersing the wooden molds packed with volcanic ash and lime into seawater to trigger a chemical reaction.","evidence":"This was then packed, together with stones and chunks of rock, into wooden molds, which were then immersed in seawater. The seawater instantly triggered a hot chemical reaction."},"21":{"answer":"","explanation":"Paragraph F states fly ash 'causes fewer greenhouse gas emissions' than Portland cement.","evidence":"Some modern concrete no longer contains Portland cement; instead, fly ash is used, which causes fewer greenhouse gas emissions."},"22":{"answer":"","explanation":"Paragraph F notes that 'Some modern concrete no longer contains Portland cement; instead, fly ash is used'.","evidence":"Some modern concrete no longer contains Portland cement; instead, fly ash is used, which causes fewer greenhouse gas emissions."},"23":{"answer":"","explanation":"Paragraph E states Portland cement requires heating 'a mix of limestone and clays to 1,450 degrees Celsius'.","evidence":"However, making Portland cement releases carbon dioxide into the atmosphere from burning fuel in order to heat a mix of limestone and clays to 1,450 degrees Celsius."},"24":{"answer":"","explanation":"Paragraph E states 'A temperature that was a third lower than that required for making Portland cement was sufficient'.","evidence":"A temperature that was a third lower than that required for making Portland cement was sufficient for making Roman concrete."},"25":{"answer":"","explanation":"Paragraph E connects the carbon emissions to 'burning fuel in order to heat a mix'.","evidence":"...releases carbon dioxide into the atmosphere from burning fuel in order to heat a mix of limestone and clays..."},"26":{"answer":"","explanation":"Paragraph E quotes Monteiro: 'manufacturing Portland cement accounts for seven percent of the carbon dioxide that industry puts into the air'.","evidence":"'The problem is that manufacturing Portland cement accounts for seven percent of the carbon dioxide that industry puts into the air.'"}};
+
+function escapeHtml(s) {
+  if (s === null || s === undefined) return "";
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+const $ = s => document.querySelector(s);
+let done = false;
+
+// Populate palette buttons
+const pal = $("#pal");
+for (let i = MIN_Q; i <= MAX_Q; i++) {
+  const b = document.createElement("button");
+  b.textContent = i;
+  b.id = "b" + i;
+  b.onclick = () => {
+    const el = document.getElementById("q" + i);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+  pal.appendChild(b);
+}
+
+// Radio button selection visual sync
+document.querySelectorAll(".opts input[type=radio]").forEach(r => {
+  r.addEventListener("change", function() {
+    const parent = this.closest(".opts");
+    if (parent) {
+      parent.querySelectorAll("label").forEach(l => l.classList.remove("selected"));
+      this.parentElement.classList.add("selected");
+    }
+    refresh();
+  });
+});
+
+function val(n) {
+  const radio = document.querySelector(`input[name=r${n}]:checked`);
+  if (radio) return radio.value.trim();
+  const select = document.querySelector(`select[name=r${n}]`);
+  if (select) return select.value.trim();
+  const txt = document.querySelector(`input[name=t${n}]`);
+  if (txt) return txt.value.trim();
+  return "";
+}
+
+function refresh() {
+  if (done) return;
+  for (let i = MIN_Q; i <= MAX_Q; i++) {
+    const btn = document.getElementById("b" + i);
+    if (btn) btn.classList.toggle("done", !!val(i));
+  }
+}
+document.addEventListener("input", refresh);
+document.addEventListener("change", refresh);
+
+// =========================================================================
+// TEXT HIGHLIGHTER FEATURE
+// =========================================================================
+const hlPopup = document.getElementById("hl-popup");
+let activeRange = null;
+
+function hideHighlightPopup() {
+  if (hlPopup) hlPopup.style.display = "none";
+  activeRange = null;
+}
+
+const leftPane = document.getElementById("left");
+
+// 1. Delegated click on highlighted text to remove it immediately
+leftPane.addEventListener("click", function(e) {
+  const mark = e.target.closest(".ielts-hl");
+  if (mark) {
+    e.stopPropagation();
+    e.preventDefault();
+    removeHighlightNode(mark);
+    hideHighlightPopup();
+  }
+});
+
+// 2. Mouseup in passage to detect selection
+leftPane.addEventListener("mouseup", function(e) {
+  // If clicked a mark, delegation handles it
+  if (e.target.closest(".ielts-hl")) return;
+
+  const sel = window.getSelection();
+  if (sel && !sel.isCollapsed && sel.toString().trim().length > 0) {
+    const range = sel.getRangeAt(0);
+    if (leftPane.contains(range.commonAncestorContainer)) {
+      activeRange = range.cloneRange();
+      const rect = range.getBoundingClientRect();
+      const mainRect = document.querySelector("main").getBoundingClientRect();
+      if (hlPopup) {
+        hlPopup.style.display = "flex";
+        hlPopup.style.top = (rect.top - mainRect.top) + "px";
+        hlPopup.style.left = (rect.left - mainRect.left + rect.width / 2) + "px";
+      }
+      return;
+    }
+  }
+  hideHighlightPopup();
+});
+
+document.addEventListener("mousedown", function(e) {
+  if (hlPopup && !hlPopup.contains(e.target) && !leftPane.contains(e.target)) {
+    hideHighlightPopup();
+  }
+});
+
+function highlightSelection() {
+  const sel = window.getSelection();
+  const range = activeRange || (sel && !sel.isCollapsed ? sel.getRangeAt(0) : null);
+  if (!range) return;
+
+  if (leftPane.contains(range.commonAncestorContainer)) {
+    const mark = document.createElement("mark");
+    mark.className = "ielts-hl";
+    mark.title = "Click to remove this highlight";
+
+    try {
+      range.surroundContents(mark);
+    } catch (err) {
+      const fragment = range.extractContents();
+      mark.appendChild(fragment);
+      range.insertNode(mark);
+    }
+  }
+  if (sel) sel.removeAllRanges();
+  hideHighlightPopup();
+}
+
+function clearSelectionHighlight() {
+  const sel = window.getSelection();
+  const range = activeRange || (sel && !sel.isCollapsed ? sel.getRangeAt(0) : null);
+  if (range) {
+    const allMarks = Array.from(leftPane.querySelectorAll(".ielts-hl"));
+    let removed = 0;
+    allMarks.forEach(m => {
+      let isIntersect = false;
+      try {
+        if (range.intersectsNode) isIntersect = range.intersectsNode(m);
+      } catch (e) {}
+      if (isIntersect) {
+        removeHighlightNode(m);
+        removed++;
+      }
+    });
+
+    if (removed === 0) {
+      let cur = range.commonAncestorContainer;
+      while (cur && cur !== leftPane) {
+        if (cur.nodeType === 1 && cur.classList.contains("ielts-hl")) {
+          removeHighlightNode(cur);
+          removed++;
+          break;
+        }
+        cur = cur.parentNode;
+      }
+    }
+  }
+  if (sel) sel.removeAllRanges();
+  hideHighlightPopup();
+}
+
+function removeHighlightNode(node) {
+  if (!node || !node.parentNode) return;
+  const parent = node.parentNode;
+  while (node.firstChild) {
+    parent.insertBefore(node.firstChild, node);
+  }
+  parent.removeChild(node);
+  parent.normalize();
+}
+
+function clearAllHighlights() {
+  document.querySelectorAll("#left .ielts-hl").forEach(mark => {
+    removeHighlightNode(mark);
+  });
+  hideHighlightPopup();
+}
+
+// Timer
+let t = 20 * 60;
+const tick = setInterval(() => {
+  if (done) return;
+  t--;
+  const m = String(Math.floor(t / 60)).padStart(2, "0");
+  const s = String(t % 60).padStart(2, "0");
+  const tm = document.getElementById("timer");
+  if (tm) {
+    tm.textContent = m + ":" + s;
+    tm.classList.toggle("low", t <= 300);
+  }
+  if (t <= 0) finish(true);
+}, 1000);
+
+function norm(s) {
+  return (s || "").toLowerCase().replace(/[^a-z0-9]/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function finish(auto) {
+  if (done) return;
+  if (!auto) {
+    let un = 0;
+    for (let i = MIN_Q; i <= MAX_Q; i++) {
+      if (!val(i)) un++;
+    }
+    if (un > 0 && !confirm(`You have ${un} unanswered question(s). Submit anyway and check explanations?`)) {
+      return;
+    }
+  }
+  done = true;
+  clearInterval(tick);
+
+  let sc = 0;
+  let tot = 0;
+
+  for (let i = MIN_Q; i <= MAX_Q; i++) {
+    tot++;
+    const v = norm(val(i));
+    const accepted = (KEY[i] || []).map(norm);
+    const ok = v && accepted.some(a => a === v || (a.length > 2 && v.includes(a)));
+
+    if (ok) sc++;
+
+    // Mark palette button
+    const palBtn = document.getElementById("b" + i);
+    if (palBtn) {
+      palBtn.classList.remove("done");
+      palBtn.classList.add(ok ? "pal-ok" : "pal-bad");
+    }
+
+    // Mark radio / select / input
+    const radios = document.querySelectorAll(`input[name=r${i}]`);
+    if (radios.length) {
+      radios.forEach(r => {
+        r.disabled = true;
+        const l = r.parentElement;
+        const correctNorm = (KEY[i] || []).map(norm);
+        if (correctNorm.includes(norm(r.value))) {
+          l.classList.add("ok");
+        } else if (r.checked) {
+          l.classList.add("bad");
+        }
+      });
+    }
+
+    const select = document.querySelector(`select[name=r${i}]`);
+    if (select) {
+      select.disabled = true;
+      select.classList.add(ok ? "ok" : "bad");
+    }
+
+    const txt = document.querySelector(`input[name=t${i}]`);
+    if (txt) {
+      txt.disabled = true;
+      txt.classList.add(ok ? "ok" : "bad");
+    }
+
+    // Append Detailed Explanation Box
+    const qEl = document.getElementById("q" + i);
+    if (qEl) {
+      const exp = EXPLANATIONS[i] || {};
+      const existing = document.getElementById("expl-" + i);
+      if (existing) existing.remove();
+
+      const explDiv = document.createElement("div");
+      explDiv.className = "expl-box " + (ok ? "expl-ok" : "expl-bad");
+      explDiv.id = "expl-" + i;
+      explDiv.innerHTML = `
+        <div class="expl-header">
+          <span class="expl-tag">${ok ? '✓ Correct' : '✗ Incorrect'}</span>
+          <span class="expl-ans"><b>Question ${i} Official Answer:</b> ${escapeHtml(exp.answer || ((KEY[i] || [])[0] || ''))}</span>
+        </div>
+        ${exp.explanation ? `<div class="expl-body"><b>Explanation:</b> ${escapeHtml(exp.explanation)}</div>` : ''}
+        ${exp.evidence ? `<div class="expl-evidence"><b>Passage Evidence:</b> &ldquo;${escapeHtml(exp.evidence)}&rdquo;</div>` : ''}
+      `;
+
+      if (qEl.classList.contains("gap-wrap") || qEl.tagName === "SPAN") {
+        const pParent = qEl.closest("p, li, tr, .table-row, .notes-item") || qEl.parentElement;
+        if (pParent && pParent.parentNode) {
+          pParent.parentNode.insertBefore(explDiv, pParent.nextSibling);
+        } else {
+          qEl.appendChild(explDiv);
+        }
+      } else {
+        qEl.appendChild(explDiv);
+      }
+    }
+  }
+
+  // Update Score Results Banner
+  const r = document.getElementById("res");
+  if (r) {
+    const pct = Math.round((sc / tot) * 100);
+    r.style.display = "block";
+    r.innerHTML = `
+      <div style="font-size:20px; font-weight:800; color:#0f172a; margin-bottom:4px;">
+        Your Score: ${sc} / ${tot} (${pct}%) ${auto ? ' — Time is up' : ''}
+      </div>
+      <div style="font-size:14px; color:#475569; margin-bottom:12px;">
+        Detailed answer explanations and text evidence have been loaded under each question below.
+      </div>
+      <div class="res-actions">
+        <button class="res-btn" onclick="scrollToFirstIncorrect()">View Incorrect Questions</button>
+        <button class="res-btn alt" onclick="location.reload()">↺ Retake Test</button>
+      </div>
+    `;
+  }
+
+  const subBtn = document.getElementById("sub");
+  if (subBtn) {
+    subBtn.disabled = true;
+    subBtn.style.opacity = "0.5";
+  }
+  const rightPane = document.getElementById("right");
+  if (rightPane) rightPane.scrollTop = 0;
+}
+
+function scrollToFirstIncorrect() {
+  const firstBad = document.querySelector(".expl-bad");
+  if (firstBad) {
+    firstBad.scrollIntoView({ behavior: "smooth", block: "center" });
+  } else {
+    alert("Congratulations! All answers are correct!");
+  }
+}
+
+document.getElementById("sub").onclick = () => finish(false);
+</script>
+</body>
+</html>

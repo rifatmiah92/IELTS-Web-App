@@ -1,0 +1,1246 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>IELTS with Abraham Rifat | World-Class IELTS Preparation Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hind+Siliguri:wght@400;500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20%220%22%20%22100%22%20%22100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+</head>
+<body>
+
+  <!-- ========================================================================
+       TOP GLOBAL HEADER
+       ======================================================================== -->
+  <header class="top">
+    <div class="wrap nav">
+      <a class="brand" href="#" onclick="window.ieltsApp.showHomeView(); return false;">
+        IELTS with <span>Abraham Rifat</span>
+      </a>
+
+      <div class="nav-menu">
+        <a class="nav-item" href="#" onclick="window.ieltsApp.showReadingSelection(); return false;">Mock Tests</a>
+        <a class="nav-item" href="#practice" onclick="window.ieltsApp.showHomeView();">Skill Drills</a>
+        <a class="nav-item" href="#" onclick="window.ieltsApp.showShadowingView(); return false;">Speaking &amp; Shadowing</a>
+        <a class="nav-item" href="#" onclick="window.ieltsApp.showPodcastView(); return false;">TED &amp; BBC</a>
+        <a class="nav-item" href="#" onclick="window.ieltsApp.showRoadmapView(); return false;">60-Day Routine</a>
+        <a class="nav-item" href="#" onclick="window.ieltsApp.showVocabularyView(); return false;">Vocabulary</a>
+        <a class="nav-item" href="#" onclick="window.ieltsApp.showGrammarView(); return false;">Grammar</a>
+        <button class="theme-pill" onclick="window.ieltsApp.cycleTheme()" title="Toggle Dark/Light Mode" style="font-size:0.85rem; font-weight:700; padding:6px 14px; border-radius:999px;">Theme</button>
+        <a class="cta" href="#contact" onclick="window.ieltsApp.showHomeView();">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       1. HOME VIEW (ABRAHAM RIFAT EDITORIAL DESIGN)
+       ======================================================================== -->
+  <div id="home-view" class="view-screen active-view">
+    <main id="top">
+      <!-- Hero Section -->
+      <div class="wrap hero">
+        <div>
+          <h1>Your IELTS band score starts with daily practice.</h1>
+          <p class="lead">
+            Full mock tests, skill drills and a clear study routine for Reading, Listening, Writing and Speaking. Learn step by step with Abraham Rifat.
+          </p>
+          <div class="btns">
+            <a class="btn main" href="#" onclick="window.ieltsApp.showReadingSelection(); return false;">Start a mock test</a>
+            <a class="btn alt" href="#practice">Browse practice</a>
+            <button class="btn alt" onclick="window.ieltsApp.showRoadmapView()">60-Day Routine</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="photo has" id="photo">
+            <div class="photo-frame">
+              <img id="img" src="assets/images/abraham_rifat.jpg" alt="Abraham Rifat" loading="eager">
+            </div>
+          </div>
+          <div class="name-tag">
+            Abraham Rifat
+            <small>IELTS trainer and mentor</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Test Yourself Section -->
+      <section class="block" id="tests">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2>Test yourself</h2>
+            <p>Timed, authentic exam-style practice for each section of the official IELTS.</p>
+          </div>
+          <div class="tests">
+            <!-- Reading Mock Test Card -->
+            <a class="card c1" href="#" onclick="window.ieltsApp.showReadingSelection(); return false;">
+              <div>
+                <h3>Reading mock test</h3>
+                <p>26 official IELTS Reading mock tests with authentic scanned passages, questions, interactive answer sheet &amp; live timer.</p>
+              </div>
+              <span class="go">
+                Take the test 
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </a>
+
+            <!-- Listening Mock Test Card -->
+            <a class="card c2" href="#" onclick="window.ieltsApp.showListeningView(); return false;">
+              <div>
+                <h3>Listening mock test</h3>
+                <p>The Official Cambridge Guide to IELTS Listening Practice Tests (Tests 1–8) with real audio, 40 Qs, and CD IELTS simulation.</p>
+              </div>
+              <span class="go">
+                Take the test 
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </a>
+
+            <!-- Writing Card -->
+            <a class="card c3" href="#" onclick="window.ieltsApp.showWritingView(); return false;">
+              <div>
+                <h3>Writing masterclass</h3>
+                <p>Task 2 (105+ IELTS Advantage essays) &amp; Task 1 (IELTS Liz model answers) with Band 9 explanations.</p>
+              </div>
+              <span class="go">
+                Start writing 
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </a>
+
+            <!-- Speaking / Shadowing Card -->
+            <a class="card c4" href="#" onclick="window.ieltsApp.showShadowingView(); return false;">
+              <div>
+                <h3>Speaking &amp; Shadowing</h3>
+                <p>Parts 1, 2, and 3 cue cards, natural speech drills, and ShadowingB video playlists with voice recorder.</p>
+              </div>
+              <span class="go">
+                Start speaking 
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Build Your Skills Section -->
+      <section class="block" id="practice">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2>Build your skills</h2>
+            <p>Short, focused daily practice between mock tests to target core weaknesses.</p>
+          </div>
+          <div class="practice">
+            <!-- 1. Reading Skills Build-up -->
+            <a class="mini" href="#" onclick="window.ieltsApp.showReadingSkillsSelection(); return false;">
+              <span class="ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4zM20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg>
+              </span>
+              <h3>Reading skills build-up</h3>
+              <p>30 curated passages (Easy, Med, Hard) with paragraph vocabulary notes &amp; A1-A2 summaries.</p>
+            </a>
+
+            <!-- 2. Shadowing Practice -->
+            <a class="mini" href="#" onclick="window.ieltsApp.showShadowingView(); return false;">
+              <span class="ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+              </span>
+              <h3>Shadowing practice</h3>
+              <p>Official YouTube Shadowing playlist for natural speech cadence and Band 9 pronunciation.</p>
+            </a>
+
+            <!-- 3. IELTS Routine -->
+            <a class="mini" href="#" onclick="window.ieltsApp.showRoadmapView(); return false;">
+              <span class="ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>
+              </span>
+              <h3>IELTS routine</h3>
+              <p>Moktadir's 60-Day day-by-day study roadmap with progress tracker and task checklists.</p>
+            </a>
+
+            <!-- 4. IELTS Listening Media -->
+            <a class="mini" href="#" onclick="window.ieltsApp.showPodcastView(); return false;">
+              <span class="ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="5" height="6" rx="1.5"/><rect x="16" y="14" width="5" height="6" rx="1.5"/></svg>
+              </span>
+              <h3>TED &amp; BBC podcasts</h3>
+              <p>Official BBC 6 Minute English playlist &amp; TED Talks channel for listening mastery.</p>
+            </a>
+
+            <!-- 5. Grammar Practice -->
+            <a class="mini" href="#" onclick="window.ieltsApp.showGrammarView(); return false;">
+              <span class="ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16zM14 7l3 3"/></svg>
+              </span>
+              <h3>Grammar practice</h3>
+              <p>Tenses, complex sentence structures, passives, conditionals, and Band 8 collocations.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="wrap" id="contact" style="padding: 20px 0 40px;">
+        <div class="contact-editorial-card">
+          <div class="contact-card-left">
+            <h2 class="contact-card-title">Questions about your preparation?</h2>
+            <div class="contact-gold-bar"></div>
+            <p class="contact-card-desc">Send a message and Abraham Rifat will reply with personalized guidance for your target band score.</p>
+          </div>
+          <div class="contact-card-right">
+            <a class="contact-channel-row" href="mailto:rifatmiah1992003@gmail.com">
+              <div class="contact-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+              </div>
+              <div class="contact-text-box">
+                <span class="contact-lbl">Email</span>
+                <span class="contact-val">rifatmiah1992003@gmail.com</span>
+              </div>
+              <div class="contact-arrow-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </div>
+            </a>
+
+            <a class="contact-channel-row" href="tel:+8801314078510">
+              <div class="contact-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+              </div>
+              <div class="contact-text-box">
+                <span class="contact-lbl">Phone</span>
+                <span class="contact-val">+880 1314078510</span>
+              </div>
+              <div class="contact-arrow-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <span>© 2026 IELTS with Abraham Rifat. All rights reserved.</span>
+        <span>Built with care for aspiring global scholars.</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ========================================================================
+       1B. AUTHENTIC IELTS READING MOCK TESTS PORTAL (26 TESTS)
+       ======================================================================== -->
+  <div id="reading-selection-view" class="view-screen">
+    <header class="reader-header">
+      <div class="reader-header-left">
+        <button class="home-nav-btn" onclick="window.ieltsApp.showHomeView()"><span>&larr; Back to Home</span></button>
+        <h2 style="font-size:1.15rem; font-weight:800; margin:0;">IELTS Reading Mock Tests (26 Tests)</h2>
+      </div>
+      <div class="header-actions">
+        <div class="writing-mode-tabs">
+          <button class="mode-tab-btn active" id="btn-mock-filter-all" onclick="window.ieltsApp.filterReadingPassages('all')">All Tests (26)</button>
+          <button class="mode-tab-btn" id="btn-mock-filter-p1" onclick="window.ieltsApp.filterReadingPassages('p1')">Passage 1 (Q 1–13)</button>
+          <button class="mode-tab-btn" id="btn-mock-filter-p2" onclick="window.ieltsApp.filterReadingPassages('p2')">Passage 2 (Q 14–26)</button>
+          <button class="mode-tab-btn" id="btn-mock-filter-p3" onclick="window.ieltsApp.filterReadingPassages('p3')">Passage 3 (Q 27–40)</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap" style="padding-top:24px; padding-bottom:60px;">
+      <div class="sec-head" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px;">
+        <div>
+          <h2 style="font-size:1.6rem; font-weight:800;">Authentic Reading Mock Tests &bull; 26 Scanned Papers</h2>
+          <p>Official exam passages with original scanned layout, questions, 20-minute live timer, interactive answer sheet, and instant scoring.</p>
+        </div>
+        <div style="min-width:280px;">
+          <input type="text" id="reading-test-search" class="search-input" placeholder="Search 26 tests by title or keyword..." oninput="window.ieltsApp.searchReadingPassages(this.value)" style="width:100%; padding:10px 16px; border-radius:10px; border:1px solid #cbd5e1; font-size:14px; background:#fff; outline:none; transition:border-color 0.2s;">
+        </div>
+      </div>
+      <div class="editorial-practice-grid" id="reading-selection-grid"></div>
+    </main>
+  </div>
+
+  <!-- ========================================================================
+       1B-2. AUTHENTIC READING TEST RUNNER VIEW (#reading-test-frame-view)
+       ======================================================================== -->
+  <div id="reading-test-frame-view" class="view-screen">
+    <header class="reading-frame-header">
+      <div class="reading-frame-header-left">
+        <button class="home-nav-btn" onclick="window.ieltsApp.showReadingSelection()" title="Back to Mock Tests">
+          <span>&larr; Back to Mock Tests</span>
+        </button>
+        <span class="reading-frame-title" id="reading-frame-active-title">Test 01: A Survivor's Story</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <a id="reading-frame-newtab-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn alt" style="padding:5px 12px; font-size:12px; font-weight:700; color:#fff; border-color:#475569; display:inline-flex; align-items:center; gap:4px;">
+          <span>Open Fullscreen</span>
+          <span>&nearr;</span>
+        </a>
+      </div>
+    </header>
+    <iframe id="reading-test-iframe" class="reading-frame-container" src="" title="IELTS Reading Mock Test Runner"></iframe>
+  </div>
+
+  <!-- ========================================================================
+       1C. READING SKILLS SELECTION VIEW (#reading-skills-selection-view) - IMAGE 5
+       ======================================================================== -->
+  <div id="reading-skills-selection-view" class="view-screen">
+    <header class="reader-header">
+      <div class="reader-header-left">
+        <button class="home-nav-btn" onclick="window.ieltsApp.showHomeView()"><span>← Back to Home</span></button>
+        <h2 style="font-size:1.15rem; font-weight:800; margin:0;">Reading Skills Build-Up Portal</h2>
+      </div>
+      <div class="header-actions">
+        <div class="category-filter-bar" style="margin:0;">
+          <button class="cat-filter-btn active" id="btn-rs-all" onclick="window.ieltsApp.filterReadingSkillsCards('all')">All (30 Passages)</button>
+          <button class="cat-filter-btn" id="btn-rs-easy" onclick="window.ieltsApp.filterReadingSkillsCards('easy')">Easy (1–10)</button>
+          <button class="cat-filter-btn" id="btn-rs-medium" onclick="window.ieltsApp.filterReadingSkillsCards('medium')">Medium (11–20)</button>
+          <button class="cat-filter-btn" id="btn-rs-hard" onclick="window.ieltsApp.filterReadingSkillsCards('hard')">Hard (21–30)</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap" style="padding-top:24px; padding-bottom:60px;">
+      <div class="sec-head">
+        <div>
+          <h2 style="font-size:1.6rem; font-weight:800;">30 Curated Reading Skill Passages</h2>
+          <p>Read passages with paragraph-by-paragraph vocabulary notes and 1–2 line A1–A2 simplified summaries at the end.</p>
+        </div>
+      </div>
+      <div class="editorial-practice-grid" id="reading-skills-selection-grid"></div>
+    </main>
+  </div>
+
+  <!-- ========================================================================
+       2. CD IELTS READING EXAM SIMULATION (#exam-view)
+       ======================================================================== -->
+  <div id="exam-view" class="view-screen">
+    <!-- Top Header Bar -->
+    <header class="top-header">
+      <div class="header-left">
+        <button class="home-nav-btn" onclick="window.ieltsApp.showHomeView()" title="Back to Home Portal">
+          <span> Home</span>
+        </button>
+        <div class="timer-box" id="timer-display">00:00</div>
+        <div class="timer-controls">
+          <button class="timer-mode-toggle" id="timer-mode-toggle" title="Toggle Count-Up vs Count-Down">UP</button>
+          <button class="icon-btn" id="pause-timer-btn" title="Pause Timer">||</button>
+          <button class="icon-btn" id="reset-timer-btn" title="Reset Timer">↺</button>
+        </div>
+      </div>
+
+      <div class="header-center">
+        <select id="test-selector" class="test-select" title="Switch IELTS Test"></select>
+        <button class="btn-secondary" id="add-test-btn" title="Upload custom passage">+ Add Passage</button>
+        <div class="header-actions">
+          <button class="icon-btn" id="font-size-btn" title="Adjust Font Size">A<sup>±</sup></button>
+          <button class="icon-btn" id="theme-toggle-btn" title="Toggle Contrast / Dark Mode"></button>
+          <button class="icon-btn" id="fullscreen-btn" title="Toggle Fullscreen"></button>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <a href="https://t.me/Study_Abroad_Group" target="_blank" rel="noopener noreferrer" class="telegram-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.19-.08-.05-.19-.02-.27 0-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.06-.49-.83-.27-1.49-.42-1.43-.89.03-.25.38-.51 1.07-.78 4.2-1.82 7-3.03 8.4-3.61 4-.1.66.83.66.83z"/></svg>
+          <span>Study_Abroad_Group</span>
+        </a>
+      </div>
+    </header>
+
+    <div class="instruction-banner">
+      <div class="banner-left">
+        <div class="banner-part-title" id="banner-part-title">Part 3 - Communicating Conflict!</div>
+        <div class="banner-instructions" id="banner-instructions">Read the text and answer questions 27-40.</div>
+      </div>
+      <div class="banner-right">
+        <button class="flag-toggle-btn" id="flag-toggle-btn"> Review</button>
+      </div>
+    </div>
+
+    <main class="workspace-container" id="workspace-container">
+      <section class="pane passage-pane" id="passage-pane">
+        <div class="pane-content" id="passage-content"></div>
+      </section>
+      <div class="splitter-handle" id="splitter-handle" title="Drag to resize panels"><div class="splitter-bar">↔</div></div>
+      <section class="pane questions-pane" id="questions-pane">
+        <div class="pane-content" id="questions-content"></div>
+      </section>
+    </main>
+
+    <footer class="bottom-nav">
+      <div class="bottom-left">
+        <div class="parts-tab-container" id="parts-tab-container"></div>
+      </div>
+      <div class="bottom-center">
+        <div class="questions-grid-strip" id="questions-grid-strip"></div>
+      </div>
+      <div class="bottom-right">
+        <button class="nav-arrow-btn" id="prev-btn" title="Previous Question" onclick="window.ieltsApp.goToPrevQuestion()">&lt;</button>
+        <button class="nav-arrow-btn" id="next-btn" title="Next Question" onclick="window.ieltsApp.goToNextQuestion()">&gt;</button>
+        <button class="check-answers-btn" id="check-answers-btn">Check Answers</button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ========================================================================
+       3. READING SKILLS INTERACTIVE READER SCREEN (#reader-view)
+       ======================================================================== -->
+  <div id="reader-view" class="view-screen">
+    <header class="reader-header">
+      <div class="reader-header-left">
+        <button class="home-nav-btn" onclick="window.ieltsApp.showHomeView()" title="Back to Home">
+          <span>← Back to Home</span>
+        </button>
+        <span id="reader-header-badge" class="reading-badge reading-badge-easy">Easy</span>
+      </div>
+      <div class="header-actions">
+        <span style="font-size:0.85rem; color:var(--muted); font-weight:600;"> Notes Auto-Saved</span>
+        <button class="icon-btn" onclick="window.ieltsApp.cycleFontSize()">A<sup>±</sup></button>
+        <button class="icon-btn" onclick="window.ieltsApp.cycleTheme()"></button>
+      </div>
+    </header>
+    <main class="reader-container" id="reader-body"></main>
+  </div>
+
+  <!-- ========================================================================
+       4. WRITING MASTERCLASS (#writing-view) - TASK 2 (100+) & TASK 1 (LIZ)
+       ======================================================================== -->
+  <div id="writing-view" class="view-screen">
+    <header class="reader-header">
+      <div class="reader-header-left">
+        <button class="home-nav-btn" onclick="window.ieltsApp.showHomeView()"><span>&larr; Back to Home</span></button>
+        <h2 style="font-size:1.15rem; font-weight:800; margin:0;">IELTS Writing Masterclass</h2>
+      </div>
+      <div class="header-actions">
+        <div class="writing-mode-tabs">
+          <button class="mode-tab-btn active" id="btn-tab-hub" onclick="window.ieltsApp.switchWritingTab('hub')">Masterclass Hub (4 Cards)</button>
+          <button class="mode-tab-btn" id="btn-tab-task1" onclick="window.ieltsApp.switchWritingTab('task1')">Task 1: 30 Models</button>
+          <button class="mode-tab-btn" id="btn-tab-task2" onclick="window.ieltsApp.switchWritingTab('task2')">Task 2: 105 Essays</button>
+          <button class="mode-tab-btn" id="btn-tab-simulator" onclick="window.ieltsApp.switchWritingTab('simulator')">Essay Simulator</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap" style="padding-top:24px; padding-bottom:60px;">
+      <!-- Hub Container: 4 Cards (2 Video Playlists + 2 Practice Libraries) -->
+      <div id="writing-hub-container">
+        <div class="sec-head" style="margin-bottom:20px; text-align:center;">
+          <div>
+            <h2 style="font-size:1.8rem; font-weight:800; color:#1c2b36;">IELTS Writing Masterclass Hub</h2>
+            <p style="color:var(--muted); max-width:700px; margin:8px auto 0; font-size:1rem;">
+              Comprehensive official video tutorials and complete Band 9 practice collections for Academic Task 1 reports and Task 2 essays.
+            </p>
+          </div>
+        </div>
+
+        <div class="writing-portal-grid-4">
+          <!-- Card 1: Task 1 Video Resources (Opens YouTube Playlist) -->
+          <a class="writing-launch-card" href="https://www.youtube.com/playlist?list=PLWWR_9t3vo3NXd1oxwb0gR-N3d5gDI_0h" target="_blank" rel="noopener noreferrer">
+            <div class="writing-launch-img-wrap">
+              <img class="writing-launch-img" src="assets/images/writing_task1_video.jpg" alt="IELTS Writing Task 1 Video Resources" loading="lazy">
+            </div>
+            <div class="writing-card-bottom-info">
+              <span class="writing-card-meta-badge badge-blue">Official Video Playlist</span>
+              <h3 class="writing-card-heading">Writing Task 1 Videos</h3>
+              <p class="writing-card-summary">Charts, graphs, maps &amp; process report structures on YouTube.</p>
+              <div class="writing-card-btn btn-blue">Watch Playlist &rarr;</div>
+            </div>
+          </a>
+
+          <!-- Card 2: Task 2 Video Resources (Opens YouTube Playlist) -->
+          <a class="writing-launch-card" href="https://www.youtube.com/playlist?list=PLWWR_9t3vo3PpGvGoD8CNpzpyrsJ133DF" target="_blank" rel="noopener noreferrer">
+            <div class="writing-launch-img-wrap">
+              <img class="writing-launch-img" src="assets/images/writing_task2_video.jpg" alt="IELTS Writing Task 2 Video Resources" loading="lazy">
+            </div>
+            <div class="writing-card-bottom-info">
+              <span class="writing-card-meta-badge badge-red">Official Video Playlist</span>
+              <h3 class="writing-card-heading">Writing Task 2 Videos</h3>
+              <p class="writing-card-summary">Essays, opinions, discussions &amp; solutions on YouTube.</p>
+              <div class="writing-card-btn btn-red">Watch Playlist &rarr;</div>
+            </div>
+          </a>
+
+          <!-- Card 3: Task 1 Practice Library (Opens 30 Model Reports) -->
+          <div class="writing-launch-card interactive-card" onclick="window.ieltsApp.switchWritingTab('task1')" role="button" tabindex="0">
+            <div class="writing-launch-img-wrap">
+              <img class="writing-launch-img" src="assets/images/writing_task1_practice.jpg" alt="IELTS Writing Task 1 Practice Library" loading="lazy">
+            </div>
+            <div class="writing-card-bottom-info">
+              <span class="writing-card-meta-badge badge-amber">30 Model Reports</span>
+              <h3 class="writing-card-heading">Writing Task 1 Practice</h3>
+              <p class="writing-card-summary">Academic reports, charts, band 9 models &amp; simulator drills.</p>
+              <div class="writing-card-btn btn-burgundy">Start Task 1 Practice &rarr;</div>
+            </div>
+          </div>
+
+          <!-- Card 4: Task 2 Practice Library (Opens 105 Band 9 Essays) -->
+          <div class="writing-launch-card interactive-card" onclick="window.ieltsApp.switchWritingTab('task2')" role="button" tabindex="0">
+            <div class="writing-launch-img-wrap">
+              <img class="writing-launch-img" src="assets/images/writing_task2_practice.jpg" alt="IELTS Writing Task 2 Practice Library" loading="lazy">
+            </div>
+            <div class="writing-card-bottom-info">
+              <span class="writing-card-meta-badge badge-burgundy">105 Band 9 Essays</span>
+              <h3 class="writing-card-heading">Writing Task 2 Practice</h3>
+              <p class="writing-card-summary">Full essay library across all 5 essay types with rationale breakdowns.</p>
+              <div class="writing-card-btn btn-burgundy">Start Task 2 Practice &rarr;</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task 2 Container -->
+      <div id="writing-task2-container" style="display:none;">
+        <div style="margin-bottom:18px;">
+          <button class="btn alt" onclick="window.ieltsApp.switchWritingTab('hub')" style="font-weight:700; display:inline-flex; align-items:center; gap:8px;">
+            <span>&larr; Back to Writing Masterclass (4 Cards)</span>
+          </button>
+        </div>
+        <div class="sec-head" style="margin-bottom:16px;">
+          <div>
+            <h2 style="font-size:1.6rem; font-weight:800;">IELTS Advantage Task 2: 105+ Band 9 Essays</h2>
+            <p>Complete model essays across all 5 essay types with in-depth Band 9 scoring rationale breakdowns.</p>
+          </div>
+        </div>
+        <div class="category-filter-bar" id="t2-filter-bar">
+          <button class="cat-filter-btn active" onclick="window.ieltsApp.filterWritingTask2('all')">All Essays (105)</button>
+          <button class="cat-filter-btn" onclick="window.ieltsApp.filterWritingTask2('Opinion (Agree/Disagree)')">Opinion (Agree/Disagree)</button>
+          <button class="cat-filter-btn" onclick="window.ieltsApp.filterWritingTask2('Discussion (Both Views)')">Discussion (Both Views)</button>
+          <button class="cat-filter-btn" onclick="window.ieltsApp.filterWritingTask2('Advantages & Disadvantages')">Advantages &amp; Disadvantages</button>
+          <button class="cat-filter-btn" onclick="window.ieltsApp.filterWritingTask2('Problem & Solution')">Problem &amp; Solution</button>
+          <button class="cat-filter-btn" onclick="window.ieltsApp.filterWritingTask2('Double Question')">Double Question</button>
+        </div>
+        <div class="writing-grid" id="task2-grid"></div>
+      </div>
+
+      <!-- Task 1 Container -->
+      <div id="writing-task1-container" style="display:none;">
+        <div style="margin-bottom:18px;">
+          <button class="btn alt" onclick="window.ieltsApp.switchWritingTab('hub')" style="font-weight:700; display:inline-flex; align-items:center; gap:8px;">
+            <span>&larr; Back to Writing Masterclass (4 Cards)</span>
+          </button>
+        </div>
+        <div class="sec-head" style="margin-bottom:16px;">
+          <div>
+            <h2 style="font-size:1.6rem; font-weight:800;">IELTS Liz Task 1: Academic Model Answers</h2>
+            <p>Band 9 reports covering Line graphs, Bar charts, Pie charts, Tables, Process diagrams, Maps &amp; Mixed charts.</p>
+          </div>
+        </div>
+        <div class="category-filter-bar" id="t1-filter-bar">
+          <button class="cat-filter-btn active" onclick="window.ieltsApp.filterWritingTask1('all')">All Charts (30)</button>
+          <button class="cat-filter-btn" onclick="window.ieltsApp.filterWritingTask1('Line Graph')">Line Graphs</button>
+          <button class="cat-filter-btn" onclick="window.ieltsApp.filterWritingTask1('Bar Chart')">Bar Charts</button>
+          <button class="cat-filter-btn" onclick="window.ieltsApp.filterWritingTask1('Pie Chart')">Pie Charts</button>
+          <button class="cat-filter-btn" onclick="window.ieltsApp.filterWritingTask1('Table')">Tables</button>
+          <button class="cat-filter-btn" onclick="window.ieltsApp.filterWritingTask1('Process Diagram')">Process Diagrams</button>
+          <button class="cat-filter-btn" onclick="window.ieltsApp.filterWritingTask1('Map')">Maps</button>
+          <button class="cat-filter-btn" onclick="window.ieltsApp.filterWritingTask1('Mixed Chart')">Mixed Charts</button>
+        </div>
+        <div class="writing-grid" id="task1-grid"></div>
+      </div>
+
+      <!-- Interactive Essay Simulator -->
+      <div id="writing-simulator-container" style="display:none;">
+        <div style="margin-bottom:18px;">
+          <button class="btn alt" onclick="window.ieltsApp.switchWritingTab('hub')" style="font-weight:700; display:inline-flex; align-items:center; gap:8px;">
+            <span>&larr; Back to Writing Masterclass (4 Cards)</span>
+          </button>
+        </div>
+        <div class="simulator-card">
+          <div class="sim-header">
+            <div>
+              <span class="meta-pill" style="background:#fee2e2; color:#b91c1c; font-weight:700;">Timed Writing Practice</span>
+              <h2 id="sim-prompt-title" style="margin-top:6px; font-size:1.35rem;">Select a Prompt to Begin Practice</h2>
+            </div>
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div class="timer-box" id="sim-timer">40:00</div>
+              <button class="btn main" id="sim-timer-toggle" onclick="window.ieltsApp.toggleSimTimer()">Start Timer</button>
+            </div>
+          </div>
+          <div class="sim-body">
+            <div class="sim-editor-col">
+              <label class="form-label" style="display:flex; justify-content:space-between;">
+                <span>Your Essay Response:</span>
+                <span id="sim-word-count" style="font-weight:700; color:#2563eb;">Words: 0 / 250</span>
+              </label>
+              <textarea id="sim-textarea" class="sim-textarea" placeholder="Type your full essay response here under authentic exam timing..." oninput="window.ieltsApp.updateSimWordCount()"></textarea>
+            </div>
+            <div class="sim-model-col">
+              <label class="form-label">Band 9 Model Answer for Comparison:</label>
+              <div id="sim-model-preview" class="sim-model-box">Select an essay prompt from the Task 2 or Task 1 list and click "Practice in Simulator" to compare your writing with the Band 9 benchmark.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="listening-view" class="view-screen">
+    <header class="reader-header">
+      <div class="reader-header-left">
+        <button class="home-nav-btn" onclick="window.ieltsApp.showHomeView()"><span>&larr; Back to Home</span></button>
+        <h2 style="font-size:1.15rem; font-weight:800; margin:0;">IELTS Listening Practice Masterclass</h2>
+      </div>
+      <div class="header-actions">
+        <a href="https://www.youtube.com/watch?v=gPbCBMJ4mNU&list=PLN7JCIFfqazA4hcj4fTTYyhrdXcTadpf-&index=1" target="_blank" rel="noopener noreferrer" class="social-link-btn" style="background:#2563eb; color:#fff; font-weight:700; text-decoration:none; padding:8px 18px; border-radius:8px; display:inline-flex; align-items:center; gap:8px;">
+          <span>Open YouTube Playlist</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+        </a>
+      </div>
+    </header>
+
+    <main class="wrap" style="padding-top:36px; padding-bottom:70px;">
+      <div class="media-hero-section" style="text-align:center; margin-bottom:36px;">
+        <span class="media-kicker" style="color:#2563eb; font-weight:800; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.06em;">Official Video Series &bull; Real Exam Style</span>
+        <h2 class="media-main-title" style="font-size:2.2rem; font-weight:900; color:#0f172a; margin:8px 0 12px;">IELTS Listening Practice</h2>
+        <p class="media-subtitle" style="max-width:720px; margin:0 auto; font-size:1.05rem; color:#64748b; line-height:1.6;">
+          Authentic IELTS listening test simulation with real exam-style audio, standard questions, and score improvement techniques. Click the card below to launch the complete YouTube playlist in a new tab.
+        </p>
+      </div>
+
+      <div style="max-width:860px; margin:0 auto;">
+        <!-- Single Featured Listening Card -->
+        <a href="https://www.youtube.com/watch?v=gPbCBMJ4mNU&list=PLN7JCIFfqazA4hcj4fTTYyhrdXcTadpf-&index=1" target="_blank" rel="noopener noreferrer" class="listening-launch-card" style="display:block; text-decoration:none; border-radius:20px; overflow:hidden; border:2px solid #2563eb; box-shadow:0 14px 36px rgba(37,99,235,0.12); background:#ffffff; transition:transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s;" onmouseenter="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 22px 50px rgba(37,99,235,0.2)';" onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 14px 36px rgba(37,99,235,0.12)';">
+          <!-- Sleek Pure CSS Banner with YouTube Styling -->
+          <div style="background:linear-gradient(135deg, #1e3a8a 0%, #2563eb 55%, #1d4ed8 100%); padding:54px 36px; text-align:center; position:relative; overflow:hidden;">
+            <div style="position:absolute; top:-40px; right:-40px; width:180px; height:180px; background:rgba(255,255,255,0.06); border-radius:50%;"></div>
+            <div style="position:absolute; bottom:-30px; left:-30px; width:140px; height:140px; background:rgba(255,255,255,0.06); border-radius:50%;"></div>
+            
+            <div style="display:inline-flex; align-items:center; justify-content:center; width:76px; height:76px; background:#ef4444; border-radius:50%; box-shadow:0 8px 24px rgba(239,68,68,0.45); margin-bottom:18px;">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="#ffffff" style="margin-left:4px;"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <h3 style="font-size:2rem; font-weight:900; color:#ffffff; margin:0 0 10px; letter-spacing:-0.02em;">IELTS Listening Practice Masterclass</h3>
+            <p style="font-size:1.08rem; color:#dbeafe; max-width:620px; margin:0 auto; line-height:1.6;">
+              The Official Cambridge Guide Series &bull; Real Exam Style Audio &bull; Standard Questions &bull; Band 9 Techniques
+            </p>
+          </div>
+
+          <div style="padding:24px 32px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; background:#ffffff; border-top:1px solid #e2e8f0;">
+            <div>
+              <div style="display:flex; gap:8px; margin-bottom:8px; flex-wrap:wrap;">
+                <span style="background:#fee2e2; color:#b91c1c; font-weight:800; font-size:0.8rem; padding:4px 12px; border-radius:20px; display:inline-flex; align-items:center; gap:6px;">
+                  <span style="width:7px; height:7px; background:#ef4444; border-radius:50%;"></span>
+                  YouTube Playlist
+                </span>
+                <span style="background:#eff6ff; color:#2563eb; font-weight:800; font-size:0.8rem; padding:4px 12px; border-radius:20px;">Real Exam Audio</span>
+                <span style="background:#f0fdf4; color:#16a34a; font-weight:800; font-size:0.8rem; padding:4px 12px; border-radius:20px;">40 Questions Per Test</span>
+              </div>
+              <p style="margin:0; font-size:0.95rem; color:#475569; line-height:1.5;">Click anywhere on this card to open the complete playlist in a new tab.</p>
+            </div>
+            <div>
+              <span class="btn main" style="display:inline-flex; align-items:center; gap:10px; padding:13px 26px; font-size:1.02rem; font-weight:800; border-radius:12px; background:#ef4444; border-color:#ef4444; box-shadow:0 6px 18px rgba(239,68,68,0.28);">
+                <span>Watch on YouTube</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <!-- ========================================================================
+       5B. CD IELTS LISTENING EXAM SIMULATION (#listening-exam-view)
+       ======================================================================== -->
+  <div id="listening-exam-view" class="view-screen">
+    <!-- Top Header Bar -->
+    <header class="cd-listening-header-bar">
+      <div style="display:flex; align-items:center; gap:16px;">
+        <button class="home-nav-btn" onclick="window.ieltsApp.showListeningView()" title="Exit Exam">
+          <span>← Exit Exam</span>
+        </button>
+        <div>
+          <h2 id="listening-exam-title" style="font-size:1.05rem; font-weight:800; margin:0; color:#0f172a;">Official Listening Mock Test 1</h2>
+          <span id="listening-part-label" style="font-size:0.8rem; font-weight:700; color:#2563eb;">Part 1 (Questions 1–10)</span>
+        </div>
+      </div>
+
+      <!-- Real Audio Player Controls -->
+      <div class="cd-listening-bar">
+        <button class="cd-audio-btn" id="cd-audio-play-btn" onclick="window.ieltsApp.toggleListeningAudio()" title="Play / Pause Audio">▶</button>
+        <div class="cd-audio-progress-wrap">
+          <span class="cd-audio-time" id="cd-audio-time">00:00 / 05:30</span>
+          <input type="range" min="0" max="100" value="0" class="cd-audio-slider" id="cd-audio-slider" oninput="window.ieltsApp.seekListeningAudio(this.value)">
+        </div>
+        <div class="cd-vol-wrap">
+          <span style="font-size:0.9rem;" title="Volume"></span>
+          <input type="range" min="0" max="1" step="0.1" value="1" class="cd-vol-slider" id="cd-vol-slider" oninput="window.ieltsApp.setListeningVolume(this.value)">
+        </div>
+      </div>
+
+      <!-- Countdown Timer -->
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div class="timer-box" id="listening-timer-display">30:00</div>
+        <div class="timer-controls">
+          <button class="icon-btn" id="pause-listening-timer-btn" onclick="window.ieltsApp.toggleListeningTimer()" title="Pause/Resume Timer">||</button>
+          <button class="icon-btn" id="reset-listening-timer-btn" onclick="window.ieltsApp.resetListeningTimer()" title="Reset Timer">↺</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Exam Container -->
+    <main class="wrap listening-exam-container">
+      <div class="listening-part-tabs" id="listening-part-tabs">
+        <button class="listening-part-tab-btn active" id="btn-part-tab-1" onclick="window.ieltsApp.switchListeningExamPart(1)">Part 1 (Q 1–10)</button>
+        <button class="listening-part-tab-btn" id="btn-part-tab-2" onclick="window.ieltsApp.switchListeningExamPart(2)">Part 2 (Q 11–20)</button>
+        <button class="listening-part-tab-btn" id="btn-part-tab-3" onclick="window.ieltsApp.switchListeningExamPart(3)">Part 3 (Q 21–30)</button>
+        <button class="listening-part-tab-btn" id="btn-part-tab-4" onclick="window.ieltsApp.switchListeningExamPart(4)">Part 4 (Q 31–40)</button>
+      </div>
+
+      <div id="listening-questions-container"></div>
+    </main>
+
+    <!-- CD IELTS Bottom Navigation Bar -->
+    <div class="cd-bottom-nav">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <span style="font-size:0.85rem; font-weight:700; color:#64748b;">Questions:</span>
+        <div class="cd-pills-container" id="listening-pills-container"></div>
+      </div>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <label style="display:flex; align-items:center; gap:6px; font-size:0.85rem; font-weight:700; cursor:pointer;">
+          <input type="checkbox" id="listening-review-check" onchange="window.ieltsApp.toggleListeningFlag()">
+          <span>Review</span>
+        </label>
+        <button class="btn main" onclick="window.ieltsApp.submitListeningExam()" style="padding:8px 20px; font-weight:800; border-radius:8px;">Check Answers / Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       6. SHADOWING PRACTICE (#shadowing-view) - IMAGE 1
+       ======================================================================== -->
+  <div id="shadowing-view" class="view-screen">
+    <header class="reader-header">
+      <div class="reader-header-left">
+        <button class="home-nav-btn" onclick="window.ieltsApp.showHomeView()"><span>&larr; Back to Home</span></button>
+        <h2 style="font-size:1.15rem; font-weight:800; margin:0;">IELTS Speaking &amp; Shadowing Studio</h2>
+      </div>
+      <div class="header-actions">
+        <a href="https://www.youtube.com/playlist?list=PLwCBmbp7i_KsCOSAcPDL-P0ocHzmlAySG" target="_blank" rel="noopener noreferrer" class="social-link-btn" title="Open Shadowing Playlist">
+          <span>Shadowing Playlist &rarr;</span>
+        </a>
+      </div>
+    </header>
+
+    <main class="wrap" style="padding-top:36px; padding-bottom:70px;">
+      <div class="media-hero-section">
+        <span class="media-kicker">IELTS Speaking &amp; Fluency</span>
+        <h2 class="media-main-title">Speaking &amp; Shadowing Studio</h2>
+        <p class="media-subtitle">Repeat simultaneously after native speakers to develop muscle memory, rhythm, connected speech, and master IELTS Speaking Parts 1, 2, and 3.</p>
+      </div>
+
+      <div class="media-launch-grid">
+        <!-- 1. Shadowing Practice Card (Old Card) -->
+        <a href="https://www.youtube.com/playlist?list=PLwCBmbp7i_KsCOSAcPDL-P0ocHzmlAySG" target="_blank" rel="noopener noreferrer" class="media-launch-card" id="media-card-shadowing">
+          <div class="media-img-frame">
+            <img src="assets/images/shadowing_playlist.jpg" alt="IELTS Shadowing Practice" class="media-card-img">
+            <div class="media-play-overlay">
+              <div class="media-play-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="media-content">
+            <div class="media-badge red">Official Shadowing Playlist</div>
+            <h3 class="media-card-title">English Shadowing Practice</h3>
+            <p class="media-card-desc">Click here to launch the official YouTube playlist. Practice along with native speaker dialogues designed for accent softening, natural speech rhythm, and connected speech cadence.</p>
+            <div class="media-action-row">
+              <span class="media-btn red">
+                <span>Open Shadowing Playlist</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 2. Speaking Practice Card ("Let's Talk" / Current Card) -->
+        <a href="https://www.youtube.com/playlist?list=PLWWR_9t3vo3OtrmF3BV0CUDTBs83i4iAo" target="_blank" rel="noopener noreferrer" class="media-launch-card" id="media-card-speaking">
+          <div class="media-img-frame">
+            <img src="assets/images/speaking_letstalk.jpg" alt="Let's Talk: IELTS Speaking Practice" class="media-card-img">
+            <div class="media-play-overlay">
+              <div class="media-play-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="media-content">
+            <div class="media-badge burgundy">Official Speaking Series</div>
+            <h3 class="media-card-title">Let's Talk: Speaking Practice</h3>
+            <p class="media-card-desc">Click here to launch the official Speaking video playlist. Master Part 1, 2, and 3 cue cards, natural interactive dialogue, and Band 9 spoken pronunciation techniques.</p>
+            <div class="media-action-row">
+              <span class="media-btn burgundy">
+                <span>Open Speaking Playlist</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <div id="podcast-view" class="view-screen">
+    <header class="reader-header">
+      <div class="reader-header-left">
+        <button class="home-nav-btn" onclick="window.ieltsApp.showHomeView()"><span>← Back to Home</span></button>
+        <h2 style="font-size:1.15rem; font-weight:800; margin:0;">BBC 6 Minute English &amp; TED Talks</h2>
+      </div>
+      <div class="header-actions">
+        <div class="writing-mode-tabs">
+          <button class="mode-tab-btn active" id="btn-tab-media-all" onclick="window.ieltsApp.filterMediaCards('all')">All Channels</button>
+          <button class="mode-tab-btn" id="btn-tab-media-bbc" onclick="window.ieltsApp.filterMediaCards('bbc')">BBC 6 Minute</button>
+          <button class="mode-tab-btn" id="btn-tab-media-ted" onclick="window.ieltsApp.filterMediaCards('ted')">TED Talks</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap" style="padding-top:36px; padding-bottom:70px;">
+      <div class="media-hero-section">
+        <span class="media-kicker">IELTS Active Listening &amp; Immersion</span>
+        <h2 class="media-main-title">BBC 6 Minute &amp; TED Talks Hub</h2>
+        <p class="media-subtitle">Enhance academic listening comprehension, absorb real-world vocabulary, and train your ears with British and international speakers.</p>
+      </div>
+
+      <div class="media-launch-grid">
+        <!-- 2. BBC 6 Minute English Card (Image 2) -->
+        <a href="https://www.youtube.com/playlist?list=PLcetZ6gSk96-FECmH9l7Vlx5VDigvgZpt" target="_blank" rel="noopener noreferrer" class="media-launch-card" id="media-card-bbc">
+          <div class="media-img-frame">
+            <img src="assets/images/bbc_podcast.jpg" alt="BBC 6 Minute English" class="media-card-img">
+            <div class="media-play-overlay">
+              <div class="media-play-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="media-content">
+            <div class="media-badge amber">Official BBC Playlist</div>
+            <h3 class="media-card-title">BBC 6 Minute English</h3>
+            <p class="media-card-desc">Click here to open the official BBC 6 Minute English YouTube playlist. Bite-sized discussions on intriguing topics with essential vocabulary and native British English idioms.</p>
+            <div class="media-action-row">
+              <span class="media-btn amber">
+                <span>Open BBC Playlist</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 3. TED Talks Card (Image 3) -->
+        <a href="https://www.youtube.com/@TED" target="_blank" rel="noopener noreferrer" class="media-launch-card" id="media-card-ted">
+          <div class="media-img-frame">
+            <img src="assets/images/ted_talks.jpg" alt="TED Talks Official Channel" class="media-card-img">
+            <div class="media-play-overlay">
+              <div class="media-play-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="media-content">
+            <div class="media-badge teal">Official TED Channel</div>
+            <h3 class="media-card-title">TED: Ideas Worth Spreading</h3>
+            <p class="media-card-desc">Click here to open the official TED YouTube channel. Be a good listener with world-class academic presentations, diverse global accents, and cutting-edge ideas.</p>
+            <div class="media-action-row">
+              <span class="media-btn teal">
+                <span>Open TED Channel</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <!-- ========================================================================
+       8. 60-DAY ROUTINE VIEW (#roadmap-view) - MOKTADIR'S FRAMEWORK
+       ======================================================================== -->
+  <div id="roadmap-view" class="view-screen">
+    <header class="reader-header">
+      <div class="reader-header-left">
+        <button class="home-nav-btn" onclick="window.ieltsApp.showHomeView()"><span>← Back to Home</span></button>
+        <h2 style="font-size:1.15rem; font-weight:800; margin:0;">60-Day IELTS Routine &amp; Roadmap</h2>
+      </div>
+    </header>
+
+    <main class="wrap" style="padding-top:24px; padding-bottom:60px;">
+      <div class="roadmap-progress-card" style="margin-bottom:24px;">
+        <div class="roadmap-progress-header">
+          <span class="roadmap-progress-label">সর্বমোট সম্পন্ন হয়েছে: <strong id="progress-text">০/৬০</strong> দিন</span>
+          <span class="roadmap-progress-percent" id="progress-pct">0% Complete</span>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+      </div>
+
+      <div class="category-filter-bar roadmap-filter-bar">
+        <button class="cat-filter-btn active" data-roadmap-filter="all" onclick="window.ieltsApp.filterRoadmap('all')">All 60 Days</button>
+        <button class="cat-filter-btn" data-roadmap-filter="w1" onclick="window.ieltsApp.filterRoadmap('w1')">Week 1 (1–7)</button>
+        <button class="cat-filter-btn" data-roadmap-filter="w2" onclick="window.ieltsApp.filterRoadmap('w2')">Week 2 (8–14)</button>
+        <button class="cat-filter-btn" data-roadmap-filter="w3" onclick="window.ieltsApp.filterRoadmap('w3')">Week 3 (15–21)</button>
+        <button class="cat-filter-btn" data-roadmap-filter="w4" onclick="window.ieltsApp.filterRoadmap('w4')">Week 4 (22–28)</button>
+        <button class="cat-filter-btn" data-roadmap-filter="w5" onclick="window.ieltsApp.filterRoadmap('w5')">Week 5 (29–35)</button>
+        <button class="cat-filter-btn" data-roadmap-filter="w6" onclick="window.ieltsApp.filterRoadmap('w6')">Week 6 (36–42)</button>
+        <button class="cat-filter-btn" data-roadmap-filter="w7" onclick="window.ieltsApp.filterRoadmap('w7')">Week 7 (43–49)</button>
+        <button class="cat-filter-btn" data-roadmap-filter="w8" onclick="window.ieltsApp.filterRoadmap('w8')">Week 8+ (50–60)</button>
+        <button class="cat-filter-btn" data-roadmap-filter="completed" onclick="window.ieltsApp.filterRoadmap('completed')">Completed</button>
+        <button class="cat-filter-btn" data-roadmap-filter="pending" onclick="window.ieltsApp.filterRoadmap('pending')">Pending</button>
+      </div>
+
+      <div class="calendar-grid" id="calendar-grid"></div>
+    </main>
+  </div>
+
+  <!-- ========================================================================
+       9. VOCABULARY SECTION (#vocabulary-view)
+       ======================================================================== -->
+  <div id="vocabulary-view" class="view-screen">
+    <header class="reader-header">
+      <div class="reader-header-left">
+        <button class="home-nav-btn" onclick="window.ieltsApp.showHomeView()"><span>&larr; Back to Home</span></button>
+        <h2 style="font-size:1.15rem; font-weight:800; margin:0;">IELTS Academic Vocabulary &amp; Phrasals Lab</h2>
+      </div>
+      <div class="header-actions">
+        <button class="btn alt" onclick="window.ieltsApp.openVocabCheatSheet('phrasals')" style="font-size:0.8rem; font-weight:700; padding:6px 12px;">100 Phrasal Verbs</button>
+        <button class="btn alt" onclick="window.ieltsApp.openVocabCheatSheet('idioms')" style="font-size:0.8rem; font-weight:700; padding:6px 12px;">100 Idioms</button>
+        <button class="btn alt" onclick="window.ieltsApp.openVocabCheatSheet('collocations')" style="font-size:0.8rem; font-weight:700; padding:6px 12px;">Collocations Sheet</button>
+      </div>
+    </header>
+
+    <main class="wrap" style="padding-top:24px; padding-bottom:60px;">
+      <div id="vocab-topics-section">
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:14px; padding:20px 24px; margin-bottom:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+          <div>
+            <h3 style="margin:0 0 6px; font-size:1.35rem; font-weight:800; color:#0f172a;">Topic-Wise IELTS Lexical Resource</h3>
+            <p style="margin:0; font-size:0.92rem; color:#64748b;">
+              600 Band 7.5–9.0 Academic Words, 100 Phrasal Verbs &amp; 100 Idioms organized by core exam themes.
+            </p>
+          </div>
+          <div style="width:min(100%, 320px);">
+            <input type="text" id="vocab-search-input" placeholder="Search words, meanings, idioms..." oninput="window.ieltsApp.searchVocab(this.value)" style="width:100%; padding:10px 16px; border:1.5px solid #cbd5e1; border-radius:10px; font-size:0.92rem; outline:none;" onfocus="this.style.borderColor='#2563eb'" onblur="this.style.borderColor='#cbd5e1'">
+          </div>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="category-filter-bar" id="vocab-category-filter-bar" style="margin-bottom:24px;">
+          <button class="cat-filter-btn active" data-cat-filter="all" onclick="window.ieltsApp.filterVocabCategory('all')">All Core Topics (6)</button>
+          <button class="cat-filter-btn" data-cat-filter="Education" onclick="window.ieltsApp.filterVocabCategory('Education')">Education &amp; Academia</button>
+          <button class="cat-filter-btn" data-cat-filter="Environment" onclick="window.ieltsApp.filterVocabCategory('Environment')">Environment &amp; Climate</button>
+          <button class="cat-filter-btn" data-cat-filter="Technology" onclick="window.ieltsApp.filterVocabCategory('Technology')">Technology &amp; Innovation</button>
+          <button class="cat-filter-btn" data-cat-filter="Society" onclick="window.ieltsApp.filterVocabCategory('Society')">Society &amp; Urbanization</button>
+          <button class="cat-filter-btn" data-cat-filter="Health" onclick="window.ieltsApp.filterVocabCategory('Health')">Health &amp; Wellbeing</button>
+          <button class="cat-filter-btn" data-cat-filter="Economy" onclick="window.ieltsApp.filterVocabCategory('Economy')">Economy &amp; Globalization</button>
+        </div>
+
+        <!-- Topics Grid -->
+        <div class="vocab-topic-macro-grid" id="vocab-topics-cards-grid"></div>
+      </div>
+
+      </div>
+    </main>
+  </div>
+
+  <div id="grammar-view" class="view-screen">
+    <header class="reader-header">
+      <div class="reader-header-left">
+        <button class="home-nav-btn" onclick="window.ieltsApp.showHomeView()"><span>&larr; Back to Home</span></button>
+        <h2 id="grammar-header-title" style="font-size:1.15rem; font-weight:800; margin:0;">IELTS Grammar Practice Lab</h2>
+      </div>
+      <div class="header-actions">
+        <button class="btn alt" onclick="window.ieltsApp.openVocabCheatSheet('basic_grammar')" style="font-size:0.8rem; font-weight:700; padding:6px 12px;">Parts of Speech Guide</button>
+        <button class="btn alt" onclick="window.ieltsApp.openVocabCheatSheet('time_prepositions')" style="font-size:0.8rem; font-weight:700; padding:6px 12px;">Prepositions Clock</button>
+      </div>
+    </header>
+
+    <main class="wrap" style="padding-top:24px; padding-bottom:60px;">
+      <!-- Hero Banner Card -->
+      
+
+      <!-- TIER 1: TOPIC CARDS HUB -->
+      <div id="grammar-topics-hub">
+        <div class="sec-head" style="margin-bottom:20px;">
+          <div>
+            <h2 style="font-size:1.7rem; font-weight:800; color:#0f172a; margin:0 0 6px;">5 Essential IELTS Grammar Modules</h2>
+            <p style="color:#64748b; font-size:0.95rem; margin:0;">
+              Select a grammar module below. Each topic contains <strong>10 structured exercises</strong> with <strong>20 practice questions each</strong> (200 questions per topic) including instant checking, answers, and in-depth grammatical explanations.
+            </p>
+          </div>
+        </div>
+
+        <div class="grammar-topic-cards-grid" id="grammar-topics-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:20px;"></div>
+      </div>
+
+      <!-- TIER 2: TOPIC EXERCISES VIEW (10 EXERCISE CARDS) -->
+      <div id="grammar-exercises-view" style="display:none;">
+        <div style="margin-bottom:20px;">
+          <button class="btn alt" onclick="window.ieltsApp.returnToGrammarTopics()" style="font-weight:700; display:inline-flex; align-items:center; gap:8px;">
+            <span>&larr; Back to All Grammar Topics</span>
+          </button>
+        </div>
+
+        <div id="grammar-topic-banner-box" style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:24px; margin-bottom:24px; box-shadow:0 2px 6px rgba(0,0,0,0.03);"></div>
+
+        <div class="sec-head" style="margin-bottom:18px;">
+          <div>
+            <h3 style="font-size:1.35rem; font-weight:800; color:#0f172a; margin:0 0 4px;">10 Topic Practice Exercises</h3>
+            <p style="color:#64748b; font-size:0.92rem; margin:0;">Each exercise contains 20 curated questions testing key exam patterns.</p>
+          </div>
+        </div>
+
+        <div id="grammar-exercises-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:16px;"></div>
+      </div>
+
+      <!-- TIER 3: EXERCISE PRACTICE QUESTIONS VIEW (20 QUESTIONS) -->
+      <div id="grammar-practice-view" style="display:none;">
+        <div style="margin-bottom:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+          <button class="btn alt" onclick="window.ieltsApp.returnToTopicExercises()" style="font-weight:700; display:inline-flex; align-items:center; gap:8px;">
+            <span>&larr; Back to Topic Exercises</span>
+          </button>
+          <div id="grammar-exercise-score-badge" style="background:#eff6ff; color:#1d4ed8; font-weight:800; font-size:0.95rem; padding:8px 18px; border-radius:20px; border:1.5px solid #bfdbfe;">
+            Answered: 0 / 20
+          </div>
+        </div>
+
+        <!-- Exercise Details Header -->
+        <div id="grammar-exercise-header-card" style="background:#f8fafc; border:1.5px solid #e2e8f0; border-radius:12px; padding:18px 22px; margin-bottom:24px;"></div>
+
+        <!-- Post-Submission Results Banner (Hidden until Submitted) -->
+        <div id="grammar-results-banner" style="display:none;"></div>
+
+        <!-- 20 Questions Container (10 Drag & Drop + 10 Gap-Fill) -->
+        <div id="grammar-questions-list" style="display:flex; flex-direction:column; gap:22px;"></div>
+
+        <!-- Bottom Action & Submit Bar -->
+        <div id="grammar-submit-container" style="margin-top:36px; padding:24px; background:#ffffff; border:2px solid #e2e8f0; border-radius:16px; box-shadow:0 8px 24px rgba(0,0,0,0.05); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+          <div>
+            <div id="grammar-submit-status-text" style="font-size:1.05rem; font-weight:800; color:#0f172a;">You have answered <span id="grammar-answered-count">0</span> of 20 questions</div>
+            <p style="margin:4px 0 0; font-size:0.88rem; color:#64748b;">Complete both Drag-and-Drop and Gap-Fill questions, then submit to check your final score and detailed explanations.</p>
+          </div>
+          <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+            <button class="btn alt" onclick="window.ieltsApp.returnToTopicExercises()" style="font-weight:700;">Cancel</button>
+            <button class="btn main" id="grammar-submit-btn" onclick="window.ieltsApp.submitCurrentExercise()" style="padding:14px 32px; font-size:1.05rem; font-weight:900; background:#2563eb; border-color:#2563eb; box-shadow:0 6px 18px rgba(37,99,235,0.3);">
+              <span>Submit Exercise &amp; Check Results &rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Review Mode Navigation Bar (Visible after submit) -->
+        <div id="grammar-review-nav-bar" style="display:none; margin-top:36px; padding:20px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:14px; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;">
+          <button class="btn alt" onclick="window.ieltsApp.returnToTopicExercises()" style="font-weight:700;">&larr; Return to Exercises</button>
+          <div style="display:flex; gap:10px;">
+            <button class="btn alt" onclick="window.ieltsApp.retakeCurrentExercise()" style="font-weight:700;">Retake Exercise</button>
+            <button class="btn main" onclick="window.ieltsApp.goToNextExercise()" style="font-weight:700;">Next Exercise &rarr;</button>
+          </div>
+        </div>
+      </div></div>
+    </main>
+  </div>
+
+  <!-- ========================================================================
+       MODALS: Task Details, Custom Tests, Score Results
+       ======================================================================== -->
+
+  <!-- Vocabulary Day Task Modal -->
+  <div id="vocab-day-modal" class="modal-overlay" style="display:none;" onclick="if(event.target===this) window.ieltsApp.closeVocabModal()">
+    <div class="modal-content roadmap-modal-content" style="max-width:880px;">
+      <div class="roadmap-modal-header" style="background:linear-gradient(135deg, #1e293b, #0f172a); color:#fff; padding:18px 24px;">
+        <div>
+          <span class="roadmap-modal-tag" id="vocab-modal-phase-tag" style="background:#2563eb; color:#fff;">Day 1 Routine</span>
+          <h3 id="vocab-modal-day-title" class="roadmap-modal-title" style="color:#fff; margin-top:4px;">Day 1: Education Systems &amp; Pedagogy</h3>
+        </div>
+        <button type="button" class="roadmap-modal-close" onclick="window.ieltsApp.closeVocabModal()" style="color:#fff; font-size:1.6rem; background:none; border:none; cursor:pointer; line-height:1;">&times;</button>
+      </div>
+
+      <div id="vocab-modal-body" class="task-details" style="padding:22px; max-height:72vh; overflow-y:auto;"></div>
+
+      <div class="modal-buttons roadmap-modal-footer" style="padding:16px 22px; display:flex; justify-content:space-between; align-items:center; background:#f8fafc; border-top:1px solid #e2e8f0; flex-wrap:wrap; gap:12px;">
+        <div style="display:flex; gap:8px;">
+          <button type="button" class="btn alt" onclick="window.ieltsApp.navigateVocabModal(-1)">&larr; Prev Day</button>
+          <button type="button" class="btn alt" onclick="window.ieltsApp.navigateVocabModal(1)">Next Day &rarr;</button>
+        </div>
+        <div style="display:flex; gap:10px;">
+          <button type="button" class="btn-secondary" onclick="window.ieltsApp.closeVocabModal()">Close</button>
+          <button type="button" id="vocab-complete-btn" class="roadmap-complete-btn" onclick="window.ieltsApp.toggleVocabDayComplete()">Mark as Complete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vocabulary & Grammar Resource Visual Modal -->
+  <div id="vocab-cheat-modal" class="modal-overlay" style="display:none;" onclick="if(event.target===this) window.ieltsApp.closeVocabCheatSheet()">
+    <div class="modal-content" style="max-width:880px; padding:0; overflow:hidden; border-radius:16px;">
+      <div style="padding:16px 22px; background:#1e293b; color:#fff; display:flex; justify-content:space-between; align-items:center;">
+        <h3 id="vocab-cheat-title" style="margin:0; font-size:1.15rem; font-weight:800;">Resource Sheet</h3>
+        <button type="button" onclick="window.ieltsApp.closeVocabCheatSheet()" style="background:none; border:none; color:#fff; font-size:1.6rem; cursor:pointer; line-height:1;">&times;</button>
+      </div>
+      <div style="padding:18px; text-align:center; max-height:80vh; overflow-y:auto; background:#f8fafc;">
+        <img id="vocab-cheat-img" src="" alt="Resource Sheet" style="display:none; max-width:100%; height:auto; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.12);">
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Cambridge Official Guide Reference Modal -->
+  <div id="cambridge-ref-modal" class="modal-overlay" style="display:none;" onclick="if(event.target===this) window.ieltsApp.closeCambridgeModal()">
+    <div class="modal-content roadmap-modal-content" style="max-width:820px;">
+      <div class="roadmap-modal-header" style="background:linear-gradient(135deg, #1e293b, #0f172a); color:#fff; padding:18px 24px;">
+        <div>
+          <span class="roadmap-modal-tag" style="background:#b91c1c; color:#fff;">Official Cambridge Guide Citation</span>
+          <h3 id="cambridge-modal-title" class="roadmap-modal-title" style="color:#fff; margin-top:4px;">Cambridge Practice Test Reference</h3>
+        </div>
+        <button type="button" class="roadmap-modal-close" onclick="window.ieltsApp.closeCambridgeModal()" style="color:#fff; font-size:1.6rem; background:none; border:none; cursor:pointer; line-height:1;">&times;</button>
+      </div>
+      <div id="cambridge-modal-body" class="task-details" style="padding:22px; max-height:72vh; overflow-y:auto;"></div>
+      <div class="modal-buttons roadmap-modal-footer" style="padding:16px 22px; display:flex; justify-content:flex-end; align-items:center; background:#f8fafc; border-top:1px solid #e2e8f0;">
+        <button type="button" class="btn-secondary" onclick="window.ieltsApp.closeCambridgeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+<!-- 60-Day Routine Task Modal -->
+  <div id="task-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content roadmap-modal-content">
+      <div class="roadmap-modal-header">
+        <div>
+          <span class="roadmap-modal-tag" id="modal-phase-tag">IELTS 60-Day Routine</span>
+          <h3 id="modal-day-title" class="roadmap-modal-title">Day X Task</h3>
+        </div>
+        <button type="button" class="roadmap-modal-close" onclick="window.ieltsApp.closeRoadmapModal()">&times;</button>
+      </div>
+      <div id="modal-task-details" class="task-details"></div>
+      <div class="modal-buttons roadmap-modal-footer">
+        <button type="button" class="btn-secondary" onclick="window.ieltsApp.closeRoadmapModal()">Close</button>
+        <button type="button" id="complete-task-btn" class="roadmap-complete-btn">Mark as Complete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Writing Essay Detail Modal (Image 3: Fullscreen Distraction-free View) -->
+  <div id="writing-modal" class="modal-overlay fullscreen-reader" style="display:none;" onclick="if(event.target===this) window.ieltsApp.closeWritingModal()">
+    <div class="modal-content">
+      <header class="writing-fullscreen-header">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <button class="btn alt" onclick="window.ieltsApp.closeWritingModal()" style="font-weight:700; padding:8px 16px;">← Back to Writing Gallery</button>
+          <span class="meta-pill" id="writing-modal-type" style="background:#dbeafe; color:#1d4ed8; font-weight:700;">Task 2</span>
+          <span class="meta-pill" style="background:#fee2e2; color:#b91c1c; font-weight:700;">Official Band 9.0</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <button class="btn alt" onclick="window.ieltsApp.clearAllWritingHighlights()" style="display:inline-flex; align-items:center; gap:6px; font-weight:600; padding:6px 14px;" title="Clear all text highlights in this essay">↺ Clear Highlights</button>
+          <button class="btn main" id="writing-modal-practice-btn">Practice in Simulator</button>
+          <button class="modal-close-btn" onclick="window.ieltsApp.closeWritingModal()" style="font-size:1.8rem; line-height:1;">&times;</button>
+        </div>
+      </header>
+
+      <div class="writing-fullscreen-container">
+        <h2 id="writing-modal-title" style="margin:0 0 16px 0; font-size:1.85rem; font-weight:800; line-height:1.3; color:#0f172a;">Essay Title</h2>
+        
+        <!-- Visual Question Chart / Graph for Task 1 -->
+        <div id="writing-modal-chart" style="margin-bottom:20px; display:none;"></div>
+
+        <div class="prompt-box" id="writing-modal-prompt"></div>
+
+        <div class="study-section-card" style="margin-top:24px;">
+          <div class="study-section-header">
+            <div class="study-section-title"><span> Model Band 9 Essay / Report</span> <span class="meta-pill" style="color:var(--success); font-weight:700; font-size:0.75rem; margin-left:8px;">🖍️ Select text to Highlight | Click highlight to remove</span></div>
+            <span id="writing-modal-words" style="font-weight:700; color:var(--muted);">Words: 280</span>
+          </div>
+          <div class="model-essay-text" id="writing-modal-essay"></div>
+        </div>
+
+        <div class="study-section-card" style="margin-top:24px; border-left:4px solid #10b981;">
+          <div class="study-section-header">
+            <div class="study-section-title"><span style="color:#065f46;"> Why This Achieved Band 9.0 (Scoring Breakdown)</span></div>
+          </div>
+          <div id="writing-modal-rationale" style="font-size:0.95rem; line-height:1.7; color:var(--ink);"></div>
+        </div>
+
+        <div id="writing-modal-vocab-container" style="margin-top:24px;"></div>
+
+        <div style="display:flex; justify-content:center; margin-top:36px;">
+          <button class="btn alt" onclick="window.ieltsApp.closeWritingModal()" style="padding:12px 32px; font-weight:700;">Return to Library</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Score Review Modal -->
+  <div id="score-modal" class="modal-overlay">
+    <div class="modal-content score-modal-card">
+      <div class="modal-header">
+        <h2 class="modal-title">Official IELTS Test Results</h2>
+        <button class="modal-close-btn" onclick="document.getElementById('score-modal').classList.remove('active')">&times;</button>
+      </div>
+      <div class="modal-body" id="score-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Floating Highlighter Toolbar -->
+  <div class="hl-floating-bar" id="hl-floating-bar" style="display:none;">
+    <button class="hl-btn hl-yellow" onclick="window.ieltsApp.applyHighlight('highlight-yellow')" title="Yellow Highlight">
+      <span class="color-dot dot-yellow"></span>
+      <span>Yellow</span>
+    </button>
+    <button class="hl-btn hl-green" onclick="window.ieltsApp.applyHighlight('highlight-green')" title="Green Highlight">
+      <span class="color-dot dot-green"></span>
+      <span>Green</span>
+    </button>
+    <button class="hl-btn hl-blue" onclick="window.ieltsApp.applyHighlight('highlight-blue')" title="Blue Highlight">
+      <span class="color-dot dot-blue"></span>
+      <span>Blue</span>
+    </button>
+    <div class="hl-divider"></div>
+    <button class="hl-btn hl-copy" onclick="window.ieltsApp.copySelectedText()" title="Copy Selected Text">
+      <span>Copy</span>
+    </button>
+    <button class="hl-btn hl-clear" onclick="window.ieltsApp.clearHighlight()" title="Remove Highlight">
+      <span>Clear</span>
+    </button>
+  </div>
+
+  <!-- Custom Test Uploader Modal -->
+  <div id="uploader-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">+ Add Custom Reading Passage</h3>
+        <button class="modal-close-btn" onclick="document.getElementById('uploader-modal').classList.remove('active')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="custom-test-form">
+          <div class="form-group">
+            <label class="form-label" for="custom-title">Passage Title *</label>
+            <input type="text" id="custom-title" class="form-input" placeholder="e.g. The Future of Renewable Energy" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="custom-subtitle">Subtitle / Description</label>
+            <input type="text" id="custom-subtitle" class="form-input" placeholder="e.g. An analysis of solar and wind breakthroughs">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="custom-passage-text">Passage Paragraphs * (Separate paragraphs with an empty line)</label>
+            <textarea id="custom-passage-text" class="form-textarea" placeholder="Paste full passage text here. Each empty line creates a new paragraph." required style="min-height: 180px;"></textarea>
+          </div>
+          <div class="modal-footer" style="padding:16px 0 0 0; background:transparent;">
+            <button type="button" class="btn-secondary" onclick="document.getElementById('uploader-modal').classList.remove('active')">Cancel</button>
+            <button type="submit" class="btn-primary">Save &amp; Start Test</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/crack_ielts_tests.js"></script>
+  <script src="js/reading_skills_data.js"></script>
+  <script src="js/roadmap_data.js"></script>
+  <script src="js/writing_data.js"></script>
+  <script src="js/task1_figures.js"></script>
+  <script src="js/listening_data.js"></script>
+  <script src="js/shadowing_data.js"></script>
+  <script src="js/media_data.js"></script>
+  <script src="js/vocabulary_data.js"></script>
+  <script src="js/grammar_data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+  
