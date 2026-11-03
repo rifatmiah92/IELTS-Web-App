@@ -7657,42 +7657,44 @@ input[type=text].cd-gap-input:focus,
 
 
 /* ==========================================================================
-   THEME 1: VOCABULARY TOPICS CARDS (MATCHING USER IMAGE 3X3 GRID)
-   3 Cards per row, increased height/width, reduced gap & website palette
+   USER-DEFINED TOPIC CARD STYLES (.topics-grid & .topic-card)
    ========================================================================== */
+.topics-grid,
 .vocab-topic-macro-grid {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
-  gap: 16px !important;
+  gap: 24px !important;
+  align-items: stretch !important;           /* sob card same height */
   max-width: 1240px !important;
   margin: 0 auto 36px auto !important;
   width: 100% !important;
 }
 
 @media (max-width: 1024px) {
+  .topics-grid,
   .vocab-topic-macro-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 14px !important;
+    gap: 18px !important;
   }
 }
 
 @media (max-width: 640px) {
+  .topics-grid,
   .vocab-topic-macro-grid {
     grid-template-columns: 1fr !important;
-    gap: 14px !important;
+    gap: 16px !important;
   }
 }
 
-.vocab-theme1-card {
+.vocab-flip-card.topic-card-container {
   perspective: 1200px !important;
   min-height: 350px !important;
-  height: 100% !important;
   display: flex !important;
   width: 100% !important;
   box-sizing: border-box !important;
 }
 
-.vocab-theme1-card .vocab-flip-inner {
+.vocab-flip-card.topic-card-container .vocab-flip-inner {
   position: relative !important;
   width: 100% !important;
   height: 100% !important;
@@ -7702,226 +7704,192 @@ input[type=text].cd-gap-input:focus,
   display: flex !important;
 }
 
-.vocab-theme1-card.is-completed .vocab-flip-inner {
+.vocab-flip-card.topic-card-container.is-completed .vocab-flip-inner {
   transform: rotateY(180deg) !important;
 }
 
-.vocab-theme1-front,
-.vocab-theme1-back {
-  position: relative !important;
-  width: 100% !important;
-  height: 100% !important;
-  min-height: 350px !important;
-  backface-visibility: hidden !important;
-  -webkit-backface-visibility: hidden !important;
-  border-radius: 20px !important;
-  background: #ffffff !important;
-  border: 1.5px solid #e2e8f0 !important;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06) !important;
-  overflow: hidden !important;
+.topic-card {
   display: flex !important;
   flex-direction: column !important;
+  background: linear-gradient(180deg, #fff 0%, #f4f6fa 100%) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 10px 30px rgba(20, 30, 60, .12), 0 2px 6px rgba(20, 30, 60, .06) !important;
+  overflow: hidden !important;               /* header corner clip korar jonno */
+  padding: 0 !important;                     /* card er padding 0, header flush hobe */
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
   cursor: pointer !important;
-  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease !important;
+  transition: transform 0.22s ease, box-shadow 0.22s ease !important;
   box-sizing: border-box !important;
+  width: 100% !important;
+  height: 100% !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
 }
 
-.vocab-theme1-front:hover {
+.topic-card:hover {
   transform: translateY(-5px) !important;
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12) !important;
-  border-color: #cbd5e1 !important;
+  box-shadow: 0 16px 36px rgba(20, 30, 60, .16), 0 4px 10px rgba(20, 30, 60, .08) !important;
 }
 
-.vocab-theme1-back {
+.topic-card-back {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
   transform: rotateY(180deg) !important;
   background: #f0fdf4 !important;
   border-color: #86efac !important;
 }
 
-/* Top Colored Ribbon Header */
-.vocab-theme1-top {
-  height: 58px !important;
-  width: 100% !important;
+/* header */
+.topic-head {
   position: relative !important;
   display: flex !important;
   align-items: center !important;
-  padding: 0 18px !important;
   gap: 12px !important;
+  padding: 16px 20px 26px !important;
+  color: #fff !important;
+  background: linear-gradient(90deg, var(--c1), var(--c2)) !important;
+  /* niche soft curve */
+  border-radius: 0 0 28px 28px / 0 0 18px 18px !important;
   box-sizing: border-box !important;
-  border-top-left-radius: 20px !important;
-  border-top-right-radius: 20px !important;
-  flex-shrink: 0 !important;
 }
 
-/* White Circle Disc Number Badge */
-.vocab-theme1-num-badge {
-  width: 42px !important;
-  height: 42px !important;
-  min-width: 42px !important;
-  border-radius: 50% !important;
-  background: #ffffff !important;
+.topic-num {
   font-family: 'Bricolage Grotesque', sans-serif !important;
-  font-size: 1.25rem !important;
-  font-weight: 900 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16) !important;
-  border: 2px solid rgba(255, 255, 255, 0.95) !important;
-  flex-shrink: 0 !important;
-  position: static !important;
-  transform: none !important;
-}
-
-.vocab-theme1-top-info {
-  flex: 1 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  overflow: hidden !important;
-}
-
-.vocab-theme1-top-title {
+  font-size: 28px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  background: none !important;
+  width: auto !important;
+  height: auto !important;   /* circle remove */
   color: #ffffff !important;
+}
+
+.topic-title {
+  margin: 0 !important;
   font-family: 'Bricolage Grotesque', sans-serif !important;
-  font-size: 1.05rem !important;
-  font-weight: 800 !important;
-  line-height: 1.2 !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-}
-
-.vocab-theme1-top-cat {
-  color: rgba(255, 255, 255, 0.88) !important;
-  font-size: 0.72rem !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.08em !important;
-  line-height: 1.2 !important;
-}
-
-.vocab-theme1-top-icon {
-  font-size: 1.3rem !important;
-  opacity: 0.95 !important;
-}
-
-/* White Card Content Body */
-.vocab-theme1-body {
-  padding: 22px 22px 20px !important;
-  display: flex !important;
-  flex-direction: column !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
   flex: 1 !important;
-  justify-content: space-between !important;
-  text-align: left !important;
-  box-sizing: border-box !important;
+  color: #ffffff !important;
 }
 
-.vocab-theme1-title {
-  font-family: 'Bricolage Grotesque', sans-serif !important;
-  font-size: 1.28rem !important;
-  font-weight: 800 !important;
-  color: #0f172a !important;
-  margin: 0 0 8px !important;
-  line-height: 1.32 !important;
-  text-align: left !important;
-}
-
-.vocab-theme1-desc {
-  font-size: 0.88rem !important;
-  color: #475569 !important;
-  font-style: normal !important;
-  line-height: 1.48 !important;
-  margin: 0 0 16px !important;
-  text-align: left !important;
-}
-
-.vocab-theme1-chips {
-  display: flex !important;
-  gap: 6px !important;
-  justify-content: flex-start !important;
-  flex-wrap: wrap !important;
-  margin-bottom: 16px !important;
-}
-
-.vocab-theme1-chip {
-  background: #f1f5f9 !important;
-  color: #334155 !important;
-  font-size: 0.75rem !important;
-  font-weight: 700 !important;
-  padding: 4px 9px !important;
-  border-radius: 6px !important;
-}
-
-.vocab-theme1-chip.band {
-  font-weight: 800 !important;
-}
-
-/* Front Status Row */
-.vocab-theme1-status-row {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  padding-top: 14px !important;
-  border-top: 1px solid #f1f5f9 !important;
-  margin-top: auto !important;
-  width: 100% !important;
-}
-
-.vocab-theme1-status-btn {
+.topic-icon {
+  width: 24px !important;
+  height: 24px !important;
+  opacity: .9 !important;
   display: inline-flex !important;
   align-items: center !important;
-  gap: 7px !important;
-  padding: 7px 16px !important;
-  border-radius: 999px !important;
-  font-size: 0.82rem !important;
+  justify-content: center !important;
+  color: #ffffff !important;
+}
+
+/* body */
+.topic-body {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  padding: 18px 22px 22px !important;
+  box-sizing: border-box !important;
+  text-align: left !important;
+}
+
+.topic-label {
+  font-size: 11px !important;
   font-weight: 800 !important;
+  letter-spacing: .12em !important;
+  color: var(--c1) !important;               /* second card er "INFOGRAPHIC" er moto */
+  text-transform: uppercase !important;
+  margin-bottom: 2px !important;
+}
+
+.topic-body h4 {
+  margin: 6px 0 8px !important;
+  font-family: 'Bricolage Grotesque', sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  line-height: 1.3 !important;
+}
+
+.keywords {
+  color: #64748b !important;
+  font-size: 14px !important;
+  margin: 0 0 14px !important;
+  line-height: 1.48 !important;
+}
+
+.tags {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin-bottom: 14px !important;
+}
+
+.tags span {
+  background: #eef1f6 !important;
+  border-radius: 8px !important;
+  padding: 4px 10px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #334155 !important;
+}
+
+/* footer sob somoy niche thakbe */
+.topic-foot {
+  margin-top: auto !important;               /* faka jayga fix */
+  padding-top: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  border-top: 1px solid #e6e9f0 !important;
+}
+
+.topic-foot a {
+  white-space: nowrap !important;           /* "Explore →" wrap hobe na */
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #1e293b !important;
+  text-decoration: none !important;
+  transition: transform 0.15s ease, color 0.15s ease !important;
+}
+
+.topic-foot a:hover {
+  color: var(--c1) !important;
+  transform: translateX(3px) !important;
+}
+
+.topic-foot .status {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 6px 14px !important;
+  border-radius: 999px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
   cursor: pointer !important;
+  background: #ffffff !important;
+  color: #475569 !important;
+  border: 1.5px solid #cbd5e1 !important;
   transition: all 0.15s ease !important;
   outline: none !important;
 }
 
-.vocab-theme1-status-btn.is-pending {
-  background: #f8fafc !important;
-  color: #475569 !important;
-  border: 1.5px solid #cbd5e1 !important;
-}
-
-.vocab-theme1-status-btn.is-pending:hover {
+.topic-foot .status:hover {
   background: #eff6ff !important;
   color: #1d4ed8 !important;
   border-color: #93c5fd !important;
 }
 
-.vocab-theme1-status-btn.is-done {
+.topic-foot .status.is-done {
   background: #dcfce7 !important;
   color: #15803d !important;
-  border: 1.5px solid #86efac !important;
+  border-color: #86efac !important;
 }
 
-.vocab-theme1-status-btn.is-done:hover {
+.topic-foot .status.is-done:hover {
   background: #fee2e2 !important;
   color: #b91c1c !important;
   border-color: #fca5a5 !important;
 }
-
-.vocab-theme1-status-btn .status-icon {
-  font-size: 0.95rem !important;
-  font-weight: 900 !important;
-}
-
-.vocab-theme1-explore-link {
-  font-size: 0.85rem !important;
-  font-weight: 800 !important;
-  color: #64748b !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 4px !important;
-  transition: all 0.15s ease !important;
-}
-
-.vocab-theme1-front:hover .vocab-theme1-explore-link {
-  color: #0f172a !important;
-  transform: translateX(3px) !important;
-}
-

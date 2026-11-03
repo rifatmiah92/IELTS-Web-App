@@ -3262,18 +3262,42 @@
 
     // Palette matching Image 1: Yellow/Orange, Green, Cyan/Blue, Magenta/Pink
     const themePalettes = [
-      // 1. Crimson Velvet (Website Editorial --hi: #6C151E / #8B1E2D)
-      { topBg: 'linear-gradient(135deg, #8B1E2D, #6C151E)', text: '#8B1E2D', tag: '#FDF2F4', border: '#FECDD3', icon: '📖' },
-      // 2. Deep Pine Teal (Website Editorial --ink: #0F3D3A / #134B45)
-      { topBg: 'linear-gradient(135deg, #134B45, #0F3D3A)', text: '#134B45', tag: '#F0F9F8', border: '#A7F3D0', icon: '💡' },
-      // 3. Warm Amber Gold (Website Editorial --t4 & Amber #D97706)
-      { topBg: 'linear-gradient(135deg, #D97706, #B45309)', text: '#B45309', tag: '#FEF3C7', border: '#FDE68A', icon: '🎯' },
-      // 4. Cambridge Navy Blue (Website Cambridge #1E3A8A)
-      { topBg: 'linear-gradient(135deg, #1E3A8A, #1D4ED8)', text: '#1E3A8A', tag: '#EFF6FF', border: '#BFDBFE', icon: '🔍' },
-      // 5. Rose Velvet / Terracotta (Website --t3: #EBCBC6 & #9F2B48)
-      { topBg: 'linear-gradient(135deg, #9F2B48, #7F1D38)', text: '#7F1D38', tag: '#FFF1F2', border: '#FFE4E6', icon: '⚡' },
-      // 6. Forest Emerald (Website --t2: #CFE0DA & #2D6A4F)
-      { topBg: 'linear-gradient(135deg, #2D6A4F, #1B4332)', text: '#1B4332', tag: '#ECFDF5', border: '#A7F3D0', icon: '🌿' }
+      // 1. Crimson Velvet (User's snippet: #8b1a2b -> #c0392b)
+      {
+        c1: '#8b1a2b',
+        c2: '#c0392b',
+        icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>'
+      },
+      // 2. Deep Pine Teal (Website --ink: #0f3d3a -> #166e66)
+      {
+        c1: '#0f3d3a',
+        c2: '#166e66',
+        icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-7 7c0 2.5 1.5 4.5 3 6h8c1.5-1.5 3-3.5 3-6a7 7 0 0 0-7-7z"/></svg>'
+      },
+      // 3. Warm Amber Gold (Website --t4: #b45309 -> #d97706)
+      {
+        c1: '#b45309',
+        c2: '#d97706',
+        icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>'
+      },
+      // 4. Cambridge Navy Blue (Website Cambridge: #1e3a8a -> #2563eb)
+      {
+        c1: '#1e3a8a',
+        c2: '#2563eb',
+        icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>'
+      },
+      // 5. Rose Quartz Velvet (Website --t3: #7f1d38 -> #9f2b48)
+      {
+        c1: '#7f1d38',
+        c2: '#9f2b48',
+        icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>'
+      },
+      // 6. Forest Jade Emerald (Website --t2: #1b4332 -> #2d6a4f)
+      {
+        c1: '#1b4332',
+        c2: '#2d6a4f',
+        icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>'
+      }
     ];
 
     let html = '';
@@ -3284,63 +3308,51 @@
       const isDone = completed.includes(day.day);
       const wordsPreview = (day.words || []).slice(0, 4).map(function(w) { return w.word; }).join(', ');
 
-      html += '<div class="vocab-flip-card vocab-theme1-card ' + (isDone ? 'is-completed' : '') + '" id="vocab-card-' + day.day + '">' +
+      html += '<div class="vocab-flip-card topic-card-container ' + (isDone ? 'is-completed' : '') + '" id="vocab-card-' + day.day + '">' +
         '<div class="vocab-flip-inner">' +
-          // FRONT FACE (Matching User Image: Colored ribbon with left circular number badge & white body)
-          '<div class="vocab-flip-front vocab-theme1-front" onclick="window.ieltsApp.openVocabDayModal(' + day.day + ')">' +
-            // Colored Header Ribbon
-            '<div class="vocab-theme1-top" style="background:' + p.topBg + ';">' +
-              '<div class="vocab-theme1-num-badge" style="color:' + p.text + ';">' + (day.day < 10 ? '0' + day.day : day.day) + '</div>' +
-              '<div class="vocab-theme1-top-info">' +
-                '<span class="vocab-theme1-top-title">Topic ' + (day.day < 10 ? '0' + day.day : day.day) + '</span>' +
-                '<span class="vocab-theme1-top-cat">' + escapeHtml(day.category || 'IELTS Core') + '</span>' +
+          // FRONT (Exact structure requested by user)
+          '<article class="topic-card topic-card-front" style="--c1:' + p.c1 + '; --c2:' + p.c2 + ';" onclick="window.ieltsApp.openVocabDayModal(' + day.day + ')">' +
+            '<header class="topic-head">' +
+              '<span class="topic-num">' + (day.day < 10 ? '0' + day.day : day.day) + '</span>' +
+              '<h3 class="topic-title">Topic ' + (day.day < 10 ? '0' + day.day : day.day) + '</h3>' +
+              '<span class="topic-icon">' + p.icon + '</span>' +
+            '</header>' +
+            '<div class="topic-body">' +
+              '<span class="topic-label">' + escapeHtml((day.category || 'IELTS Core').toUpperCase()) + '</span>' +
+              '<h4>' + escapeHtml(day.theme) + '</h4>' +
+              '<p class="keywords">' + escapeHtml(wordsPreview) + '...</p>' +
+              '<div class="tags">' +
+                '<span>10 Words</span>' +
+                '<span>3 Phrasals</span>' +
+                '<span>2 Idioms</span>' +
+                '<span style="color:var(--c1); font-weight:800; background:#fef2f2;">Band 7.5-9.0</span>' +
               '</div>' +
-              '<span class="vocab-theme1-top-icon">' + p.icon + '</span>' +
-            '</div>' +
-            // White Card Content Body
-            '<div class="vocab-theme1-body">' +
-              '<div>' +
-                '<h3 class="vocab-theme1-title">' + escapeHtml(day.theme) + '</h3>' +
-                '<p class="vocab-theme1-desc">' + escapeHtml(wordsPreview) + '...</p>' +
-                '<div class="vocab-theme1-chips">' +
-                  '<span class="vocab-theme1-chip">10 Words</span>' +
-                  '<span class="vocab-theme1-chip">3 Phrasals</span>' +
-                  '<span class="vocab-theme1-chip">2 Idioms</span>' +
-                  '<span class="vocab-theme1-chip band" style="color:' + p.text + '; background:' + p.tag + ';">Band 7.5-9.0</span>' +
-                '</div>' +
-              '</div>' +
-              '<div class="vocab-theme1-status-row">' +
-                '<button type="button" class="vocab-theme1-status-btn ' + (isDone ? 'is-done' : 'is-pending') + '" onclick="event.stopPropagation(); ' + (isDone ? 'window.ieltsApp.markVocabIncomplete(' + day.day + ')' : 'window.ieltsApp.markVocabComplete(' + day.day + ')') + '">' +
-                  '<span class="status-icon">' + (isDone ? '✓' : '○') + '</span>' +
-                  '<span>' + (isDone ? 'Completed' : 'Incomplete') + '</span>' +
+              '<footer class="topic-foot">' +
+                '<button type="button" class="status ' + (isDone ? 'is-done' : '') + '" onclick="event.stopPropagation(); ' + (isDone ? 'window.ieltsApp.markVocabIncomplete(' + day.day + ')' : 'window.ieltsApp.markVocabComplete(' + day.day + ')') + '">' +
+                  (isDone ? '✓ Completed' : 'Incomplete') +
                 '</button>' +
-                '<span class="vocab-theme1-explore-link">Explore &rarr;</span>' +
-              '</div>' +
+                '<a href="#" onclick="event.preventDefault(); event.stopPropagation(); window.ieltsApp.openVocabDayModal(' + day.day + ')">Explore &rarr;</a>' +
+              '</footer>' +
             '</div>' +
-          '</div>' +
-          // BACK FACE (Celebratory 3D Flip Back Face)
-          '<div class="vocab-flip-back vocab-theme1-back" onclick="window.ieltsApp.openVocabDayModal(' + day.day + ')">' +
-            '<div class="vocab-theme1-top" style="background:linear-gradient(135deg, #15803d, #166534);">' +
-              '<div class="vocab-theme1-num-badge" style="color:#15803d;">✓</div>' +
-              '<div class="vocab-theme1-top-info">' +
-                '<span class="vocab-theme1-top-title">Topic ' + (day.day < 10 ? '0' + day.day : day.day) + '</span>' +
-                '<span class="vocab-theme1-top-cat">Mastered</span>' +
-              '</div>' +
-              '<span class="vocab-theme1-top-icon">🎉</span>' +
-            '</div>' +
-            '<div class="vocab-theme1-body" style="text-align:center;">' +
-              '<div>' +
-                '<div style="font-size:2.4rem; line-height:1; margin:8px 0 6px;">🎉</div>' +
-                '<span style="background:#dcfce7; color:#15803d; font-size:0.78rem; font-weight:800; padding:4px 12px; border-radius:999px; display:inline-block; margin-bottom:10px;">TOPIC COMPLETED</span>' +
-                '<h3 class="vocab-theme1-title" style="color:#065f46; font-size:1.2rem; text-align:center; margin-bottom:8px;">' + escapeHtml(day.theme) + '</h3>' +
-                '<p style="font-size:0.88rem; color:#166534; margin:0 0 16px; line-height:1.5;">All 15 Band 8.0-9.0 lexical items, collocations and phrasal verbs mastered for this topic.</p>' +
-              '</div>' +
-              '<div style="display:flex; justify-content:center; gap:10px; margin-top:auto; padding-top:14px; border-top:1px solid #dcfce7;">' +
+          '</article>' +
+          // BACK (Completed celebratory 3D face)
+          '<article class="topic-card topic-card-back" style="--c1:#15803d; --c2:#16a34a;" onclick="window.ieltsApp.openVocabDayModal(' + day.day + ')">' +
+            '<header class="topic-head">' +
+              '<span class="topic-num">✓</span>' +
+              '<h3 class="topic-title">Topic ' + (day.day < 10 ? '0' + day.day : day.day) + '</h3>' +
+              '<span class="topic-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>' +
+            '</header>' +
+            '<div class="topic-body" style="text-align:center;">' +
+              '<span class="topic-label" style="color:#15803d;">COMPLETED &amp; MASTERED</span>' +
+              '<h4 style="color:#065f46;">' + escapeHtml(day.theme) + '</h4>' +
+              '<p class="keywords" style="color:#166534;">All 15 Band 8.0-9.0 lexical items, phrasals &amp; collocations mastered for this topic.</p>' +
+              '<div style="font-size:2.2rem; margin:8px 0;">🎉</div>' +
+              '<footer class="topic-foot" style="justify-content:center; gap:12px;">' +
                 '<button type="button" class="btn" style="background:#15803d; color:#fff; border:none; padding:8px 18px; font-size:0.85rem; font-weight:700; border-radius:8px;" onclick="event.stopPropagation(); window.ieltsApp.openVocabDayModal(' + day.day + ')">Review Topic</button>' +
                 '<button type="button" class="btn alt" style="background:#fff; color:#dc2626; border:1px solid #fca5a5; padding:8px 14px; font-size:0.82rem; font-weight:700; border-radius:8px;" onclick="event.stopPropagation(); window.ieltsApp.markVocabIncomplete(' + day.day + ')">↺ Mark Incomplete</button>' +
-              '</div>' +
+              '</footer>' +
             '</div>' +
-          '</div>' +
+          '</article>' +
         '</div>' +
       '</div>';
     });
