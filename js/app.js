@@ -2885,6 +2885,15 @@
     filter = filter || currentReadingFilter || 'all';
     search = (search !== undefined ? search : currentReadingSearch) || '';
 
+    const pastelClasses = [
+      'card-pastel-sand',
+      'card-pastel-mint',
+      'card-pastel-rose',
+      'card-pastel-yellow',
+      'card-pastel-lavender',
+      'card-pastel-ice'
+    ];
+
     const filtered = OFFICIAL_26_TESTS.filter(function(t) {
       let matchesPart = true;
       if (filter === 'p1') matchesPart = (t.part === 1);
@@ -2902,36 +2911,29 @@
 
     let html = '';
     filtered.forEach(function(card, idx) {
+      const pastelClass = pastelClasses[idx % pastelClasses.length];
+      const partTagColor = card.part === 1 ? '#0284c7' : (card.part === 2 ? '#059669' : '#b91c1c');
+      const partTagBg = card.part === 1 ? 'rgba(2, 132, 199, 0.12)' : (card.part === 2 ? 'rgba(5, 150, 105, 0.12)' : 'rgba(185, 28, 28, 0.12)');
       const testUrl = 'ielts reading/ielts-mock-tests/Test' + card.num + '.html';
 
-      html += '<div class="official-test-card">' +
-        '<div class="official-card-header">' +
-          '<span class="official-paper-badge">CAMBRIDGE MOCK ' + card.num + '</span>' +
-          '<span class="official-passage-badge part-' + card.part + '">PASSAGE ' + card.part + '</span>' +
+      html += '<div class="editorial-practice-card ' + pastelClass + '">' +
+        '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">' +
+          '<span style="font-size:0.8rem; font-weight:800; color:#1d4ed8; letter-spacing:0.5px;">OFFICIAL MOCK TEST</span>' +
+          '<span style="font-size:0.75rem; font-weight:800; padding:3px 10px; border-radius:6px; background:' + partTagBg + '; color:' + partTagColor + ';">PASSAGE ' + card.part + '</span>' +
         '</div>' +
-        '<div class="official-card-title">' + escapeHtml(card.title) + '</div>' +
-        '<div class="official-card-specs">' +
-          '<span class="spec-item">' +
-            '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>' +
-            '<span>20 Mins</span>' +
-          '</span>' +
-          '<span class="spec-dot">&bull;</span>' +
-          '<span class="spec-item">' +
-            '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>' +
-            '<span>' + card.range + '</span>' +
-          '</span>' +
-          '<span class="spec-dot">&bull;</span>' +
-          '<span class="spec-item">Scanned Paper</span>' +
+        '<div class="card-number-display">' + card.num + '</div>' +
+        '<div class="card-label-kicker">EXAM PASSAGE TITLE</div>' +
+        '<div class="card-title-display" style="font-size:1.18rem; font-weight:800; margin-bottom:10px; line-height:1.4;">' + escapeHtml(card.title) + '</div>' +
+        '<div style="font-size:0.86rem; color:#334155; line-height:1.55; margin-bottom:18px; background:rgba(255,255,255,0.7); padding:10px 14px; border-radius:10px; border:1px solid rgba(0,0,0,0.06);">' +
+          '<div style="font-weight:700; color:#0f172a; margin-bottom:4px; display:flex; align-items:center; gap:6px;">' +
+            '<span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#2563eb;"></span>' +
+            '<span>' + card.range + ' &bull; 20 Minutes &bull; Answer Sheet</span>' +
+          '</div>' +
+          '<div style="font-size:0.82rem; color:#64748b;">' + escapeHtml(card.summary) + '</div>' +
         '</div>' +
-        '<p class="official-card-summary">' + escapeHtml(card.summary) + '</p>' +
-        '<div class="official-card-actions">' +
-          '<button class="official-btn-start" onclick="window.ieltsApp.openReadingMockTest(\'' + card.num + '\')">' +
-            '<span>Start Mock Test</span>' +
-            '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' +
-          '</button>' +
-          '<a href="' + testUrl + '" target="_blank" rel="noopener noreferrer" class="official-btn-link" title="Open full test in dedicated tab">' +
-            '<span>Full Screen</span> &nearr;' +
-          '</a>' +
+        '<div class="card-actions-row" style="display:flex; gap:10px; flex-wrap:wrap;">' +
+          '<button class="editorial-btn-start primary-burgundy" style="flex:1; min-width:140px;" onclick="window.ieltsApp.openReadingMockTest(\'' + card.num + '\')">Start Mock Test</button>' +
+          '<a href="' + testUrl + '" target="_blank" rel="noopener noreferrer" class="btn alt" style="display:inline-flex; align-items:center; justify-content:center; text-decoration:none; padding:10px 14px; font-weight:700; border-radius:10px; font-size:13px; color:#1e293b; border:1px solid #cbd5e1; background:#fff;">Open Full &nearr;</a>' +
         '</div>' +
       '</div>';
     });
@@ -3029,30 +3031,32 @@
     level = level || 'all';
     const filtered = level === 'all' ? passages : passages.filter(function(p){ return p.level === level; });
 
+    const pastelClasses = [
+      'card-pastel-sand',
+      'card-pastel-mint',
+      'card-pastel-rose',
+      'card-pastel-yellow',
+      'card-pastel-lavender',
+      'card-pastel-ice'
+    ];
+
     let html = '';
     filtered.forEach(function(p, idx) {
+      const pastelClass = pastelClasses[idx % pastelClasses.length];
       const numStr = (idx + 1 < 10 ? '0' : '') + (idx + 1);
       const lvl = (p.level || 'easy').toUpperCase();
+      const isFirst = (idx === 0);
+      const btnClass = isFirst ? 'editorial-btn-start primary-burgundy' : 'editorial-btn-start';
 
-      html += '<div class="official-test-card">' +
-        '<div class="official-card-header">' +
-          '<span class="official-paper-badge">SKILL DRILL ' + numStr + '</span>' +
-          '<span class="official-passage-badge part-1">' + lvl + '</span>' +
-        '</div>' +
-        '<div class="official-card-title">' + escapeHtml(p.title) + '</div>' +
-        '<div class="official-card-specs">' +
-          '<span class="spec-item">' + (p.wordCount || 350) + ' Words</span>' +
-          '<span class="spec-dot">&bull;</span>' +
-          '<span class="spec-item">Vocab Notes</span>' +
-          '<span class="spec-dot">&bull;</span>' +
-          '<span class="spec-item">A1-A2 Summary</span>' +
-        '</div>' +
-        '<p class="official-card-summary">Targeted passage drill to build skimming, scanning, and vocabulary comprehension.</p>' +
-        '<div class="official-card-actions">' +
-          '<button class="official-btn-start" onclick="window.ieltsApp.showReaderView(\'' + p.id + '\')">' +
-            '<span>Read Passage</span>' +
-            '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' +
-          '</button>' +
+      html += '<div class="editorial-practice-card ' + pastelClass + '">' +
+        '<div class="card-label-kicker">SKILL DRILL NUMBER</div>' +
+        '<div class="card-number-display">' + numStr + '</div>' +
+        '<div class="card-label-kicker">PASSAGE TITLE</div>' +
+        '<div class="card-title-display">' + escapeHtml(p.title) + '</div>' +
+        '<div class="card-label-kicker">DIFFICULTY &amp; VOCAB NOTES</div>' +
+        '<div class="card-meta-text">' + lvl + ' • ' + (p.wordCount || 350) + ' Words • Paragraph Notes &amp; Summary</div>' +
+        '<div class="card-actions-row">' +
+          '<button class="' + btnClass + '" onclick="window.ieltsApp.showReaderView(\'' + p.id + '\')">Read Passage</button>' +
         '</div>' +
       '</div>';
     });
