@@ -2441,55 +2441,35 @@ html, body {
    ========================================================================== */
 
 :root {
-  /* ========================================================================
-     COLOR COMBINATION MATCHING USER FIRST IMAGE
-     Rich Crimson Velvet, Warm Almond Cream & Deep Forest Pine Teal
-     ======================================================================== */
-  --bg: #FAF2E6;              /* Warm Almond Cream Canvas */
-  --surface: #FFFDF9;         /* Crisp Warm Cream Card Surface */
-  --surface-cream: #F8E6CE;   /* Exact warm cream card from "Think Plan Execute" */
-  --ink: #0E3532;             /* Deep Pine Teal-Black high-contrast ink */
-  --muted: #46605C;           /* Readable Pine-tinted Slate text */
-  --line: #E8D5BF;            /* Soft warm almond line */
-
-  /* Primary Rich Crimson Velvet (from Image 1 top card) */
-  --hi: #991D38;              /* Rich Crimson Velvet */
-  --hi-hover: #7E1529;        /* Deep Velvet hover */
-  --hi-ink: #FAF0DF;          /* Warm Almond Cream on Crimson */
-  --hi-subtle: #F6D8DF;       /* Soft Crimson blush */
-
-  /* Deep Pine Forest Teal (from Image 1 foundation bottom layer) */
-  --deep: #134B45;            /* Deep Pine Forest Teal */
-  --deep-ink: #FAF0DF;        /* Warm Cream on Pine Teal */
-
-  /* Amulet Blue (from Image 1 hanging evil eye charm) */
-  --amulet: #2563EB;
-  --amulet-subtle: #EFF6FF;
-
-  /* Card Pastel Tints */
-  --t1: #F8E6CE;              /* Warm Almond Cream (matching image 1 card) */
-  --t2: #D1E5E1;              /* Pine Teal Mist */
-  --t3: #F2D5DA;              /* Crimson Velvet Blush */
-  --t4: #F8ECD5;              /* Warm Wheat Gold */
+  --bg: #FBF1E4;
+  --surface: #FFF9F1;
+  --ink: #0F3D3A;
+  --muted: #4A5F5B;
+  --line: #E6CFB3;
+  --hi: #6C151E;
+  --hi-ink: #F5DABF;
+  --deep: #0F3D3A;
+  --deep-ink: #F5DABF;
+  --t1: #F5DABF;
+  --t2: #CFE0DA;
+  --t3: #EBCBC6;
+  --t4: #EFE6C9;
 }
 
 body.theme-dark {
-  --bg: #092320;              /* Deep Pine Teal Night */
-  --surface: #0E3632;         /* Elevated Pine Teal Surface */
-  --surface-cream: #144540;
-  --ink: #FAF0DF;             /* Almond Cream text */
-  --muted: #B8CFCB;           /* Soft sage muted text */
-  --line: #1D4F4A;            /* Pine Slate border */
-  --hi: #E03554;              /* Vibrant Velvet Rose */
-  --hi-hover: #F43F5E;
-  --hi-ink: #092320;
-  --hi-subtle: rgba(224, 53, 84, 0.2);
-  --deep: #FAF0DF;
-  --deep-ink: #092320;
-  --t1: #4A1A22;
-  --t2: #0C3834;
-  --t3: #3F1920;
-  --t4: #1B453E;
+  --bg: #0B2B29;
+  --surface: #0F3D3A;
+  --ink: #F5DABF;
+  --muted: #C9B59E;
+  --line: #245955;
+  --hi: #F5DABF;
+  --hi-ink: #6C151E;
+  --deep: #F5DABF;
+  --deep-ink: #6C151E;
+  --t1: #4A1A20;
+  --t2: #134A46;
+  --t3: #3A1B1F;
+  --t4: #1A4A3E;
 }
 
 body {
@@ -2654,91 +2634,38 @@ header.top {
   background: var(--surface);
 }
 
-/* Photo Frame - Refined Luxury Editorial Framing (Matching Image 1) */
+/* Photo Frame */
 .photo {
   position: relative;
   justify-self: center;
-  width: min(100%, 340px);
-  margin: 0 auto;
+  width: min(100%, 360px);
 }
 
-/* Layer 1: Symmetrical Crimson Velvet Glow Backdrop */
+.photo label {
+  display: block;
+  cursor: pointer;
+  aspect-ratio: 4 / 5;
+  border-radius: 190px 190px 22px 22px;
+  background: var(--t1);
+  border: 2px solid var(--ink);
+  overflow: hidden;
+  position: relative;
+}
+
 .photo::before {
   content: "";
   position: absolute;
-  inset: -8px -8px -8px -8px;
-  border-radius: 140px 140px 30px 30px;
-  background: linear-gradient(150deg, #991D38 0%, #6C151E 100%);
-  box-shadow: 0 18px 40px rgba(153, 29, 56, 0.35), 0 4px 12px rgba(15, 61, 58, 0.2);
-  z-index: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.photo:hover::before {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 24px 48px rgba(153, 29, 56, 0.42);
-}
-
-.photo .photo-frame,
-.photo label {
-  display: block;
-  position: relative;
-  z-index: 1;
-  cursor: pointer;
-  aspect-ratio: 4 / 5;
-  border-radius: 132px 132px 24px 24px;
-  background: var(--t1);
-  border: 3.5px solid var(--surface-cream, #F8E6CE);
-  overflow: hidden;
-  box-shadow: inset 0 0 0 1px rgba(15, 61, 58, 0.15), 0 8px 20px rgba(0, 0, 0, 0.18);
+  inset: 18px -16px -16px 18px;
+  border-radius: 190px 190px 22px 22px;
+  background: var(--hi);
+  z-index: -1;
 }
 
 .photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 15%;
-  display: block;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.photo:hover img {
-  transform: scale(1.04);
-}
-
-/* Floating verified trainer badge */
-.photo-verified-badge {
-  position: absolute;
-  bottom: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(15, 61, 58, 0.92);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: #FFF9F1;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  white-space: nowrap;
-  border: 1px solid rgba(248, 230, 206, 0.35);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-  z-index: 2;
-  transition: all 0.2s ease;
-}
-
-.photo-verified-badge svg {
-  width: 14px;
-  height: 14px;
-  color: #38BDF8;
-}
-
-.photo:hover .photo-verified-badge {
-  background: rgba(153, 29, 56, 0.95);
-  border-color: rgba(255, 255, 255, 0.5);
+  display: none;
 }
 
 .photo .ph {
@@ -2752,7 +2679,6 @@ header.top {
   text-align: center;
   padding: 30px;
   color: var(--ink);
-  z-index: 1;
 }
 
 .photo .ph svg {
@@ -2799,7 +2725,6 @@ header.top {
   border: 0;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  z-index: 3;
 }
 
 .photo.has .change {
@@ -2807,37 +2732,19 @@ header.top {
 }
 
 .name-tag {
-  margin-top: 24px;
+  margin-top: 34px;
   text-align: center;
   font-family: "Bricolage Grotesque", sans-serif;
-  font-weight: 800;
-  font-size: 22px;
-  color: var(--ink);
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .name-tag small {
   display: block;
   font-family: "Source Sans 3", sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--muted);
   font-size: 15px;
-  margin-top: 3px;
-}
-
-.name-tag-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 8px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  padding: 4px 12px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--hi);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 /* Sections */
@@ -6855,250 +6762,5 @@ input[type=text].cd-gap-input:focus,
   .yt-resources-grid {
     grid-template-columns: 1fr !important;
     gap: 14px !important;
-  }
-}
-
-/* ==========================================================================
-   DAILY MOTIVATION & EXAM MINDSET SECTION (#motivation)
-   Featuring User Never Give Up Artwork & Image 1 Palette
-   ========================================================================== */
-.motivation-section {
-  padding: 24px 0 36px;
-}
-
-.motivation-card {
-  background: var(--deep);
-  color: var(--deep-ink);
-  border-radius: 28px;
-  padding: 40px 44px;
-  display: grid;
-  grid-template-columns: 290px 1fr;
-  gap: 40px;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 16px 36px rgba(15, 61, 58, 0.25), 0 2px 6px rgba(0, 0, 0, 0.1);
-  border: 2px solid rgba(248, 230, 206, 0.22);
-}
-
-.motivation-card::before {
-  content: "";
-  position: absolute;
-  top: -80px;
-  right: -80px;
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(153, 29, 56, 0.4) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.motivation-artwork-col {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.motivation-art-frame {
-  position: relative;
-  width: 100%;
-  max-width: 270px;
-  aspect-ratio: 9 / 16;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.45), 0 0 0 2.5px rgba(248, 230, 206, 0.35);
-  background: #000000;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.motivation-art-frame:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 24px 44px rgba(0, 0, 0, 0.55), 0 0 0 3px rgba(153, 29, 56, 0.7);
-}
-
-.motivation-art-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.motivation-art-badge {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  background: rgba(15, 61, 58, 0.9);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: #FFF9F1;
-  padding: 5px 12px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  border: 1px solid rgba(248, 230, 206, 0.3);
-}
-
-.motivation-art-badge .m-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #E11D48;
-  box-shadow: 0 0 0 2px rgba(225, 29, 72, 0.4);
-}
-
-.motivation-content-col {
-  display: flex;
-  flex-direction: column;
-}
-
-.motivation-kicker {
-  margin-bottom: 12px;
-}
-
-.m-pill {
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  color: var(--hi-ink);
-  background: var(--hi);
-  padding: 4px 12px;
-  border-radius: 999px;
-  display: inline-block;
-}
-
-.motivation-title {
-  font-size: clamp(26px, 3.2vw, 38px);
-  font-weight: 800;
-  color: var(--deep-ink);
-  line-height: 1.18;
-  margin: 0 0 16px;
-  letter-spacing: -0.02em;
-}
-
-.motivation-quote-box {
-  background: rgba(248, 230, 206, 0.12);
-  border-left: 4px solid var(--hi);
-  border-radius: 0 14px 14px 0;
-  padding: 12px 18px;
-  margin-bottom: 16px;
-}
-
-.quote-amulet {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.amulet-charm {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #2563EB;
-  box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #2563EB;
-}
-
-.quote-words {
-  font-family: "Bricolage Grotesque", sans-serif;
-  font-weight: 800;
-  font-size: 19px;
-  color: var(--deep-ink);
-  letter-spacing: 0.5px;
-}
-
-.quote-sub {
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  color: var(--hi-ink);
-  margin: 2px 0 0 18px;
-  opacity: 0.9;
-}
-
-.motivation-desc {
-  font-size: 15.5px;
-  line-height: 1.6;
-  opacity: 0.92;
-  margin: 0 0 20px;
-  max-width: 62ch;
-}
-
-.motivation-stats-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 24px;
-}
-
-.m-chip {
-  background: rgba(248, 230, 206, 0.15);
-  border: 1px solid rgba(248, 230, 206, 0.25);
-  color: var(--deep-ink);
-  font-size: 12.5px;
-  font-weight: 600;
-  padding: 5px 12px;
-  border-radius: 8px;
-}
-
-.motivation-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.m-btn {
-  background: var(--hi);
-  color: var(--hi-ink);
-  border-color: var(--hi);
-}
-
-.m-btn:hover {
-  background: #7E1529;
-  transform: translateY(-2px);
-}
-
-.m-btn-alt {
-  background: rgba(248, 230, 206, 0.12);
-  color: var(--deep-ink);
-  border: 1px solid rgba(248, 230, 206, 0.35);
-}
-
-.m-btn-alt:hover {
-  background: rgba(248, 230, 206, 0.25);
-}
-
-@media (max-width: 860px) {
-  .motivation-card {
-    grid-template-columns: 1fr;
-    padding: 32px 24px;
-    gap: 28px;
-    text-align: center;
-  }
-  .motivation-artwork-col {
-    order: -1;
-  }
-  .motivation-art-frame {
-    max-width: 220px;
-  }
-  .motivation-quote-box {
-    border-left: none;
-    border-top: 3px solid var(--hi);
-    border-radius: 0 0 12px 12px;
-  }
-  .quote-amulet {
-    justify-content: center;
-  }
-  .quote-sub {
-    margin-left: 0;
-  }
-  .motivation-stats-chips {
-    justify-content: center;
-  }
-  .motivation-actions {
-    justify-content: center;
   }
 }
