@@ -491,7 +491,7 @@ const ROADMAP_TASKS = {
 
                 <div style="margin-bottom: 15px;">
 
-                    <strong>Day 10: Reading Comprehension & True/False/Not Given ‍</strong><br>
+                    <strong>Day 10: Reading Comprehension & True/False/Not Given </strong><br>
 
                     পড়ে গভীরভাবে বোঝার ক্ষমতা (Comprehension) বৃদ্ধি করার দিন আজ।
 
@@ -937,7 +937,7 @@ const ROADMAP_TASKS = {
 
                     <input type="checkbox" id="d17-t4" class="task-checkbox">
 
-                    <label for="d17-t4" class="task-label"><strong>Task 4:</strong> স্পিকিং পার্ট ১ এর ১০টি র‍্যান্ডম প্রশ্ন নিয়ে (যেমন: ফুড, মিউজিক, শপিং) দ্রুত উত্তর দেওয়ার প্র্যাকটিস করুন। কোনো উত্তরের জন্য বেশি ভাবা যাবে না।</label>
+                    <label for="d17-t4" class="task-label"><strong>Task 4:</strong> স্পিকিং পার্ট ১ এর ১০টি র্যান্ডম প্রশ্ন নিয়ে (যেমন: ফুড, মিউজিক, শপিং) দ্রুত উত্তর দেওয়ার প্র্যাকটিস করুন। কোনো উত্তরের জন্য বেশি ভাবা যাবে না।</label>
 
                 </div>
 
@@ -1149,7 +1149,7 @@ const ROADMAP_TASKS = {
 
                 <div style="margin-bottom: 15px;">
 
-                    <strong>Day 21: Speaking Mock & Reading Marathon ‍</strong><br>
+                    <strong>Day 21: Speaking Mock & Reading Marathon </strong><br>
 
                     আজ পড়ার স্পিড এবং টানা কথা বলার স্ট্যামিনা বাড়ানোর দিন।
 
@@ -1317,7 +1317,7 @@ const ROADMAP_TASKS = {
 
                     <input type="checkbox" id="d23-t5" class="task-checkbox">
 
-                    <label for="d23-t5" class="task-label"><strong>Task 5:</strong> Speaking Part 1 এর ৫টি র‍্যান্ডম প্রশ্নের উত্তর দিন এবং ফোনে রেকর্ড করুন।</label>
+                    <label for="d23-t5" class="task-label"><strong>Task 5:</strong> Speaking Part 1 এর ৫টি র্যান্ডম প্রশ্নের উত্তর দিন এবং ফোনে রেকর্ড করুন।</label>
 
                 </div>
 
@@ -1831,7 +1831,7 @@ const ROADMAP_TASKS = {
 
                 <div style="margin-bottom: 15px;">
 
-                    <strong>Day 32: Writing Marathon & Sentence Variation ‍</strong><br>
+                    <strong>Day 32: Writing Marathon & Sentence Variation </strong><br>
 
                     আজ আমরা লেখার স্পিড এবং বাক্যের বৈচিত্র্য (Variations) বাড়ানোর ওপর জোর দেবো।
 
@@ -1893,7 +1893,7 @@ const ROADMAP_TASKS = {
 
                 <div style="margin-bottom: 15px;">
 
-                    <strong>Day 33: Reading Tricky Questions & Listening Section 1 ‍</strong><br>
+                    <strong>Day 33: Reading Tricky Questions & Listening Section 1 </strong><br>
 
                     রিডিংয়ের কিছু বিরক্তিকর প্রশ্ন এবং লিসেনিংয়ের সহজ সেকশনে ফুল মার্কস নিশ্চিত করার প্র্যাকটিস।
 
@@ -2273,7 +2273,7 @@ const ROADMAP_TASKS = {
 
                 <div style="margin-bottom: 15px;">
 
-                    <strong>Day 39: The Reading Marathon (3 Passages) ‍</strong><br>
+                    <strong>Day 39: The Reading Marathon (3 Passages) </strong><br>
 
                     আজ টানা ১ ঘণ্টা শুধু রিডিং টেস্ট হবে। মনোযোগ না হারানোই আজকের চ্যালেঞ্জ।
 
@@ -2805,7 +2805,7 @@ const ROADMAP_TASKS = {
 
                     <input type="checkbox" id="d47-t4" class="task-checkbox">
 
-                    <label for="d47-t4" class="task-label"><strong>Task 4: Speaking Part 2 Mastery:</strong> ৩টি র‍্যান্ডম কিউ কার্ড নিন। প্রতিটির জন্য ১ মিনিট নোট নিন এবং ঠিক ২ মিনিট কথা বলুন (টানা ৩টি সলভ করুন)।</label>
+                    <label for="d47-t4" class="task-label"><strong>Task 4: Speaking Part 2 Mastery:</strong> ৩টি র্যান্ডম কিউ কার্ড নিন। প্রতিটির জন্য ১ মিনিট নোট নিন এবং ঠিক ২ মিনিট কথা বলুন (টানা ৩টি সলভ করুন)।</label>
 
                 </div>
 
@@ -2831,7 +2831,7 @@ const ROADMAP_TASKS = {
 
                 <div style="margin-bottom: 15px;">
 
-                    <strong>Day 48: Section 3 & 4 Drill & Advanced Reading ‍</strong><br>
+                    <strong>Day 48: Section 3 & 4 Drill & Advanced Reading </strong><br>
 
                     লিসেনিং এবং রিডিংয়ের সবচেয়ে কঠিন অংশগুলো নিয়ে ইনটেনসিভ ড্রিলিং।
 
@@ -3203,7 +3203,7 @@ const ROADMAP_TASKS = {
 
                 <div style="margin-bottom: 15px;">
 
-                    <strong>Day 54: The Double Marathon (Extreme Stamina Builder) ‍</strong><br>
+                    <strong>Day 54: The Double Marathon (Extreme Stamina Builder) </strong><br>
 
                     পরীক্ষার হলে ব্রেইন যেন জ্যাম না হয়ে যায়, সেজন্য আজ চরম প্রেসার নেওয়ার দিন।
 
@@ -3543,7 +3543,7 @@ const ROADMAP_TASKS = {
 
                 <div style="margin-bottom: 15px;">
 
-                    <strong>Day 60: The Exam Eve - Relax & Prepare ‍</strong><br>
+                    <strong>Day 60: The Exam Eve - Relax & Prepare </strong><br>
 
                     আপনার ৬০ দিনের অসাধারণ পরিশ্রমের শেষ দিন। আজ কোনো পড়ালেখা নেই, শুধু এক্সামের জন্য নিজেকে প্রস্তুত করা।
 

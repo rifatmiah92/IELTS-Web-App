@@ -2425,42 +2425,43 @@
       });
     }
 
-    // Palette matching Image 3: Slate Blue, Warm Orange, Crimson Red, Royal Purple, Forest Green
-    const theme3Colors = [
-      { bg: '#335370', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>' },
-      { bg: '#e67e22', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>' },
-      { bg: '#c0392b', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' },
-      { bg: '#5c4db1', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>' },
-      { bg: '#27ae60', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>' }
+    const stepColors = [
+      { name: 'crimson', bg: '#8B1E2D', light: '#FDF2F4', text: '#6C151E', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>' },
+      { name: 'teal', bg: '#134B45', light: '#F0F9F8', text: '#0F3D3A', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>' },
+      { name: 'amber', bg: '#C05621', light: '#FDF6EC', text: '#9C4221', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>' },
+      { name: 'navy', bg: '#1E3A8A', light: '#EFF6FF', text: '#1E3A8A', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>' },
+      { name: 'forest', bg: '#2D6A4F', light: '#F0FDF4', text: '#1E4633', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>' }
     ];
 
     let html = '';
     items.forEach(function(essay, idx) {
-      const c = theme3Colors[idx % theme3Colors.length];
+      const c = stepColors[idx % stepColors.length];
       const numStr = (idx + 1 < 10 ? '0' : '') + (idx + 1);
-      const promptSnippet = (essay.prompt || '').length > 130 ? essay.prompt.substring(0, 130) + '...' : essay.prompt;
+      const promptSnippet = (essay.prompt || '').length > 140 ? essay.prompt.substring(0, 140) + '...' : essay.prompt;
 
-      html += '<div class="writing-theme3-card" onclick="window.ieltsApp.openWritingModal(\'' + essay.id + '\')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();window.ieltsApp.openWritingModal(\'' + essay.id + '\');}" role="button" tabindex="0" title="Click to view Band 9 model essay & analysis">' +
-        // Left Light Block with Number & Curved Sweep
-        '<div class="writing-theme3-left">' +
-          '<span class="writing-theme3-num">' + numStr + '</span>' +
-          '<span class="writing-theme3-tag">TASK 2</span>' +
+      html += '<div class="reading-step-card writing-step-card" onclick="window.ieltsApp.openWritingModal(\'' + essay.id + '\')">' +
+        '<div class="reading-step-left" style="background:' + c.bg + ';">' +
+          '<span class="reading-step-lbl">task 2</span>' +
+          '<span class="reading-step-num">' + numStr + '</span>' +
+          '<div class="reading-step-perforation"></div>' +
         '</div>' +
-        // Right Colored Body with Content & Icon Divider
-        '<div class="writing-theme3-right" style="background:' + c.bg + ';">' +
-          '<div class="writing-theme3-content">' +
-            '<div class="writing-theme3-type-chip">' + escapeHtml(essay.type || 'Task 2 Essay') + ' &bull; ' + escapeHtml(essay.bandScore || 'Band 9.0') + '</div>' +
-            '<h3 class="writing-theme3-title">' + escapeHtml(essay.title || essay.topic || 'IELTS Advantage Model Essay') + '</h3>' +
-            '<p class="writing-theme3-snippet">' + escapeHtml(promptSnippet) + '</p>' +
-            '<div class="writing-theme3-meta">' +
-              '<span>' + (essay.wordCount || 265) + ' Words</span>' +
-              '<span>&bull;</span>' +
-              '<span>Band 9 Explanation &amp; Vocabulary Included</span>' +
-            '</div>' +
+        '<div class="reading-step-right">' +
+          '<div class="reading-step-icon-badge" style="background:' + c.bg + ';" title="' + escapeHtml(essay.type || 'Task 2') + '">' +
+            '<span>' + c.icon + '</span>' +
           '</div>' +
-          '<div class="writing-theme3-divider"></div>' +
-          '<div class="writing-theme3-icon-col">' +
-            '<span class="writing-theme3-icon">' + c.icon + '</span>' +
+          '<div class="reading-step-header-tag" style="color:' + c.text + ';">' +
+            '<span>' + escapeHtml(essay.type || 'Task 2 Essay') + ' &bull; ' + escapeHtml(essay.bandScore || 'Band 9.0') + ' Model</span>' +
+          '</div>' +
+          '<h3 class="reading-step-title">' + escapeHtml(essay.title || essay.topic || 'IELTS Advantage Model Essay') + '</h3>' +
+          '<p class="reading-step-desc">' + escapeHtml(promptSnippet) + '</p>' +
+          '<div class="reading-step-meta-chips">' +
+            '<span class="reading-chip">' + (essay.wordCount || 265) + ' Words</span>' +
+            '<span class="reading-chip" style="background:' + c.light + '; color:' + c.text + ';">Band 9 Vocabulary Included</span>' +
+          '</div>' +
+          '<div class="reading-step-actions">' +
+            '<button class="reading-step-btn-start" style="background:' + c.bg + ';" onclick="event.stopPropagation(); window.ieltsApp.openWritingModal(\'' + essay.id + '\')">' +
+              '<span>View Model Essay &rarr;</span>' +
+            '</button>' +
           '</div>' +
         '</div>' +
       '</div>';
@@ -2494,47 +2495,49 @@
       });
     }
 
-    const theme3Colors = [
-      { bg: '#335370', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>' },
-      { bg: '#e67e22', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>' },
-      { bg: '#c0392b', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>' },
-      { bg: '#5c4db1', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>' },
-      { bg: '#27ae60', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>' }
+    const stepColors = [
+      { name: 'crimson', bg: '#8B1E2D', light: '#FDF2F4', text: '#6C151E', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>' },
+      { name: 'teal', bg: '#134B45', light: '#F0F9F8', text: '#0F3D3A', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>' },
+      { name: 'amber', bg: '#C05621', light: '#FDF6EC', text: '#9C4221', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>' },
+      { name: 'navy', bg: '#1E3A8A', light: '#EFF6FF', text: '#1E3A8A', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>' },
+      { name: 'forest', bg: '#2D6A4F', light: '#F0FDF4', text: '#1E4633', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>' }
     ];
 
     let html = '';
     items.forEach(function(report, idx) {
-      const c = theme3Colors[idx % theme3Colors.length];
+      const c = stepColors[idx % stepColors.length];
       const numStr = (idx + 1 < 10 ? '0' : '') + (idx + 1);
-      const promptSnippet = (report.prompt || '').length > 130 ? report.prompt.substring(0, 130) + '...' : report.prompt;
+      const promptSnippet = (report.prompt || '').length > 140 ? report.prompt.substring(0, 140) + '...' : report.prompt;
 
-      html += '<div class="writing-theme3-card" onclick="window.ieltsApp.openWritingModal(\'' + report.id + '\')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();window.ieltsApp.openWritingModal(\'' + report.id + '\');}" role="button" tabindex="0" title="Click to view Band 9 model report & analysis">' +
-        // Left Light Block with Number & Curved Sweep
-        '<div class="writing-theme3-left">' +
-          '<span class="writing-theme3-num">' + numStr + '</span>' +
-          '<span class="writing-theme3-tag">TASK 1</span>' +
+      html += '<div class="reading-step-card writing-step-card" onclick="window.ieltsApp.openWritingModal(\'' + report.id + '\')">' +
+        '<div class="reading-step-left" style="background:' + c.bg + ';">' +
+          '<span class="reading-step-lbl">task 1</span>' +
+          '<span class="reading-step-num">' + numStr + '</span>' +
+          '<div class="reading-step-perforation"></div>' +
         '</div>' +
-        // Right Colored Body with Content & Icon Divider
-        '<div class="writing-theme3-right" style="background:' + c.bg + ';">' +
-          '<div class="writing-theme3-content">' +
-            '<div class="writing-theme3-type-chip">' + escapeHtml(report.type || 'Task 1 Report') + ' &bull; Band 9.0 Model</div>' +
-            '<h3 class="writing-theme3-title">' + escapeHtml(report.title || 'IELTS Liz Task 1') + '</h3>' +
-            '<p class="writing-theme3-snippet">' + escapeHtml(promptSnippet) + '</p>' +
-            '<div class="writing-theme3-meta">' +
-              '<span>' + (report.wordCount || 185) + ' Words</span>' +
-              '<span>&bull;</span>' +
-              '<span>Band 9 Overview &amp; Scored Features</span>' +
-            '</div>' +
+        '<div class="reading-step-right">' +
+          '<div class="reading-step-icon-badge" style="background:' + c.bg + ';" title="' + escapeHtml(report.type || 'Task 1') + '">' +
+            '<span>' + c.icon + '</span>' +
           '</div>' +
-          '<div class="writing-theme3-divider"></div>' +
-          '<div class="writing-theme3-icon-col">' +
-            '<span class="writing-theme3-icon">' + c.icon + '</span>' +
+          '<div class="reading-step-header-tag" style="color:' + c.text + ';">' +
+            '<span>' + escapeHtml(report.type || 'Task 1 Report') + ' &bull; Band 9.0 Model</span>' +
+          '</div>' +
+          '<h3 class="reading-step-title">' + escapeHtml(report.title || 'IELTS Liz Task 1') + '</h3>' +
+          '<p class="reading-step-desc">' + escapeHtml(promptSnippet) + '</p>' +
+          '<div class="reading-step-meta-chips">' +
+            '<span class="reading-chip">' + (report.wordCount || 185) + ' Words</span>' +
+            '<span class="reading-chip" style="background:' + c.light + '; color:' + c.text + ';">Band 9 Vocabulary Included</span>' +
+          '</div>' +
+          '<div class="reading-step-actions">' +
+            '<button class="reading-step-btn-start" style="background:' + c.bg + ';" onclick="event.stopPropagation(); window.ieltsApp.openWritingModal(\'' + report.id + '\')">' +
+              '<span>View Model Report &rarr;</span>' +
+            '</button>' +
           '</div>' +
         '</div>' +
       '</div>';
     });
 
-    grid.innerHTML = html || '<p style="padding:40px; color:#64748b; text-align:center;">No model reports found.</p>';
+    grid.innerHTML = html || '<p style="padding:40px; color:#64748b; text-align:center;">No reports found.</p>';
   }
 
   function openWritingModal(itemId) {
@@ -2960,7 +2963,7 @@
           '<h3 class="reading-step-title">' + escapeHtml(card.title) + '</h3>' +
           '<p class="reading-step-desc">' + escapeHtml(card.summary) + '</p>' +
           '<div class="reading-step-meta-chips">' +
-            '<span class="reading-chip">⏱ 20 Mins</span>' +
+            '<span class="reading-chip">20 Mins</span>' +
             '<span class="reading-chip">Q ' + card.range + '</span>' +
             '<span class="reading-chip" style="background:' + c.light + '; color:' + c.text + ';">Live Timer &amp; Answers</span>' +
           '</div>' +
@@ -3070,32 +3073,44 @@
     level = level || 'all';
     const filtered = level === 'all' ? passages : passages.filter(function(p){ return p.level === level; });
 
-    const pastelClasses = [
-      'card-pastel-sand',
-      'card-pastel-mint',
-      'card-pastel-rose',
-      'card-pastel-yellow',
-      'card-pastel-lavender',
-      'card-pastel-ice'
+    const stepColors = [
+      { name: 'crimson', bg: '#8B1E2D', light: '#FDF2F4', text: '#6C151E', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>' },
+      { name: 'teal', bg: '#134B45', light: '#F0F9F8', text: '#0F3D3A', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-7 7c0 2.5 1.5 4.5 3 6h8c1.5-1.5 3-3.5 3-6a7 7 0 0 0-7-7z"/></svg>' },
+      { name: 'amber', bg: '#C05621', light: '#FDF6EC', text: '#9C4221', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>' },
+      { name: 'navy', bg: '#1E3A8A', light: '#EFF6FF', text: '#1E3A8A', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>' },
+      { name: 'forest', bg: '#2D6A4F', light: '#F0FDF4', text: '#1E4633', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>' }
     ];
 
     let html = '';
     filtered.forEach(function(p, idx) {
-      const pastelClass = pastelClasses[idx % pastelClasses.length];
+      const c = stepColors[idx % stepColors.length];
       const numStr = (idx + 1 < 10 ? '0' : '') + (idx + 1);
       const lvl = (p.level || 'easy').toUpperCase();
-      const isFirst = (idx === 0);
-      const btnClass = isFirst ? 'editorial-btn-start primary-burgundy' : 'editorial-btn-start';
 
-      html += '<div class="editorial-practice-card ' + pastelClass + '">' +
-        '<div class="card-label-kicker">SKILL DRILL NUMBER</div>' +
-        '<div class="card-number-display">' + numStr + '</div>' +
-        '<div class="card-label-kicker">PASSAGE TITLE</div>' +
-        '<div class="card-title-display">' + escapeHtml(p.title) + '</div>' +
-        '<div class="card-label-kicker">DIFFICULTY &amp; VOCAB NOTES</div>' +
-        '<div class="card-meta-text">' + lvl + ' • ' + (p.wordCount || 350) + ' Words • Paragraph Notes &amp; Summary</div>' +
-        '<div class="card-actions-row">' +
-          '<button class="' + btnClass + '" onclick="window.ieltsApp.showReaderView(\'' + p.id + '\')">Read Passage</button>' +
+      html += '<div class="reading-step-card reading-drill-card" onclick="window.ieltsApp.showReaderView(\'' + p.id + '\')">' +
+        '<div class="reading-step-left" style="background:' + c.bg + ';">' +
+          '<span class="reading-step-lbl">drill</span>' +
+          '<span class="reading-step-num">' + numStr + '</span>' +
+          '<div class="reading-step-perforation"></div>' +
+        '</div>' +
+        '<div class="reading-step-right">' +
+          '<div class="reading-step-icon-badge" style="background:' + c.bg + ';" title="' + lvl + '">' +
+            '<span>' + c.icon + '</span>' +
+          '</div>' +
+          '<div class="reading-step-header-tag" style="color:' + c.text + ';">' +
+            '<span>SKILL DRILL ' + numStr + ' &bull; ' + lvl + '</span>' +
+          '</div>' +
+          '<h3 class="reading-step-title">' + escapeHtml(p.title) + '</h3>' +
+          '<p class="reading-step-desc">' + escapeHtml((p.summary || p.lead || 'Practice reading comprehension, speed, paragraph notes and vocabulary building.').substring(0, 140)) + '...</p>' +
+          '<div class="reading-step-meta-chips">' +
+            '<span class="reading-chip">' + (p.wordCount || 350) + ' Words</span>' +
+            '<span class="reading-chip" style="background:' + c.light + '; color:' + c.text + ';">Paragraph Notes &amp; Summary</span>' +
+          '</div>' +
+          '<div class="reading-step-actions">' +
+            '<button class="reading-step-btn-start" style="background:' + c.bg + ';" onclick="event.stopPropagation(); window.ieltsApp.showReaderView(\'' + p.id + '\')">' +
+              '<span>Read Passage &rarr;</span>' +
+            '</button>' +
+          '</div>' +
         '</div>' +
       '</div>';
     });
