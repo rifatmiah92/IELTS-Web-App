@@ -1444,7 +1444,7 @@
     if (dom.flagToggleBtn) {
       dom.flagToggleBtn.classList.toggle('flagged', isFlagged);
       dom.flagToggleBtn.classList.toggle('active', isFlagged);
-      dom.flagToggleBtn.innerHTML = isFlagged ? '🚩 Flagged' : '🏳 Review';
+      dom.flagToggleBtn.innerHTML = isFlagged ? 'Flagged' : 'Review';
     }
     const qEl = document.getElementById(`question-item-${state.currentQuestionNumber}`);
     if (qEl) {
@@ -2427,11 +2427,11 @@
 
     // Palette matching Image 3: Slate Blue, Warm Orange, Crimson Red, Royal Purple, Forest Green
     const theme3Colors = [
-      { bg: '#335370', icon: '✉️' },
-      { bg: '#e67e22', icon: '🌐' },
-      { bg: '#c0392b', icon: '💬' },
-      { bg: '#5c4db1', icon: '🕒' },
-      { bg: '#27ae60', icon: '📊' }
+      { bg: '#335370', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>' },
+      { bg: '#e67e22', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>' },
+      { bg: '#c0392b', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' },
+      { bg: '#5c4db1', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>' },
+      { bg: '#27ae60', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>' }
     ];
 
     let html = '';
@@ -2449,7 +2449,7 @@
         // Right Colored Body with Content & Icon Divider
         '<div class="writing-theme3-right" style="background:' + c.bg + ';">' +
           '<div class="writing-theme3-content">' +
-            '<div class="writing-theme3-type-chip">' + escapeHtml(essay.type || 'Task 2 Essay') + ' &bull; ★ ' + escapeHtml(essay.bandScore || 'Band 9.0') + '</div>' +
+            '<div class="writing-theme3-type-chip">' + escapeHtml(essay.type || 'Task 2 Essay') + ' &bull; ' + escapeHtml(essay.bandScore || 'Band 9.0') + '</div>' +
             '<h3 class="writing-theme3-title">' + escapeHtml(essay.title || essay.topic || 'IELTS Advantage Model Essay') + '</h3>' +
             '<p class="writing-theme3-snippet">' + escapeHtml(promptSnippet) + '</p>' +
             '<div class="writing-theme3-meta">' +
@@ -2495,11 +2495,11 @@
     }
 
     const theme3Colors = [
-      { bg: '#335370', icon: '📊' },
-      { bg: '#e67e22', icon: '📈' },
-      { bg: '#c0392b', icon: '🗺️' },
-      { bg: '#5c4db1', icon: '⚙️' },
-      { bg: '#27ae60', icon: '🥧' }
+      { bg: '#335370', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>' },
+      { bg: '#e67e22', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>' },
+      { bg: '#c0392b', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>' },
+      { bg: '#5c4db1', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>' },
+      { bg: '#27ae60', icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>' }
     ];
 
     let html = '';
@@ -2517,7 +2517,7 @@
         // Right Colored Body with Content & Icon Divider
         '<div class="writing-theme3-right" style="background:' + c.bg + ';">' +
           '<div class="writing-theme3-content">' +
-            '<div class="writing-theme3-type-chip">' + escapeHtml(report.type || 'Task 1 Report') + ' &bull; ★ Band 9.0 Model</div>' +
+            '<div class="writing-theme3-type-chip">' + escapeHtml(report.type || 'Task 1 Report') + ' &bull; Band 9.0 Model</div>' +
             '<h3 class="writing-theme3-title">' + escapeHtml(report.title || 'IELTS Liz Task 1') + '</h3>' +
             '<p class="writing-theme3-snippet">' + escapeHtml(promptSnippet) + '</p>' +
             '<div class="writing-theme3-meta">' +
@@ -2629,7 +2629,7 @@
     if (vocabContainer) {
       if (found.keyVocabulary && found.keyVocabulary.length > 0) {
         let vocabHtml = '<div class="study-section-card" style="margin-top:24px; border-left:4px solid #3b82f6;">' +
-          '<div class="study-section-header"><div class="study-section-title"><span style="color:#1d4ed8; font-weight:800;">🔑 Key Band 9 Vocabulary & Collocations</span></div></div>' +
+          '<div class="study-section-header"><div class="study-section-title"><span style="color:#1d4ed8; font-weight:800;">Key Band 9 Vocabulary & Collocations</span></div></div>' +
           '<div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">';
         found.keyVocabulary.forEach(function(word) {
           vocabHtml += '<span style="background:#eff6ff; color:#1d4ed8; padding:6px 12px; border-radius:8px; font-weight:700; font-size:0.88rem; border:1px solid #bfdbfe;">' + escapeHtml(word) + '</span>';
@@ -2929,11 +2929,11 @@
 
     // Theme matching Image 2: Step/Ticket card layout with perforated notch & top-right icon badge
     const stepColors = [
-      { name: 'crimson', bg: '#8B1E2D', light: '#FDF2F4', text: '#6C151E', icon: '📖' },
-      { name: 'teal', bg: '#134B45', light: '#F0F9F8', text: '#0F3D3A', icon: '💡' },
-      { name: 'amber', bg: '#C05621', light: '#FDF6EC', text: '#9C4221', icon: '🎯' },
-      { name: 'navy', bg: '#1E3A8A', light: '#EFF6FF', text: '#1E3A8A', icon: '🔍' },
-      { name: 'forest', bg: '#2D6A4F', light: '#F0FDF4', text: '#1E4633', icon: '⚡' }
+      { name: 'crimson', bg: '#8B1E2D', light: '#FDF2F4', text: '#6C151E', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>' },
+      { name: 'teal', bg: '#134B45', light: '#F0F9F8', text: '#0F3D3A', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-7 7c0 2.5 1.5 4.5 3 6h8c1.5-1.5 3-3.5 3-6a7 7 0 0 0-7-7z"/></svg>' },
+      { name: 'amber', bg: '#C05621', light: '#FDF6EC', text: '#9C4221', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>' },
+      { name: 'navy', bg: '#1E3A8A', light: '#EFF6FF', text: '#1E3A8A', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>' },
+      { name: 'forest', bg: '#2D6A4F', light: '#F0FDF4', text: '#1E4633', icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>' }
     ];
 
     let html = '';
@@ -3253,7 +3253,7 @@
 
     if (filteredDays.length === 0) {
       grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:50px 20px; background:#fff; border-radius:14px; border:1px solid #e2e8f0; color:#64748b;">' +
-        '<div style="font-size:1.8rem; margin-bottom:8px;">🔍</div>' +
+        
         '<h4 style="font-size:1.15rem; font-weight:800; color:#0f172a; margin:0 0 6px;">No Vocabulary Topics Found</h4>' +
         '<p style="margin:0; font-size:0.92rem;">Try clearing your search query or selecting another topic filter.</p>' +
       '</div>';
@@ -3307,54 +3307,33 @@
       const p = themePalettes[idx % themePalettes.length];
       const isDone = completed.includes(day.day);
       const wordsPreview = (day.words || []).slice(0, 4).map(function(w) { return w.word; }).join(', ');
+      const numStr = (day.day < 10 ? '0' : '') + day.day;
 
-      html += '<div class="vocab-flip-card topic-card-container ' + (isDone ? 'is-completed' : '') + '" id="vocab-card-' + day.day + '">' +
-        '<div class="vocab-flip-inner">' +
-          // FRONT (Exact structure requested by user)
-          '<article class="topic-card topic-card-front" style="--c1:' + p.c1 + '; --c2:' + p.c2 + ';" onclick="window.ieltsApp.openVocabDayModal(' + day.day + ')">' +
-            '<header class="topic-head">' +
-              '<span class="topic-num">' + (day.day < 10 ? '0' + day.day : day.day) + '</span>' +
-              '<h3 class="topic-title">Topic ' + (day.day < 10 ? '0' + day.day : day.day) + '</h3>' +
-              '<span class="topic-icon">' + p.icon + '</span>' +
-            '</header>' +
-            '<div class="topic-body">' +
-              '<span class="topic-label">' + escapeHtml((day.category || 'IELTS Core').toUpperCase()) + '</span>' +
-              '<h4>' + escapeHtml(day.theme) + '</h4>' +
-              '<p class="keywords">' + escapeHtml(wordsPreview) + '...</p>' +
-              '<div class="tags">' +
-                '<span>10 Words</span>' +
-                '<span>3 Phrasals</span>' +
-                '<span>2 Idioms</span>' +
-                '<span style="color:var(--c1); font-weight:800; background:#fef2f2;">Band 7.5-9.0</span>' +
-              '</div>' +
-              '<footer class="topic-foot">' +
-                '<button type="button" class="status ' + (isDone ? 'is-done' : '') + '" onclick="event.stopPropagation(); ' + (isDone ? 'window.ieltsApp.markVocabIncomplete(' + day.day + ')' : 'window.ieltsApp.markVocabComplete(' + day.day + ')') + '">' +
-                  (isDone ? '✓ Completed' : 'Incomplete') +
-                '</button>' +
-                '<a href="#" onclick="event.preventDefault(); event.stopPropagation(); window.ieltsApp.openVocabDayModal(' + day.day + ')">Explore &rarr;</a>' +
-              '</footer>' +
-            '</div>' +
-          '</article>' +
-          // BACK (Completed celebratory 3D face)
-          '<article class="topic-card topic-card-back" style="--c1:#15803d; --c2:#16a34a;" onclick="window.ieltsApp.openVocabDayModal(' + day.day + ')">' +
-            '<header class="topic-head">' +
-              '<span class="topic-num">✓</span>' +
-              '<h3 class="topic-title">Topic ' + (day.day < 10 ? '0' + day.day : day.day) + '</h3>' +
-              '<span class="topic-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>' +
-            '</header>' +
-            '<div class="topic-body" style="text-align:center;">' +
-              '<span class="topic-label" style="color:#15803d;">COMPLETED &amp; MASTERED</span>' +
-              '<h4 style="color:#065f46;">' + escapeHtml(day.theme) + '</h4>' +
-              '<p class="keywords" style="color:#166534;">All 15 Band 8.0-9.0 lexical items, phrasals &amp; collocations mastered for this topic.</p>' +
-              '<div style="font-size:2.2rem; margin:8px 0;">🎉</div>' +
-              '<footer class="topic-foot" style="justify-content:center; gap:12px;">' +
-                '<button type="button" class="btn" style="background:#15803d; color:#fff; border:none; padding:8px 18px; font-size:0.85rem; font-weight:700; border-radius:8px;" onclick="event.stopPropagation(); window.ieltsApp.openVocabDayModal(' + day.day + ')">Review Topic</button>' +
-                '<button type="button" class="btn alt" style="background:#fff; color:#dc2626; border:1px solid #fca5a5; padding:8px 14px; font-size:0.82rem; font-weight:700; border-radius:8px;" onclick="event.stopPropagation(); window.ieltsApp.markVocabIncomplete(' + day.day + ')">↺ Mark Incomplete</button>' +
-              '</footer>' +
-            '</div>' +
-          '</article>' +
+      // Single Direct Card (Flip option OFF as requested)
+      html += '<article class="topic-card ' + (isDone ? 'is-completed' : '') + '" id="vocab-card-' + day.day + '" style="--c1:' + p.c1 + '; --c2:' + p.c2 + ';" onclick="window.ieltsApp.openVocabDayModal(' + day.day + ')">' +
+        '<header class="topic-head">' +
+          '<span class="topic-num">' + numStr + '</span>' +
+          '<h3 class="topic-title">Topic ' + numStr + '</h3>' +
+          '<span class="topic-icon">' + p.icon + '</span>' +
+        '</header>' +
+        '<div class="topic-body">' +
+          '<span class="topic-label">' + escapeHtml((day.category || 'IELTS Core').toUpperCase()) + '</span>' +
+          '<h4>' + escapeHtml(day.theme) + '</h4>' +
+          '<p class="keywords">' + escapeHtml(wordsPreview) + '...</p>' +
+          '<div class="tags">' +
+            '<span>10 Words</span>' +
+            '<span>3 Phrasals</span>' +
+            '<span>2 Idioms</span>' +
+            '<span style="color:var(--c1); font-weight:800; background:#fef2f2;">Band 7.5-9.0</span>' +
+          '</div>' +
+          '<footer class="topic-foot">' +
+            '<button type="button" class="status ' + (isDone ? 'is-done' : '') + '" onclick="event.stopPropagation(); ' + (isDone ? 'window.ieltsApp.markVocabIncomplete(' + day.day + ')' : 'window.ieltsApp.markVocabComplete(' + day.day + ')') + '">' +
+              (isDone ? '✓ Completed' : 'Incomplete') +
+            '</button>' +
+            '<a href="#" onclick="event.preventDefault(); event.stopPropagation(); window.ieltsApp.openVocabDayModal(' + day.day + ')">Explore &rarr;</a>' +
+          '</footer>' +
         '</div>' +
-      '</div>';
+      '</article>';
     });
 
     grid.innerHTML = html;
@@ -3707,7 +3686,7 @@
 
     let rulesHtml = '<div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:18px 22px; margin-bottom:24px;">' +
       '<h4 style="font-size:1.05rem; font-weight:800; color:#0f172a; margin:0 0 10px; display:flex; align-items:center; gap:8px;">' +
-        '<span style="color:' + topic.color + ';">📘</span> Key Grammar Rules &amp; Patterns' +
+        'Key Grammar Rules &amp; Patterns' +
       '</h4>' +
       '<ul style="margin:0; padding-left:20px; line-height:1.65; color:#334155; font-size:0.92rem;">';
     (topic.rules || []).forEach(function(r) {
@@ -3935,7 +3914,7 @@
         '<div style="font-size:0.92rem; margin-bottom:6px;"><strong>Target Sentence:</strong> <span style="color:#16a34a; font-weight:700;">' + escapeHtml(q.targetSentence) + '</span></div>' +
         (!isCorrect ? '<div style="font-size:0.92rem; margin-bottom:8px;"><strong>Your Answer:</strong> <span style="color:#dc2626;">' + (placed.length ? escapeHtml(placed.join(' ')) : '<em>Unattempted</em>') + '</span></div>' : '') +
         '<div class="grammar-explanation-card">' +
-          '<div class="grammar-explanation-title"><span>💡</span> Grammatical Explanation</div>' +
+          '<div class="grammar-explanation-title">Grammatical Explanation</div>' +
           '<p class="grammar-explanation-text">' + escapeHtml(q.explanation) + '</p>' +
         '</div>' +
       '</div>';
@@ -4009,7 +3988,7 @@
         '<div style="font-size:0.92rem; margin-bottom:6px;"><strong>Correct Answer:</strong> <span style="color:#16a34a; font-weight:800;">' + escapeHtml(q.answer) + '</span></div>' +
         (!isCorrect ? '<div style="font-size:0.92rem; margin-bottom:8px;"><strong>Your Selection:</strong> <span style="color:#dc2626;">' + (selected ? escapeHtml(selected) : '<em>Unattempted</em>') + '</span></div>' : '') +
         '<div class="grammar-explanation-card">' +
-          '<div class="grammar-explanation-title"><span>💡</span> Grammatical Explanation</div>' +
+          '<div class="grammar-explanation-title">Grammatical Explanation</div>' +
           '<p class="grammar-explanation-text">' + escapeHtml(q.explanation) + '</p>' +
         '</div>' +
       '</div>';

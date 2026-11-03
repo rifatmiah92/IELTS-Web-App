@@ -800,22 +800,22 @@ footer {
 <main>
   <!-- Floating Highlight Popup -->
   <div id="hl-popup">
-    <button type="button" onmousedown="event.preventDefault()" onclick="highlightSelection()">🖍️ Highlight</button>
+    <button type="button" onmousedown="event.preventDefault()" onclick="highlightSelection()">Highlight</button>
     <button type="button" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()">✕ Clear</button>
   </div>
 
   <section class="pane" id="left">
     
     <div class="pane-toolbar">
-      <span class="pane-toolbar-title">📖 Reading Passage</span>
+      <span class="pane-toolbar-title">Reading Passage</span>
       <div style="display:flex; gap:6px;">
-        <button type="button" class="tool-btn" id="btn-toggle-evidence" onclick="toggleEvidenceHighlights()" title="Toggle answer evidence highlights" style="display:none; font-weight:700; color:#1d4ed8;">💡 Evidence</button>
-        <button type="button" class="tool-btn" id="btn-hl" onmousedown="event.preventDefault()" onclick="highlightSelection()" title="Highlight selected text in the passage">🖍️ Highlight</button>
+        <button type="button" class="tool-btn" id="btn-toggle-evidence" onclick="toggleEvidenceHighlights()" title="Toggle answer evidence highlights" style="display:none; font-weight:700; color:#1d4ed8;"> Evidence</button>
+        <button type="button" class="tool-btn" id="btn-hl" onmousedown="event.preventDefault()" onclick="highlightSelection()" title="Highlight selected text in the passage">Highlight</button>
         <button type="button" class="tool-btn" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()" title="Clear highlight from selected text">✕ Clear</button>
         <button type="button" class="tool-btn" onclick="clearAllHighlights()" title="Clear all text highlights">↺ Clear All</button>
       </div>
     </div>
-    <div id="passage-evidence-banner" class="evidence-banner" style="display:none;"><span style="font-size:14px; margin-right:4px;">💡</span> <b>Passage Evidence Highlighted:</b> Click any <span class="evidence-pill">Q#</span> in the passage to jump to its question, or click <b>📍 Show in Passage</b> under any explanation.</div>
+    <div id="passage-evidence-banner" class="evidence-banner" style="display:none;"><span style="font-size:14px; margin-right:4px;"></span> <b>Passage Evidence Highlighted:</b> Click any <span class="evidence-pill">Q#</span> in the passage to jump to its question, or click <b>Show in Passage</b> under any explanation.</div>
     <div class="passage-body">
       <h2>The Development of Plastics</h2>
       <p class="sb">How polymer chemistry transformed the modern manufacturing landscape</p>
@@ -826,9 +826,9 @@ footer {
   </section>
   <section class="pane" id="right">
     <div class="pane-toolbar">
-      <span class="pane-toolbar-title">📝 Questions &amp; Answers</span>
+      <span class="pane-toolbar-title">Questions &amp; Answers</span>
       <div style="display:flex; gap:6px;">
-        <button type="button" class="tool-btn" id="btn-hl-right" onmousedown="event.preventDefault()" onclick="highlightSelection()" title="Highlight selected question text">🖍️ Highlight</button>
+        <button type="button" class="tool-btn" id="btn-hl-right" onmousedown="event.preventDefault()" onclick="highlightSelection()" title="Highlight selected question text">Highlight</button>
         <button type="button" class="tool-btn" onmousedown="event.preventDefault()" onclick="clearSelectionHighlight()" title="Clear highlight from selected text">✕ Clear</button>
         <button type="button" class="tool-btn" onclick="clearAllHighlights()" title="Clear all text highlights">↺ Clear All</button>
       </div>
@@ -1410,7 +1410,7 @@ function toggleEvidenceHighlights() {
     if (pill) pill.style.display = evidenceVisible ? "inline-block" : "none";
   });
   const btn = document.getElementById("btn-toggle-evidence");
-  if (btn) btn.textContent = evidenceVisible ? "💡 Evidence (ON)" : "💡 Evidence (OFF)";
+  if (btn) btn.textContent = evidenceVisible ? "Evidence (ON)" : "Evidence (OFF)";
 }
 
 function finish(auto) {
@@ -1493,7 +1493,7 @@ function finish(auto) {
           <div class="expl-evidence">
             <div><b>Passage Evidence:</b> &ldquo;${escapeHtml(exp.evidence || exp.passageTarget)}&rdquo;</div>
             <button type="button" class="locate-evidence-btn" onclick="locatePassageEvidence(${i})">
-              <span>📍</span> Show in Passage
+               Show in Passage
             </button>
           </div>` : ''}
       `;
