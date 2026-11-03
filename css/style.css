@@ -6764,3 +6764,845 @@ input[type=text].cd-gap-input:focus,
     gap: 14px !important;
   }
 }
+
+/* ==========================================================================
+   THEME 1: VOCABULARY CARDS (MATCHING USER IMAGE 1)
+   Infographic cards with top colored arch, circular number badge, and complete/incomplete toggle
+   ========================================================================== */
+.vocab-theme1-card {
+  perspective: 1000px;
+  min-height: 380px;
+}
+
+.vocab-theme1-card .vocab-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.vocab-theme1-card.is-completed .vocab-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.vocab-theme1-front,
+.vocab-theme1-back {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 22px;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.vocab-theme1-front:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.1);
+  border-color: #cbd5e1;
+}
+
+.vocab-theme1-back {
+  transform: rotateY(180deg);
+  background: #f0fdf4;
+  border-color: #86efac;
+}
+
+.vocab-theme1-top {
+  height: 64px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.vocab-theme1-num-badge {
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3.5px solid #ffffff;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18), inset 0 2px 4px rgba(255, 255, 255, 0.35);
+  z-index: 2;
+}
+
+.vocab-theme1-body {
+  padding: 32px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.vocab-theme1-header-label {
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.vocab-theme1-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 8px;
+  line-height: 1.35;
+}
+
+.vocab-theme1-desc {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-style: italic;
+  line-height: 1.45;
+  margin: 0 0 14px;
+}
+
+.vocab-theme1-chips {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.vocab-theme1-chip {
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.vocab-theme1-chip.band {
+  font-weight: 800;
+}
+
+.vocab-theme1-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+  margin-top: auto;
+}
+
+.vocab-theme1-status-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  outline: none;
+}
+
+.vocab-theme1-status-btn.is-pending {
+  background: #f8fafc;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
+.vocab-theme1-status-btn.is-pending:hover {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-color: #93c5fd;
+}
+
+.vocab-theme1-status-btn.is-done {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+
+.vocab-theme1-status-btn.is-done:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+  border-color: #fca5a5;
+}
+
+.vocab-theme1-status-btn .status-icon {
+  font-size: 0.9rem;
+}
+
+.vocab-theme1-icon-badge {
+  font-size: 1.1rem;
+}
+
+
+/* ==========================================================================
+   THEME 2: READING MOCK TEST CARDS (MATCHING USER IMAGE 2)
+   Step/Ticket style card with left colored block, perforated notch, and top-right icon
+   ========================================================================== */
+.reading-step-card {
+  display: flex;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1.5px solid #e2e8f0;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+  overflow: hidden;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  position: relative;
+  min-height: 190px;
+}
+
+.reading-step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.09);
+  border-color: #cbd5e1;
+}
+
+.reading-step-left {
+  width: 105px;
+  min-width: 105px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  position: relative;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+.reading-step-lbl {
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-transform: lowercase;
+  letter-spacing: 0.5px;
+  opacity: 0.95;
+  margin-bottom: 2px;
+}
+
+.reading-step-num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.reading-step-perforation {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -5px;
+  width: 10px;
+  background: radial-gradient(circle at 5px 12px, transparent 4px, #ffffff 4.5px);
+  background-size: 10px 22px;
+  z-index: 2;
+}
+
+.reading-step-right {
+  flex: 1;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  background: #ffffff;
+}
+
+.reading-step-icon-badge {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.05rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.reading-step-header-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.reading-step-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 6px;
+  line-height: 1.35;
+  padding-right: 44px;
+}
+
+.reading-step-desc {
+  font-size: 0.88rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0 0 14px;
+}
+
+.reading-step-meta-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.reading-chip {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.reading-step-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.reading-step-btn-start {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.reading-step-btn-start:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+.reading-step-btn-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: #ffffff;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.reading-step-btn-link:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+@media (max-width: 600px) {
+  .reading-step-card {
+    flex-direction: column;
+  }
+  .reading-step-left {
+    width: 100%;
+    height: 60px;
+    flex-direction: row;
+    gap: 8px;
+    padding: 10px 20px;
+  }
+  .reading-step-num {
+    font-size: 1.8rem;
+  }
+  .reading-step-perforation {
+    display: none;
+  }
+}
+
+
+/* ==========================================================================
+   THEME 3: WRITING QUESTION-ANSWER CARDS (MATCHING USER IMAGE 3)
+   Horizontal banner with left white number block & curved sweep into colored body
+   ========================================================================== */
+.writing-theme3-card {
+  display: flex;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+  cursor: pointer;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  margin-bottom: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  min-height: 120px;
+}
+
+.writing-theme3-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.12);
+}
+
+.writing-theme3-left {
+  width: 95px;
+  min-width: 95px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 10px;
+  position: relative;
+  z-index: 2;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+.writing-theme3-num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: #1e293b;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.writing-theme3-tag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #64748b;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+.writing-theme3-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 18px 24px;
+  color: #ffffff;
+  gap: 18px;
+  justify-content: space-between;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 36px;
+}
+
+.writing-theme3-content {
+  flex: 1;
+}
+
+.writing-theme3-type-chip {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 4px;
+}
+
+.writing-theme3-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 6px;
+  line-height: 1.3;
+}
+
+.writing-theme3-snippet {
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.45;
+  margin: 0 0 8px;
+}
+
+.writing-theme3-meta {
+  display: flex;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+}
+
+.writing-theme3-divider {
+  width: 1px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.writing-theme3-icon-col {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.writing-theme3-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 640px) {
+  .writing-theme3-card {
+    flex-direction: column;
+  }
+  .writing-theme3-left {
+    width: 100%;
+    flex-direction: row;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 16px 16px 0 0;
+  }
+  .writing-theme3-num {
+    font-size: 1.8rem;
+  }
+  .writing-theme3-right {
+    border-radius: 0 0 16px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .writing-theme3-divider {
+    display: none;
+  }
+}
+
+
+/* ==========================================================================
+   THEME 4: LISTENING SECTION CARDS (MATCHING USER IMAGE 4)
+   Modern mobile audio player cards with quotation icon, progress pill, and dock
+   ========================================================================== */
+.listening-theme4-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 28px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.listening-player-card {
+  border-radius: 28px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 460px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.16);
+  text-decoration: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  position: relative;
+}
+
+.listening-player-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 28px 55px rgba(0, 0, 0, 0.22);
+}
+
+.listening-player-card.card-amber {
+  background: linear-gradient(150deg, #f59e0b 0%, #ea580c 100%);
+}
+
+.listening-player-card.card-emerald {
+  background: linear-gradient(150deg, #059669 0%, #064e3b 100%);
+}
+
+.player-card-body {
+  padding: 36px 32px 20px;
+  color: #ffffff;
+}
+
+.player-quote-icon {
+  font-family: Georgia, serif;
+  font-size: 4.2rem;
+  line-height: 0.9;
+  color: #ffffff;
+  opacity: 0.92;
+  margin-bottom: 16px;
+}
+
+.player-kicker {
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.88);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.player-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 1.85rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0 0 14px;
+  letter-spacing: -0.02em;
+}
+
+.player-desc {
+  font-size: 0.96rem;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.player-progress-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.player-progress-bar {
+  flex: 1;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.player-progress-fill {
+  height: 100%;
+  background: #ffffff;
+  border-radius: 999px;
+}
+
+.player-progress-pill {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 3px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.player-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
+}
+
+.player-meta-socials {
+  display: flex;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.player-controller-dock {
+  background: #ffffff;
+  border-radius: 20px;
+  margin: 16px;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.player-time-pill {
+  background: #f1f5f9;
+  color: #0f172a;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.player-dock-icons {
+  display: flex;
+  gap: 12px;
+  font-size: 1.1rem;
+}
+
+.player-play-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.player-play-btn.amber-play {
+  background: #ea580c;
+}
+
+.player-play-btn.emerald-play {
+  background: #059669;
+}
+
+
+/* ==========================================================================
+   THEME 5: WRITING FRONT 4 CARDS (MATCHING USER IMAGE 5)
+   4-column cards with large numbered colored headers (Red, Blue, Gold, Teal)
+   ========================================================================== */
+.writing-portal-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.writing-theme5-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  text-decoration: none;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  cursor: pointer;
+  min-height: 360px;
+}
+
+.writing-theme5-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
+  border-color: #cbd5e1;
+}
+
+.writing-theme5-header {
+  height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.writing-theme5-header.red-header { background: #d9384e; }
+.writing-theme5-header.blue-header { background: #3b7a99; }
+.writing-theme5-header.gold-header { background: #e5a93c; }
+.writing-theme5-header.teal-header { background: #2e9e9b; }
+
+.writing-theme5-num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.writing-theme5-body {
+  padding: 24px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  justify-content: space-between;
+  background: #ffffff;
+}
+
+.writing-theme5-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.writing-theme5-icon.red-icon { background: #fef2f2; color: #d9384e; }
+.writing-theme5-icon.blue-icon { background: #eff6ff; color: #3b7a99; }
+.writing-theme5-icon.gold-icon { background: #fffbeb; color: #d97706; }
+.writing-theme5-icon.teal-icon { background: #f0fdfa; color: #0d9488; }
+
+.writing-theme5-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 8px;
+  line-height: 1.35;
+}
+
+.writing-theme5-desc {
+  font-size: 0.86rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0 0 18px;
+}
+
+.writing-theme5-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #ffffff;
+  transition: opacity 0.15s ease;
+}
+
+.writing-theme5-btn.red-btn { background: #d9384e; }
+.writing-theme5-btn.blue-btn { background: #3b7a99; }
+.writing-theme5-btn.gold-btn { background: #e5a93c; color: #0f172a; }
+.writing-theme5-btn.teal-btn { background: #2e9e9b; }
+
+.writing-theme5-card:hover .writing-theme5-btn {
+  opacity: 0.9;
+}
+
+@media (max-width: 1024px) {
+  .writing-portal-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .writing-portal-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}

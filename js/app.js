@@ -2425,29 +2425,43 @@
       });
     }
 
+    // Palette matching Image 3: Slate Blue, Warm Orange, Crimson Red, Royal Purple, Forest Green
+    const theme3Colors = [
+      { bg: '#335370', icon: '✉️' },
+      { bg: '#e67e22', icon: '🌐' },
+      { bg: '#c0392b', icon: '💬' },
+      { bg: '#5c4db1', icon: '🕒' },
+      { bg: '#27ae60', icon: '📊' }
+    ];
+
     let html = '';
-    items.forEach(function(essay) {
+    items.forEach(function(essay, idx) {
+      const c = theme3Colors[idx % theme3Colors.length];
+      const numStr = (idx + 1 < 10 ? '0' : '') + (idx + 1);
       const promptSnippet = (essay.prompt || '').length > 130 ? essay.prompt.substring(0, 130) + '...' : essay.prompt;
-      html += '<div class="writing-card interactive-card" onclick="window.ieltsApp.openWritingModal(\'' + essay.id + '\')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();window.ieltsApp.openWritingModal(\'' + essay.id + '\');}" role="button" tabindex="0" title="Click to view Band 9 model essay & analysis">' +
-        '<div class="writing-card-top">' +
-          '<div class="writing-card-header">' +
-            '<span class="writing-type-badge task2-type">' + escapeHtml(essay.type || 'Task 2 Essay') + '</span>' +
-            '<span class="writing-band-badge">★ ' + escapeHtml(essay.bandScore || 'Band 9.0') + '</span>' +
-          '</div>' +
-          '<h3 class="writing-card-title">' + escapeHtml(essay.title || essay.topic || 'IELTS Advantage Model Essay') + '</h3>' +
-          '<div class="writing-card-prompt-box">' +
-            '<p class="writing-card-prompt-preview">' + escapeHtml(promptSnippet) + '</p>' +
-          '</div>' +
+
+      html += '<div class="writing-theme3-card" onclick="window.ieltsApp.openWritingModal(\'' + essay.id + '\')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();window.ieltsApp.openWritingModal(\'' + essay.id + '\');}" role="button" tabindex="0" title="Click to view Band 9 model essay & analysis">' +
+        // Left Light Block with Number & Curved Sweep
+        '<div class="writing-theme3-left">' +
+          '<span class="writing-theme3-num">' + numStr + '</span>' +
+          '<span class="writing-theme3-tag">TASK 2</span>' +
         '</div>' +
-        '<div class="writing-card-footer">' +
-          '<span class="writing-word-count">' +
-            '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle; margin-right:4px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>' +
-            (essay.wordCount || 265) + ' Words' +
-          '</span>' +
-          '<button class="writing-read-btn" type="button" aria-label="Read full answer">' +
-            '<span>Read Band 9</span>' +
-            '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>' +
-          '</button>' +
+        // Right Colored Body with Content & Icon Divider
+        '<div class="writing-theme3-right" style="background:' + c.bg + ';">' +
+          '<div class="writing-theme3-content">' +
+            '<div class="writing-theme3-type-chip">' + escapeHtml(essay.type || 'Task 2 Essay') + ' &bull; ★ ' + escapeHtml(essay.bandScore || 'Band 9.0') + '</div>' +
+            '<h3 class="writing-theme3-title">' + escapeHtml(essay.title || essay.topic || 'IELTS Advantage Model Essay') + '</h3>' +
+            '<p class="writing-theme3-snippet">' + escapeHtml(promptSnippet) + '</p>' +
+            '<div class="writing-theme3-meta">' +
+              '<span>' + (essay.wordCount || 265) + ' Words</span>' +
+              '<span>&bull;</span>' +
+              '<span>Band 9 Explanation &amp; Vocabulary Included</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="writing-theme3-divider"></div>' +
+          '<div class="writing-theme3-icon-col">' +
+            '<span class="writing-theme3-icon">' + c.icon + '</span>' +
+          '</div>' +
         '</div>' +
       '</div>';
     });
@@ -2480,29 +2494,42 @@
       });
     }
 
+    const theme3Colors = [
+      { bg: '#335370', icon: '📊' },
+      { bg: '#e67e22', icon: '📈' },
+      { bg: '#c0392b', icon: '🗺️' },
+      { bg: '#5c4db1', icon: '⚙️' },
+      { bg: '#27ae60', icon: '🥧' }
+    ];
+
     let html = '';
-    items.forEach(function(report) {
+    items.forEach(function(report, idx) {
+      const c = theme3Colors[idx % theme3Colors.length];
+      const numStr = (idx + 1 < 10 ? '0' : '') + (idx + 1);
       const promptSnippet = (report.prompt || '').length > 130 ? report.prompt.substring(0, 130) + '...' : report.prompt;
-      html += '<div class="writing-card interactive-card" onclick="window.ieltsApp.openWritingModal(\'' + report.id + '\')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();window.ieltsApp.openWritingModal(\'' + report.id + '\');}" role="button" tabindex="0" title="Click to view Band 9 model report & analysis">' +
-        '<div class="writing-card-top">' +
-          '<div class="writing-card-header">' +
-            '<span class="writing-type-badge task1-type">' + escapeHtml(report.type || 'Task 1 Report') + '</span>' +
-            '<span class="writing-band-badge">★ Band 9.0</span>' +
-          '</div>' +
-          '<h3 class="writing-card-title">' + escapeHtml(report.title || 'IELTS Liz Task 1') + '</h3>' +
-          '<div class="writing-card-prompt-box task1-accent">' +
-            '<p class="writing-card-prompt-preview">' + escapeHtml(promptSnippet) + '</p>' +
-          '</div>' +
+
+      html += '<div class="writing-theme3-card" onclick="window.ieltsApp.openWritingModal(\'' + report.id + '\')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();window.ieltsApp.openWritingModal(\'' + report.id + '\');}" role="button" tabindex="0" title="Click to view Band 9 model report & analysis">' +
+        // Left Light Block with Number & Curved Sweep
+        '<div class="writing-theme3-left">' +
+          '<span class="writing-theme3-num">' + numStr + '</span>' +
+          '<span class="writing-theme3-tag">TASK 1</span>' +
         '</div>' +
-        '<div class="writing-card-footer">' +
-          '<span class="writing-word-count">' +
-            '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle; margin-right:4px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>' +
-            (report.wordCount || 185) + ' Words' +
-          '</span>' +
-          '<button class="writing-read-btn task1-btn" type="button" aria-label="Read full answer">' +
-            '<span>Read Band 9</span>' +
-            '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>' +
-          '</button>' +
+        // Right Colored Body with Content & Icon Divider
+        '<div class="writing-theme3-right" style="background:' + c.bg + ';">' +
+          '<div class="writing-theme3-content">' +
+            '<div class="writing-theme3-type-chip">' + escapeHtml(report.type || 'Task 1 Report') + ' &bull; ★ Band 9.0 Model</div>' +
+            '<h3 class="writing-theme3-title">' + escapeHtml(report.title || 'IELTS Liz Task 1') + '</h3>' +
+            '<p class="writing-theme3-snippet">' + escapeHtml(promptSnippet) + '</p>' +
+            '<div class="writing-theme3-meta">' +
+              '<span>' + (report.wordCount || 185) + ' Words</span>' +
+              '<span>&bull;</span>' +
+              '<span>Band 9 Overview &amp; Scored Features</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="writing-theme3-divider"></div>' +
+          '<div class="writing-theme3-icon-col">' +
+            '<span class="writing-theme3-icon">' + c.icon + '</span>' +
+          '</div>' +
         '</div>' +
       '</div>';
     });
@@ -2885,15 +2912,6 @@
     filter = filter || currentReadingFilter || 'all';
     search = (search !== undefined ? search : currentReadingSearch) || '';
 
-    const pastelClasses = [
-      'card-pastel-sand',
-      'card-pastel-mint',
-      'card-pastel-rose',
-      'card-pastel-yellow',
-      'card-pastel-lavender',
-      'card-pastel-ice'
-    ];
-
     const filtered = OFFICIAL_26_TESTS.filter(function(t) {
       let matchesPart = true;
       if (filter === 'p1') matchesPart = (t.part === 1);
@@ -2909,31 +2927,52 @@
       return matchesPart && matchesSearch;
     });
 
+    // Theme matching Image 2: Step/Ticket card layout with perforated notch & top-right icon badge
+    const stepColors = [
+      { name: 'orange', bg: '#f97316', light: '#fff7ed', text: '#ea580c', icon: '🔍' },
+      { name: 'teal', bg: '#0d9488', light: '#f0fdfa', text: '#0f766e', icon: '💡' },
+      { name: 'green', bg: '#65a30d', light: '#f7fee7', text: '#4d7c0f', icon: '🎯' },
+      { name: 'blue', bg: '#0284c7', light: '#f0f9ff', text: '#0369a1', icon: '📖' },
+      { name: 'purple', bg: '#9333ea', light: '#faf5ff', text: '#7e22ce', icon: '⚡' }
+    ];
+
     let html = '';
     filtered.forEach(function(card, idx) {
-      const pastelClass = pastelClasses[idx % pastelClasses.length];
-      const partTagColor = card.part === 1 ? '#0284c7' : (card.part === 2 ? '#059669' : '#b91c1c');
-      const partTagBg = card.part === 1 ? 'rgba(2, 132, 199, 0.12)' : (card.part === 2 ? 'rgba(5, 150, 105, 0.12)' : 'rgba(185, 28, 28, 0.12)');
+      const c = stepColors[idx % stepColors.length];
       const testUrl = 'ielts reading/ielts-mock-tests/Test' + card.num + '.html';
 
-      html += '<div class="editorial-practice-card ' + pastelClass + '">' +
-        '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">' +
-          '<span style="font-size:0.8rem; font-weight:800; color:#1d4ed8; letter-spacing:0.5px;">OFFICIAL MOCK TEST</span>' +
-          '<span style="font-size:0.75rem; font-weight:800; padding:3px 10px; border-radius:6px; background:' + partTagBg + '; color:' + partTagColor + ';">PASSAGE ' + card.part + '</span>' +
+      html += '<div class="reading-step-card">' +
+        // Left Colored Step Block with Ticket Notch
+        '<div class="reading-step-left" style="background:' + c.bg + ';">' +
+          '<span class="reading-step-lbl">step</span>' +
+          '<span class="reading-step-num">' + card.num + '</span>' +
+          '<div class="reading-step-perforation"></div>' +
         '</div>' +
-        '<div class="card-number-display">' + card.num + '</div>' +
-        '<div class="card-label-kicker">EXAM PASSAGE TITLE</div>' +
-        '<div class="card-title-display" style="font-size:1.18rem; font-weight:800; margin-bottom:10px; line-height:1.4;">' + escapeHtml(card.title) + '</div>' +
-        '<div style="font-size:0.86rem; color:#334155; line-height:1.55; margin-bottom:18px; background:rgba(255,255,255,0.7); padding:10px 14px; border-radius:10px; border:1px solid rgba(0,0,0,0.06);">' +
-          '<div style="font-weight:700; color:#0f172a; margin-bottom:4px; display:flex; align-items:center; gap:6px;">' +
-            '<span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#2563eb;"></span>' +
-            '<span>' + card.range + ' &bull; 20 Minutes &bull; Answer Sheet</span>' +
+        // Right White Card Body
+        '<div class="reading-step-right">' +
+          // Top-right colored icon badge
+          '<div class="reading-step-icon-badge" style="background:' + c.bg + ';" title="Passage ' + card.part + '">' +
+            '<span>' + c.icon + '</span>' +
           '</div>' +
-          '<div style="font-size:0.82rem; color:#64748b;">' + escapeHtml(card.summary) + '</div>' +
-        '</div>' +
-        '<div class="card-actions-row" style="display:flex; gap:10px; flex-wrap:wrap;">' +
-          '<button class="editorial-btn-start primary-burgundy" style="flex:1; min-width:140px;" onclick="window.ieltsApp.openReadingMockTest(\'' + card.num + '\')">Start Mock Test</button>' +
-          '<a href="' + testUrl + '" target="_blank" rel="noopener noreferrer" class="btn alt" style="display:inline-flex; align-items:center; justify-content:center; text-decoration:none; padding:10px 14px; font-weight:700; border-radius:10px; font-size:13px; color:#1e293b; border:1px solid #cbd5e1; background:#fff;">Open Full &nearr;</a>' +
+          '<div class="reading-step-header-tag" style="color:' + c.text + ';">' +
+            '<span>CAMBRIDGE TEST ' + card.num + ' &bull; PASSAGE ' + card.part + '</span>' +
+          '</div>' +
+          '<h3 class="reading-step-title">' + escapeHtml(card.title) + '</h3>' +
+          '<p class="reading-step-desc">' + escapeHtml(card.summary) + '</p>' +
+          '<div class="reading-step-meta-chips">' +
+            '<span class="reading-chip">⏱ 20 Mins</span>' +
+            '<span class="reading-chip">Q ' + card.range + '</span>' +
+            '<span class="reading-chip" style="background:' + c.light + '; color:' + c.text + ';">Live Timer &amp; Answers</span>' +
+          '</div>' +
+          '<div class="reading-step-actions">' +
+            '<button class="reading-step-btn-start" style="background:' + c.bg + ';" onclick="window.ieltsApp.openReadingMockTest(\'' + card.num + '\')">' +
+              '<span>Start Mock Test</span>' +
+              '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' +
+            '</button>' +
+            '<a href="' + testUrl + '" target="_blank" rel="noopener noreferrer" class="reading-step-btn-link" title="Open in separate tab">' +
+              '<span>Full</span> &nearr;' +
+            '</a>' +
+          '</div>' +
         '</div>' +
       '</div>';
     });
@@ -3221,81 +3260,67 @@
       return;
     }
 
-    const categoryColors = {
-      Education: { bg: '#eff6ff', text: '#1d4ed8', border: '#bfdbfe', icon: 'EDU' },
-      Environment: { bg: '#f0fdf4', text: '#15803d', border: '#bbf7d0', icon: 'ENV' },
-      Technology: { bg: '#f5f3ff', text: '#6d28d9', border: '#ddd6fe', icon: 'TECH' },
-      Society: { bg: '#fffbeb', text: '#b45309', border: '#fde68a', icon: 'SOC' },
-      Health: { bg: '#fdf2f8', text: '#be185d', border: '#fbcfe8', icon: 'HLTH' },
-      Economy: { bg: '#ecfeff', text: '#0e7490', border: '#a5f3fc', icon: 'ECON' }
-    };
+    // Palette matching Image 1: Yellow/Orange, Green, Cyan/Blue, Magenta/Pink
+    const themePalettes = [
+      { topBg: 'linear-gradient(135deg, #f59e0b, #d97706)', circleBg: '#f59e0b', text: '#b45309', icon: '👤', tag: '#fef3c7' },
+      { topBg: 'linear-gradient(135deg, #22c55e, #16a34a)', circleBg: '#22c55e', text: '#15803d', icon: '⚙️', tag: '#f0fdf4' },
+      { topBg: 'linear-gradient(135deg, #0ea5e9, #2563eb)', circleBg: '#0ea5e9', text: '#1d4ed8', icon: '🔒', tag: '#eff6ff' },
+      { topBg: 'linear-gradient(135deg, #ec4899, #db2777)', circleBg: '#ec4899', text: '#be185d', icon: '🛒', tag: '#fdf2f8' }
+    ];
 
     let html = '';
     const completed = getCompletedVocabDays();
 
-    filteredDays.forEach(function(day) {
-      const c = categoryColors[day.category] || { bg: '#f8fafc', text: '#475569', border: '#e2e8f0', icon: 'IELTS' };
+    filteredDays.forEach(function(day, idx) {
+      const p = themePalettes[idx % themePalettes.length];
       const isDone = completed.includes(day.day);
       const wordsPreview = (day.words || []).slice(0, 4).map(function(w) { return w.word; }).join(', ');
 
-      html += '<div class="vocab-flip-card ' + (isDone ? 'is-completed' : '') + '" id="vocab-card-' + day.day + '">' +
+      html += '<div class="vocab-flip-card vocab-theme1-card ' + (isDone ? 'is-completed' : '') + '" id="vocab-card-' + day.day + '">' +
         '<div class="vocab-flip-inner">' +
-          // FRONT FACE
-          '<div class="vocab-flip-front" onclick="window.ieltsApp.openVocabDayModal(' + day.day + ')">' +
-            '<div class="vocab-macro-card-top">' +
-              '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">' +
-                '<span style="background:' + c.bg + '; color:' + c.text + '; border:1px solid ' + c.border + '; font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.05em; padding:4px 10px; border-radius:20px; display:inline-flex; align-items:center; gap:6px;">' +
-                  '<strong>' + c.icon + '</strong>' +
-                  '<span>' + escapeHtml(day.category) + '</span>' +
-                '</span>' +
-                '<span style="font-size:0.82rem; font-weight:800; color:#64748b; display:flex; align-items:center; gap:4px;">' +
-                  'Day ' + day.day +
-                '</span>' +
-              '</div>' +
-              '<h3 style="font-size:1.18rem; font-weight:800; color:#0f172a; margin:0 0 8px; line-height:1.4;">' +
-                escapeHtml(day.theme) +
-              '</h3>' +
-              '<div style="margin-bottom:12px;">' +
-                '<span style="font-size:0.8rem; font-weight:700; color:#475569; display:block; margin-bottom:4px;">Core Lexical Preview:</span>' +
-                '<p style="margin:0; font-size:0.88rem; color:#64748b; font-style:italic; line-height:1.4;">' + escapeHtml(wordsPreview) + '...</p>' +
-              '</div>' +
-              '<div style="display:flex; gap:6px; flex-wrap:wrap;">' +
-                '<span class="vocab-subtopic-chip">10 Words</span>' +
-                '<span class="vocab-subtopic-chip">3 Phrasals</span>' +
-                '<span class="vocab-subtopic-chip">2 Idioms</span>' +
-                '<span class="vocab-subtopic-chip" style="background:#eff6ff; color:#2563eb; font-weight:700;">Band 7.5-9.0</span>' +
-              '</div>' +
+          // FRONT FACE (Theme of Image 1)
+          '<div class="vocab-flip-front vocab-theme1-front" onclick="window.ieltsApp.openVocabDayModal(' + day.day + ')">' +
+            // Top colored arch with serial number badge
+            '<div class="vocab-theme1-top" style="background:' + p.topBg + ';">' +
+              '<div class="vocab-theme1-num-badge" style="background:' + p.circleBg + ';">' + day.day + '</div>' +
             '</div>' +
-            '<div style="margin-top:16px; padding-top:14px; border-top:1px solid #f1f5f9; display:flex; justify-content:space-between; align-items:center;">' +
-              '<span style="font-size:0.84rem; font-weight:800; color:#2563eb;">Study Module &rarr;</span>' +
-              '<button type="button" class="btn alt" style="font-size:0.78rem; padding:4px 10px;" onclick="event.stopPropagation(); window.ieltsApp.openVocabDayModal(' + day.day + ')">Open</button>' +
+            // White card content area
+            '<div class="vocab-theme1-body">' +
+              '<div class="vocab-theme1-header-label" style="color:' + p.text + ';">' +
+                '<span>TOPIC ' + day.day + ' &bull; ' + escapeHtml(day.category || 'IELTS') + '</span>' +
+              '</div>' +
+              '<h3 class="vocab-theme1-title">' + escapeHtml(day.theme) + '</h3>' +
+              '<p class="vocab-theme1-desc">' + escapeHtml(wordsPreview) + '...</p>' +
+              '<div class="vocab-theme1-chips">' +
+                '<span class="vocab-theme1-chip">10 Words</span>' +
+                '<span class="vocab-theme1-chip">3 Phrasals</span>' +
+                '<span class="vocab-theme1-chip">2 Idioms</span>' +
+                '<span class="vocab-theme1-chip band" style="color:' + p.text + '; background:' + p.tag + ';">Band 7.5-9.0</span>' +
+              '</div>' +
+              // Front Status Row: Serial number, Topic & Complete/Incomplete Toggle
+              '<div class="vocab-theme1-status-row">' +
+                '<button type="button" class="vocab-theme1-status-btn ' + (isDone ? 'is-done' : 'is-pending') + '" onclick="event.stopPropagation(); ' + (isDone ? 'window.ieltsApp.markVocabIncomplete(' + day.day + ')' : 'window.ieltsApp.markVocabComplete(' + day.day + ')') + '">' +
+                  '<span class="status-icon">' + (isDone ? '✓' : '○') + '</span>' +
+                  '<span>' + (isDone ? 'Completed' : 'Incomplete') + '</span>' +
+                '</button>' +
+                '<span class="vocab-theme1-icon-badge">' + p.icon + '</span>' +
+              '</div>' +
             '</div>' +
           '</div>' +
-          // BACK FACE (COMPLETED)
-          '<div class="vocab-flip-back" onclick="window.ieltsApp.openVocabDayModal(' + day.day + ')">' +
-            '<div>' +
-              '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">' +
-                '<span style="background:#16a34a; color:#ffffff; font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.05em; padding:4px 12px; border-radius:20px; display:inline-flex; align-items:center; gap:6px; box-shadow:0 2px 6px rgba(22,163,74,0.3);">' +
-                  '<span>✓</span> <strong>COMPLETED</strong>' +
-                '</span>' +
-                '<span style="font-size:0.82rem; font-weight:800; color:#15803d; background:rgba(255,255,255,0.7); padding:3px 10px; border-radius:12px;">Day ' + day.day + '</span>' +
-              '</div>' +
-              '<div style="text-align:center; padding:10px 0 14px;">' +
-                '<div style="font-size:2.2rem; line-height:1; margin-bottom:8px;">🎉</div>' +
-                '<h3 style="font-size:1.18rem; font-weight:800; color:#064e3b; margin:0 0 6px; line-height:1.35;">' + escapeHtml(day.theme) + '</h3>' +
-                '<p style="margin:0; font-size:0.86rem; color:#166534; font-weight:600;">15/15 Items Mastered (10 Words, 3 Phrasals, 2 Idioms)</p>' +
-              '</div>' +
-              '<div style="background:rgba(255,255,255,0.8); border:1px solid rgba(22,163,74,0.2); border-radius:10px; padding:10px 14px; text-align:center;">' +
-                '<span style="font-size:0.82rem; color:#14532d; font-weight:700;">Status: Band 8.5+ Ready</span>' +
-              '</div>' +
+          // BACK FACE (Celebratory Completed Theme 1)
+          '<div class="vocab-flip-back vocab-theme1-back" onclick="window.ieltsApp.openVocabDayModal(' + day.day + ')">' +
+            '<div class="vocab-theme1-top" style="background:linear-gradient(135deg, #16a34a, #15803d);">' +
+              '<div class="vocab-theme1-num-badge" style="background:#16a34a;">✓</div>' +
             '</div>' +
-            '<div style="margin-top:16px; padding-top:14px; border-top:1px solid rgba(22,163,74,0.2); display:flex; justify-content:space-between; align-items:center; gap:8px;">' +
-              '<button type="button" class="btn" style="background:#15803d; color:#fff; border:none; padding:7px 14px; font-size:0.82rem; font-weight:700; border-radius:8px; display:inline-flex; align-items:center; gap:5px;" onclick="event.stopPropagation(); window.ieltsApp.openVocabDayModal(' + day.day + ')">' +
-                '<span>📖 Review</span>' +
-              '</button>' +
-              '<button type="button" class="btn alt" style="background:#fff; color:#dc2626; border:1px solid #fca5a5; padding:7px 12px; font-size:0.8rem; font-weight:700; border-radius:8px; display:inline-flex; align-items:center; gap:4px;" onclick="event.stopPropagation(); window.ieltsApp.markVocabIncomplete(' + day.day + ')" title="Reset this topic to incomplete">' +
-                '<span>↺ Incomplete</span>' +
-              '</button>' +
+            '<div class="vocab-theme1-body" style="text-align:center;">' +
+              '<div style="font-size:2rem; line-height:1; margin:6px 0;">🎉</div>' +
+              '<span style="background:#dcfce7; color:#15803d; font-size:0.75rem; font-weight:800; padding:3px 10px; border-radius:999px; display:inline-block; margin-bottom:8px;">COMPLETED</span>' +
+              '<h3 class="vocab-theme1-title" style="color:#065f46; font-size:1.1rem; margin-bottom:6px;">' + escapeHtml(day.theme) + '</h3>' +
+              '<p style="font-size:0.84rem; color:#166534; margin:0 0 16px;">All 15 lexical items mastered for Topic ' + day.day + '.</p>' +
+              '<div style="display:flex; justify-content:center; gap:8px;">' +
+                '<button type="button" class="btn" style="background:#15803d; color:#fff; border:none; padding:7px 14px; font-size:0.82rem; font-weight:700; border-radius:8px;" onclick="event.stopPropagation(); window.ieltsApp.openVocabDayModal(' + day.day + ')">Review</button>' +
+                '<button type="button" class="btn alt" style="background:#fff; color:#dc2626; border:1px solid #fca5a5; padding:7px 12px; font-size:0.8rem; font-weight:700; border-radius:8px;" onclick="event.stopPropagation(); window.ieltsApp.markVocabIncomplete(' + day.day + ')">↺ Incomplete</button>' +
+              '</div>' +
             '</div>' +
           '</div>' +
         '</div>' +
