@@ -3262,10 +3262,18 @@
 
     // Palette matching Image 1: Yellow/Orange, Green, Cyan/Blue, Magenta/Pink
     const themePalettes = [
-      { topBg: 'linear-gradient(135deg, #f59e0b, #d97706)', circleBg: '#f59e0b', text: '#b45309', icon: '👤', tag: '#fef3c7' },
-      { topBg: 'linear-gradient(135deg, #22c55e, #16a34a)', circleBg: '#22c55e', text: '#15803d', icon: '⚙️', tag: '#f0fdf4' },
-      { topBg: 'linear-gradient(135deg, #0ea5e9, #2563eb)', circleBg: '#0ea5e9', text: '#1d4ed8', icon: '🔒', tag: '#eff6ff' },
-      { topBg: 'linear-gradient(135deg, #ec4899, #db2777)', circleBg: '#ec4899', text: '#be185d', icon: '🛒', tag: '#fdf2f8' }
+      // 1. Crimson Velvet (Website Editorial --hi: #6C151E / #8B1E2D)
+      { topBg: 'linear-gradient(135deg, #8B1E2D, #6C151E)', text: '#8B1E2D', tag: '#FDF2F4', border: '#FECDD3', icon: '📖' },
+      // 2. Deep Pine Teal (Website Editorial --ink: #0F3D3A / #134B45)
+      { topBg: 'linear-gradient(135deg, #134B45, #0F3D3A)', text: '#134B45', tag: '#F0F9F8', border: '#A7F3D0', icon: '💡' },
+      // 3. Warm Amber Gold (Website Editorial --t4 & Amber #D97706)
+      { topBg: 'linear-gradient(135deg, #D97706, #B45309)', text: '#B45309', tag: '#FEF3C7', border: '#FDE68A', icon: '🎯' },
+      // 4. Cambridge Navy Blue (Website Cambridge #1E3A8A)
+      { topBg: 'linear-gradient(135deg, #1E3A8A, #1D4ED8)', text: '#1E3A8A', tag: '#EFF6FF', border: '#BFDBFE', icon: '🔍' },
+      // 5. Rose Velvet / Terracotta (Website --t3: #EBCBC6 & #9F2B48)
+      { topBg: 'linear-gradient(135deg, #9F2B48, #7F1D38)', text: '#7F1D38', tag: '#FFF1F2', border: '#FFE4E6', icon: '⚡' },
+      // 6. Forest Emerald (Website --t2: #CFE0DA & #2D6A4F)
+      { topBg: 'linear-gradient(135deg, #2D6A4F, #1B4332)', text: '#1B4332', tag: '#ECFDF5', border: '#A7F3D0', icon: '🌿' }
     ];
 
     let html = '';
@@ -3278,32 +3286,58 @@
 
       html += '<div class="vocab-flip-card vocab-theme1-card ' + (isDone ? 'is-completed' : '') + '" id="vocab-card-' + day.day + '">' +
         '<div class="vocab-flip-inner">' +
-          // FRONT FACE (Theme of Image 1 - Strictly Serial, Topic & Status Toggle)
+          // FRONT FACE (Matching User Image: Colored ribbon with left circular number badge & white body)
           '<div class="vocab-flip-front vocab-theme1-front" onclick="window.ieltsApp.openVocabDayModal(' + day.day + ')">' +
+            // Colored Header Ribbon
             '<div class="vocab-theme1-top" style="background:' + p.topBg + ';">' +
-              '<div class="vocab-theme1-num-badge" style="background:' + p.circleBg + ';">' + day.day + '</div>' +
+              '<div class="vocab-theme1-num-badge" style="color:' + p.text + ';">' + (day.day < 10 ? '0' + day.day : day.day) + '</div>' +
+              '<div class="vocab-theme1-top-info">' +
+                '<span class="vocab-theme1-top-title">Topic ' + (day.day < 10 ? '0' + day.day : day.day) + '</span>' +
+                '<span class="vocab-theme1-top-cat">' + escapeHtml(day.category || 'IELTS Core') + '</span>' +
+              '</div>' +
+              '<span class="vocab-theme1-top-icon">' + p.icon + '</span>' +
             '</div>' +
+            // White Card Content Body
             '<div class="vocab-theme1-body">' +
-              '<h3 class="vocab-theme1-title">' + escapeHtml(day.theme) + '</h3>' +
+              '<div>' +
+                '<h3 class="vocab-theme1-title">' + escapeHtml(day.theme) + '</h3>' +
+                '<p class="vocab-theme1-desc">' + escapeHtml(wordsPreview) + '...</p>' +
+                '<div class="vocab-theme1-chips">' +
+                  '<span class="vocab-theme1-chip">10 Words</span>' +
+                  '<span class="vocab-theme1-chip">3 Phrasals</span>' +
+                  '<span class="vocab-theme1-chip">2 Idioms</span>' +
+                  '<span class="vocab-theme1-chip band" style="color:' + p.text + '; background:' + p.tag + ';">Band 7.5-9.0</span>' +
+                '</div>' +
+              '</div>' +
               '<div class="vocab-theme1-status-row">' +
                 '<button type="button" class="vocab-theme1-status-btn ' + (isDone ? 'is-done' : 'is-pending') + '" onclick="event.stopPropagation(); ' + (isDone ? 'window.ieltsApp.markVocabIncomplete(' + day.day + ')' : 'window.ieltsApp.markVocabComplete(' + day.day + ')') + '">' +
                   '<span class="status-icon">' + (isDone ? '✓' : '○') + '</span>' +
                   '<span>' + (isDone ? 'Completed' : 'Incomplete') + '</span>' +
                 '</button>' +
+                '<span class="vocab-theme1-explore-link">Explore &rarr;</span>' +
               '</div>' +
             '</div>' +
           '</div>' +
-          // BACK FACE (Celebratory Completed Theme 1)
+          // BACK FACE (Celebratory 3D Flip Back Face)
           '<div class="vocab-flip-back vocab-theme1-back" onclick="window.ieltsApp.openVocabDayModal(' + day.day + ')">' +
-            '<div class="vocab-theme1-top" style="background:linear-gradient(135deg, #16a34a, #15803d);">' +
-              '<div class="vocab-theme1-num-badge" style="background:#16a34a;">✓</div>' +
+            '<div class="vocab-theme1-top" style="background:linear-gradient(135deg, #15803d, #166534);">' +
+              '<div class="vocab-theme1-num-badge" style="color:#15803d;">✓</div>' +
+              '<div class="vocab-theme1-top-info">' +
+                '<span class="vocab-theme1-top-title">Topic ' + (day.day < 10 ? '0' + day.day : day.day) + '</span>' +
+                '<span class="vocab-theme1-top-cat">Mastered</span>' +
+              '</div>' +
+              '<span class="vocab-theme1-top-icon">🎉</span>' +
             '</div>' +
             '<div class="vocab-theme1-body" style="text-align:center;">' +
-              '<h3 class="vocab-theme1-title" style="color:#065f46; font-size:1.05rem; margin:2px 0 6px;">' + escapeHtml(day.theme) + '</h3>' +
-              '<span style="background:#dcfce7; color:#15803d; font-size:0.75rem; font-weight:800; padding:2px 10px; border-radius:999px; display:inline-block; margin-bottom:8px;">COMPLETED</span>' +
-              '<div style="display:flex; justify-content:center; gap:8px;">' +
-                '<button type="button" class="btn" style="background:#15803d; color:#fff; border:none; padding:5px 12px; font-size:0.8rem; font-weight:700; border-radius:8px;" onclick="event.stopPropagation(); window.ieltsApp.openVocabDayModal(' + day.day + ')">Review</button>' +
-                '<button type="button" class="btn alt" style="background:#fff; color:#dc2626; border:1px solid #fca5a5; padding:5px 10px; font-size:0.78rem; font-weight:700; border-radius:8px;" onclick="event.stopPropagation(); window.ieltsApp.markVocabIncomplete(' + day.day + ')">↺ Incomplete</button>' +
+              '<div>' +
+                '<div style="font-size:2.4rem; line-height:1; margin:8px 0 6px;">🎉</div>' +
+                '<span style="background:#dcfce7; color:#15803d; font-size:0.78rem; font-weight:800; padding:4px 12px; border-radius:999px; display:inline-block; margin-bottom:10px;">TOPIC COMPLETED</span>' +
+                '<h3 class="vocab-theme1-title" style="color:#065f46; font-size:1.2rem; text-align:center; margin-bottom:8px;">' + escapeHtml(day.theme) + '</h3>' +
+                '<p style="font-size:0.88rem; color:#166534; margin:0 0 16px; line-height:1.5;">All 15 Band 8.0-9.0 lexical items, collocations and phrasal verbs mastered for this topic.</p>' +
+              '</div>' +
+              '<div style="display:flex; justify-content:center; gap:10px; margin-top:auto; padding-top:14px; border-top:1px solid #dcfce7;">' +
+                '<button type="button" class="btn" style="background:#15803d; color:#fff; border:none; padding:8px 18px; font-size:0.85rem; font-weight:700; border-radius:8px;" onclick="event.stopPropagation(); window.ieltsApp.openVocabDayModal(' + day.day + ')">Review Topic</button>' +
+                '<button type="button" class="btn alt" style="background:#fff; color:#dc2626; border:1px solid #fca5a5; padding:8px 14px; font-size:0.82rem; font-weight:700; border-radius:8px;" onclick="event.stopPropagation(); window.ieltsApp.markVocabIncomplete(' + day.day + ')">↺ Mark Incomplete</button>' +
               '</div>' +
             '</div>' +
           '</div>' +

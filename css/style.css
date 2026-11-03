@@ -7645,49 +7645,6 @@ input[type=text].cd-gap-input:focus,
 
 
 
-/* Vocab Theme 1: Compact Clean Front Card (Serial Number, Topic & Complete/Incomplete) */
-.vocab-topic-macro-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important;
-  gap: 14px !important;
-  margin-bottom: 36px !important;
-}
-
-.vocab-theme1-card {
-  perspective: 1000px !important;
-  min-height: 200px !important;
-  height: 200px !important;
-}
-
-.vocab-theme1-body {
-  padding: 28px 16px 16px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  flex: 1 !important;
-  justify-content: space-between !important;
-  text-align: center !important;
-  align-items: center !important;
-}
-
-.vocab-theme1-title {
-  font-family: 'Bricolage Grotesque', sans-serif !important;
-  font-size: 1.12rem !important;
-  font-weight: 800 !important;
-  color: #0f172a !important;
-  margin: 6px 0 !important;
-  line-height: 1.35 !important;
-}
-
-.vocab-theme1-status-row {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  padding-top: 8px !important;
-  border-top: 1px solid #f1f5f9 !important;
-  margin-top: auto !important;
-  width: 100% !important;
-}
-
 /* Safe margin for Bottom Navigation against floating Netlify Badge */
 .bottom-nav {
   padding-right: 175px !important;
@@ -7695,5 +7652,276 @@ input[type=text].cd-gap-input:focus,
 
 .bottom-right {
   margin-right: 15px !important;
+}
+
+
+
+/* ==========================================================================
+   THEME 1: VOCABULARY TOPICS CARDS (MATCHING USER IMAGE 3X3 GRID)
+   3 Cards per row, increased height/width, reduced gap & website palette
+   ========================================================================== */
+.vocab-topic-macro-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 16px !important;
+  max-width: 1240px !important;
+  margin: 0 auto 36px auto !important;
+  width: 100% !important;
+}
+
+@media (max-width: 1024px) {
+  .vocab-topic-macro-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .vocab-topic-macro-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+}
+
+.vocab-theme1-card {
+  perspective: 1200px !important;
+  min-height: 350px !important;
+  height: 100% !important;
+  display: flex !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.vocab-theme1-card .vocab-flip-inner {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 350px !important;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transform-style: preserve-3d !important;
+  display: flex !important;
+}
+
+.vocab-theme1-card.is-completed .vocab-flip-inner {
+  transform: rotateY(180deg) !important;
+}
+
+.vocab-theme1-front,
+.vocab-theme1-back {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 350px !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  border-radius: 20px !important;
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06) !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  cursor: pointer !important;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease !important;
+  box-sizing: border-box !important;
+}
+
+.vocab-theme1-front:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12) !important;
+  border-color: #cbd5e1 !important;
+}
+
+.vocab-theme1-back {
+  transform: rotateY(180deg) !important;
+  background: #f0fdf4 !important;
+  border-color: #86efac !important;
+}
+
+/* Top Colored Ribbon Header */
+.vocab-theme1-top {
+  height: 58px !important;
+  width: 100% !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 18px !important;
+  gap: 12px !important;
+  box-sizing: border-box !important;
+  border-top-left-radius: 20px !important;
+  border-top-right-radius: 20px !important;
+  flex-shrink: 0 !important;
+}
+
+/* White Circle Disc Number Badge */
+.vocab-theme1-num-badge {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  font-family: 'Bricolage Grotesque', sans-serif !important;
+  font-size: 1.25rem !important;
+  font-weight: 900 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16) !important;
+  border: 2px solid rgba(255, 255, 255, 0.95) !important;
+  flex-shrink: 0 !important;
+  position: static !important;
+  transform: none !important;
+}
+
+.vocab-theme1-top-info {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+
+.vocab-theme1-top-title {
+  color: #ffffff !important;
+  font-family: 'Bricolage Grotesque', sans-serif !important;
+  font-size: 1.05rem !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.vocab-theme1-top-cat {
+  color: rgba(255, 255, 255, 0.88) !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  line-height: 1.2 !important;
+}
+
+.vocab-theme1-top-icon {
+  font-size: 1.3rem !important;
+  opacity: 0.95 !important;
+}
+
+/* White Card Content Body */
+.vocab-theme1-body {
+  padding: 22px 22px 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  justify-content: space-between !important;
+  text-align: left !important;
+  box-sizing: border-box !important;
+}
+
+.vocab-theme1-title {
+  font-family: 'Bricolage Grotesque', sans-serif !important;
+  font-size: 1.28rem !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  margin: 0 0 8px !important;
+  line-height: 1.32 !important;
+  text-align: left !important;
+}
+
+.vocab-theme1-desc {
+  font-size: 0.88rem !important;
+  color: #475569 !important;
+  font-style: normal !important;
+  line-height: 1.48 !important;
+  margin: 0 0 16px !important;
+  text-align: left !important;
+}
+
+.vocab-theme1-chips {
+  display: flex !important;
+  gap: 6px !important;
+  justify-content: flex-start !important;
+  flex-wrap: wrap !important;
+  margin-bottom: 16px !important;
+}
+
+.vocab-theme1-chip {
+  background: #f1f5f9 !important;
+  color: #334155 !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  padding: 4px 9px !important;
+  border-radius: 6px !important;
+}
+
+.vocab-theme1-chip.band {
+  font-weight: 800 !important;
+}
+
+/* Front Status Row */
+.vocab-theme1-status-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding-top: 14px !important;
+  border-top: 1px solid #f1f5f9 !important;
+  margin-top: auto !important;
+  width: 100% !important;
+}
+
+.vocab-theme1-status-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  padding: 7px 16px !important;
+  border-radius: 999px !important;
+  font-size: 0.82rem !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  outline: none !important;
+}
+
+.vocab-theme1-status-btn.is-pending {
+  background: #f8fafc !important;
+  color: #475569 !important;
+  border: 1.5px solid #cbd5e1 !important;
+}
+
+.vocab-theme1-status-btn.is-pending:hover {
+  background: #eff6ff !important;
+  color: #1d4ed8 !important;
+  border-color: #93c5fd !important;
+}
+
+.vocab-theme1-status-btn.is-done {
+  background: #dcfce7 !important;
+  color: #15803d !important;
+  border: 1.5px solid #86efac !important;
+}
+
+.vocab-theme1-status-btn.is-done:hover {
+  background: #fee2e2 !important;
+  color: #b91c1c !important;
+  border-color: #fca5a5 !important;
+}
+
+.vocab-theme1-status-btn .status-icon {
+  font-size: 0.95rem !important;
+  font-weight: 900 !important;
+}
+
+.vocab-theme1-explore-link {
+  font-size: 0.85rem !important;
+  font-weight: 800 !important;
+  color: #64748b !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  transition: all 0.15s ease !important;
+}
+
+.vocab-theme1-front:hover .vocab-theme1-explore-link {
+  color: #0f172a !important;
+  transform: translateX(3px) !important;
 }
 
