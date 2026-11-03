@@ -6,7 +6,7 @@
   <title>IELTS with Abraham Rifat | World-Class IELTS Preparation Platform</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hind+Siliguri:wght@400;500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20%220%22%20%22100%22%20%22100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
 </head>
@@ -18,7 +18,8 @@
   <header class="top">
     <div class="wrap nav">
       <a class="brand" href="#" onclick="window.ieltsApp.showHomeView(); return false;">
-        IELTS with <span>Abraham Rifat</span>
+        <span class="brand-badge">IELTS</span>
+        <span class="brand-title">ACADEMY <span class="brand-sub">Abraham Rifat</span></span>
       </a>
 
       <div class="nav-actions-mobile">
@@ -31,17 +32,16 @@
       </div>
 
       <nav class="nav-menu" id="main-nav-menu">
-        <a class="nav-item" href="#" onclick="window.ieltsApp.showReadingSelection(); window.ieltsApp.closeMobileMenu(); return false;">Mock Tests</a>
-        <a class="nav-item" href="#" onclick="window.ieltsApp.showWritingView(); window.ieltsApp.closeMobileMenu(); return false;">Writing</a>
-        <a class="nav-item" href="#" onclick="window.ieltsApp.showListeningView(); window.ieltsApp.closeMobileMenu(); return false;">Listening</a>
-        <a class="nav-item" href="#practice" onclick="window.ieltsApp.showHomeView(); window.ieltsApp.closeMobileMenu();">Skill Drills</a>
-        <a class="nav-item" href="#" onclick="window.ieltsApp.showShadowingView(); window.ieltsApp.closeMobileMenu(); return false;">Speaking &amp; Shadowing</a>
-        <a class="nav-item" href="#" onclick="window.ieltsApp.showPodcastView(); window.ieltsApp.closeMobileMenu(); return false;">TED &amp; BBC</a>
-        <a class="nav-item" href="#" onclick="window.ieltsApp.showRoadmapView(); window.ieltsApp.closeMobileMenu(); return false;">60-Day Routine</a>
+        <a class="nav-item" href="#" onclick="window.ieltsApp.showReadingSelection(); window.ieltsApp.closeMobileMenu(); return false;">Reading Mocks <span class="nav-count">26</span></a>
+        <a class="nav-item" href="#" onclick="window.ieltsApp.showListeningView(); window.ieltsApp.closeMobileMenu(); return false;">Listening <span class="nav-count">8</span></a>
+        <a class="nav-item" href="#" onclick="window.ieltsApp.showWritingView(); window.ieltsApp.closeMobileMenu(); return false;">Writing <span class="nav-count">105+</span></a>
+        <a class="nav-item" href="#" onclick="window.ieltsApp.showShadowingView(); window.ieltsApp.closeMobileMenu(); return false;">Speaking</a>
+        <a class="nav-item" href="#practice" onclick="window.ieltsApp.showHomeView(); window.ieltsApp.closeMobileMenu();">8 Skills</a>
         <a class="nav-item" href="#" onclick="window.ieltsApp.showVocabularyView(); window.ieltsApp.closeMobileMenu(); return false;">Vocabulary</a>
         <a class="nav-item" href="#" onclick="window.ieltsApp.showGrammarView(); window.ieltsApp.closeMobileMenu(); return false;">Grammar</a>
+        <a class="nav-item" href="#" onclick="window.ieltsApp.showRoadmapView(); window.ieltsApp.closeMobileMenu(); return false;">60-Day Routine</a>
         <button class="theme-pill nav-theme-pill-desktop" onclick="window.ieltsApp.cycleTheme()" title="Toggle Dark/Light Mode">Theme</button>
-        <a class="cta" href="#contact" onclick="window.ieltsApp.showHomeView(); window.ieltsApp.closeMobileMenu();">Contact</a>
+        <a class="cta" href="#" onclick="window.ieltsApp.showReadingSelection(); return false;">🎯 Start Free Mock</a>
       </nav>
     </div>
   </header>
@@ -53,27 +53,69 @@
     <main id="top">
       <!-- Hero Section -->
       <div class="wrap hero">
-        <div>
-          <h1>Your IELTS band score starts with daily practice.</h1>
+        <div class="hero-left">
+          <div class="hero-kicker-pill">
+            <span class="kicker-pulse"></span>
+            <span>OFFICIAL CAMBRIDGE &amp; IDP EXAM CURRICULUM</span>
+          </div>
+          <h1>Master IELTS with Authentic Cambridge Standards.</h1>
           <p class="lead">
-            Full mock tests, skill drills and a clear study routine for Reading, Listening, Writing and Speaking. Learn step by step with Abraham Rifat.
+            Authentic computer-delivered mock exams, examiner-standard scoring, 105+ Band 9 model essays, and a structured 60-day routine—personally mentored by Abraham Rifat.
           </p>
           <div class="btns">
-            <a class="btn main" href="#" onclick="window.ieltsApp.showReadingSelection(); return false;">Start a mock test</a>
-            <a class="btn alt" href="#practice">Browse practice</a>
-            <button class="btn alt" onclick="window.ieltsApp.showRoadmapView()">60-Day Routine</button>
+            <a class="btn main" href="#" onclick="window.ieltsApp.showReadingSelection(); return false;">
+              <span>Start Free Mock Test</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn alt" href="#practice">
+              <span>Explore 8 Core Skills</span>
+              <span class="btn-sub-arrow">&darr;</span>
+            </a>
+            <button class="btn alt-routine" onclick="window.ieltsApp.showRoadmapView()">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span>60-Day Routine</span>
+            </button>
+          </div>
+
+          <!-- Hero Metrics / Trust Grid -->
+          <div class="hero-metrics-bar">
+            <div class="metric-pill">
+              <span class="metric-num">26</span>
+              <span class="metric-lbl">Full Reading Mocks</span>
+            </div>
+            <div class="metric-pill">
+              <span class="metric-num">8</span>
+              <span class="metric-lbl">Cambridge Audio Mocks</span>
+            </div>
+            <div class="metric-pill">
+              <span class="metric-num">105+</span>
+              <span class="metric-lbl">Band 9 Essays</span>
+            </div>
+            <div class="metric-pill">
+              <span class="metric-num">600+</span>
+              <span class="metric-lbl">Exam Vocab Items</span>
+            </div>
           </div>
         </div>
 
-        <div>
-          <div class="photo has" id="photo">
-            <div class="photo-frame">
+        <div class="hero-right">
+          <div class="trainer-card">
+            <div class="trainer-photo-wrap">
               <img id="img" src="assets/images/abraham_rifat.jpg" alt="Abraham Rifat" loading="eager">
+              <div class="trainer-verified-pill">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                <span>Verified IELTS Mentor</span>
+              </div>
             </div>
-          </div>
-          <div class="name-tag">
-            Abraham Rifat
-            <small>IELTS trainer and mentor</small>
+            <div class="trainer-info">
+              <h3>Abraham Rifat</h3>
+              <p>Lead IELTS Academic &amp; General Instructor</p>
+              <div class="trainer-stats-row">
+                <span>🎯 Target Band: 7.5–9.0</span>
+                <span>•</span>
+                <span>⭐ Cambridge Standards</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -82,168 +124,236 @@
       <section class="block" id="tests">
         <div class="wrap">
           <div class="sec-head">
-            <h2>Test yourself</h2>
-            <p>Timed, authentic exam-style practice for each section of the official IELTS.</p>
+            <div>
+              <div class="sec-kicker">EXAM PREPARATION SUITE</div>
+              <h2>Official IELTS Exam Pillars</h2>
+            </div>
+            <p>Authentic, computer-delivered practice tests with official timer, instant scoring, and Band 9 answer keys.</p>
           </div>
           <div class="tests">
             <!-- Reading Mock Test Card -->
             <a class="card c1" href="#" onclick="window.ieltsApp.showReadingSelection(); return false;">
-              <div>
-                <h3>Reading mock test</h3>
-                <p>26 official IELTS Reading mock tests with authentic scanned passages, questions, interactive answer sheet &amp; live timer.</p>
+              <div class="card-top-row">
+                <div class="card-icon-badge c1-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+                <span class="card-tag-pill c1-pill">26 Papers</span>
               </div>
-              <span class="go">
-                Take the test 
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </span>
+              <div class="card-body">
+                <h3>Reading Mock Tests</h3>
+                <p>26 authentic scanned Cambridge exam papers with live 20-min timer, full-color highlighter, interactive answer sheet, and instant explanations.</p>
+              </div>
+              <div class="card-footer">
+                <span class="card-metric">40 Questions &bull; Passages 1, 2 &amp; 3</span>
+                <span class="go">
+                  <span>Take Test</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </span>
+              </div>
             </a>
 
             <!-- Listening Mock Test Card -->
             <a class="card c2" href="#" onclick="window.ieltsApp.showListeningView(); return false;">
-              <div>
-                <h3>Listening mock test</h3>
-                <p>The Official Cambridge Guide to IELTS Listening Practice Tests (Tests 1–8) with real audio, 40 Qs, and CD IELTS simulation.</p>
+              <div class="card-top-row">
+                <div class="card-icon-badge c2-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+                </div>
+                <span class="card-tag-pill c2-pill">8 Audio Tests + Short Drills</span>
               </div>
-              <span class="go">
-                Take the test 
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </span>
+              <div class="card-body">
+                <h3>Listening Mock Tests</h3>
+                <p>The Official Cambridge Guide to IELTS Tests 1–8 with authentic audio tracks, 40 questions per test, CD IELTS interface, plus short practice playlist.</p>
+              </div>
+              <div class="card-footer">
+                <span class="card-metric">4 Sections &bull; 30 Mins &bull; Real Audio</span>
+                <span class="go">
+                  <span>Take Test</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </span>
+              </div>
             </a>
 
             <!-- Writing Card -->
             <a class="card c3" href="#" onclick="window.ieltsApp.showWritingView(); return false;">
-              <div>
-                <h3>Writing masterclass</h3>
-                <p>Task 2 (105+ IELTS Advantage essays) &amp; Task 1 (IELTS Liz model answers) with Band 9 explanations.</p>
+              <div class="card-top-row">
+                <div class="card-icon-badge c3-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <span class="card-tag-pill c3-pill">105+ Band 9 Models</span>
               </div>
-              <span class="go">
-                Start writing 
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </span>
+              <div class="card-body">
+                <h3>Writing Masterclass</h3>
+                <p>Task 2 (105+ IELTS Advantage essays) &amp; Task 1 (IELTS Liz model answers) with annotated process diagrams, band descriptors, and examiner breakdowns.</p>
+              </div>
+              <div class="card-footer">
+                <span class="card-metric">Task 1 &amp; Task 2 &bull; Band 9 Guides</span>
+                <span class="go">
+                  <span>Start Writing</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </span>
+              </div>
             </a>
 
             <!-- Speaking / Shadowing Card -->
             <a class="card c4" href="#" onclick="window.ieltsApp.showShadowingView(); return false;">
-              <div>
-                <h3>Speaking &amp; Shadowing</h3>
-                <p>Parts 1, 2, and 3 cue cards, natural speech drills, and ShadowingB video playlists with voice recorder.</p>
+              <div class="card-top-row">
+                <div class="card-icon-badge c4-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                </div>
+                <span class="card-tag-pill c4-pill">Parts 1, 2 &amp; 3</span>
               </div>
-              <span class="go">
-                Start speaking 
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </span>
+              <div class="card-body">
+                <h3>Speaking &amp; Shadowing</h3>
+                <p>Parts 1, 2, and 3 cue cards with model answers, natural speech flow drills, curated ShadowingB video playlists, and an integrated audio recorder.</p>
+              </div>
+              <div class="card-footer">
+                <span class="card-metric">Voice Recorder &bull; Pronunciation</span>
+                <span class="go">
+                  <span>Start Speaking</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </span>
+              </div>
             </a>
           </div>
         </div>
       </section>
 
-      <!-- Build Your Skills Section -->
+      <!-- Build Your Skills Section (Unified 8 Core Modules) -->
       <section class="block" id="practice">
         <div class="wrap">
           <div class="sec-head">
-            <h2>Build your skills</h2>
-            <p>Short, focused daily practice between mock tests to target core weaknesses.</p>
+            <div>
+              <div class="sec-kicker">HIGH-YIELD SKILL DEVELOPMENT</div>
+              <h2>Build Your Core Skills</h2>
+            </div>
+            <p>Targeted daily drills between mock exams to eliminate weaknesses and elevate your band score.</p>
           </div>
-          <div class="practice">
+          <div class="practice-grid-unified">
             <!-- 1. Reading Skills Build-up -->
-            <a class="mini" href="#" onclick="window.ieltsApp.showReadingSkillsSelection(); return false;">
-              <span class="ic">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4zM20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg>
-              </span>
-              <h3>Reading skills build-up</h3>
-              <p>30 curated passages (Easy, Med, Hard) with paragraph vocabulary notes &amp; A1-A2 summaries.</p>
+            <a class="skill-card" href="#" onclick="window.ieltsApp.showReadingSkillsSelection(); return false;">
+              <div class="skill-card-head">
+                <div class="skill-icon blue">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                </div>
+                <span class="skill-badge blue">Passages</span>
+              </div>
+              <h3>Reading Skills Build-up</h3>
+              <p>30 curated graded passages (Easy, Med, Hard) with paragraph vocab notes &amp; A1-A2 executive summaries.</p>
+              <div class="skill-action">
+                <span>Practice Passages</span>
+                <span class="arrow">&rarr;</span>
+              </div>
             </a>
 
             <!-- 2. Shadowing Practice -->
-            <a class="mini" href="#" onclick="window.ieltsApp.showShadowingView(); return false;">
-              <span class="ic">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
-              </span>
-              <h3>Shadowing practice</h3>
-              <p>Official YouTube Shadowing playlist for natural speech cadence and Band 9 pronunciation.</p>
+            <a class="skill-card" href="#" onclick="window.ieltsApp.showShadowingView(); return false;">
+              <div class="skill-card-head">
+                <div class="skill-icon purple">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+                </div>
+                <span class="skill-badge purple">Fluency</span>
+              </div>
+              <h3>Shadowing Practice</h3>
+              <p>Curated YouTube Shadowing playlist for natural speech rhythm, stress intonation, and Band 9 pronunciation.</p>
+              <div class="skill-action">
+                <span>Start Shadowing</span>
+                <span class="arrow">&rarr;</span>
+              </div>
             </a>
 
             <!-- 3. IELTS Routine -->
-            <a class="mini" href="#" onclick="window.ieltsApp.showRoadmapView(); return false;">
-              <span class="ic">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>
-              </span>
-              <h3>IELTS routine</h3>
-              <p>Moktadir's 60-Day day-by-day study roadmap with progress tracker and task checklists.</p>
+            <a class="skill-card" href="#" onclick="window.ieltsApp.showRoadmapView(); return false;">
+              <div class="skill-card-head">
+                <div class="skill-icon emerald">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <span class="skill-badge emerald">Study Plan</span>
+              </div>
+              <h3>60-Day Routine</h3>
+              <p>Moktadir's 60-Day structured study roadmap with daily checklists, milestone tracker, and revision goals.</p>
+              <div class="skill-action">
+                <span>View Daily Plan</span>
+                <span class="arrow">&rarr;</span>
+              </div>
             </a>
 
-            <!-- 4. IELTS Listening Media -->
-            <a class="mini" href="#" onclick="window.ieltsApp.showPodcastView(); return false;">
-              <span class="ic">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="5" height="6" rx="1.5"/><rect x="16" y="14" width="5" height="6" rx="1.5"/></svg>
-              </span>
-              <h3>TED &amp; BBC podcasts</h3>
-              <p>Official BBC 6 Minute English playlist &amp; TED Talks channel for listening mastery.</p>
+            <!-- 4. TED & BBC Podcasts -->
+            <a class="skill-card" href="#" onclick="window.ieltsApp.showPodcastView(); return false;">
+              <div class="skill-card-head">
+                <div class="skill-icon indigo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+                </div>
+                <span class="skill-badge indigo">Immersion</span>
+              </div>
+              <h3>TED &amp; BBC Podcasts</h3>
+              <p>Official BBC 6 Minute English playlist &amp; TED Talks channel for high-level listening comprehension &amp; ideas.</p>
+              <div class="skill-action">
+                <span>Listen Now</span>
+                <span class="arrow">&rarr;</span>
+              </div>
             </a>
 
             <!-- 5. Grammar Practice -->
-            <a class="mini" href="#" onclick="window.ieltsApp.showGrammarView(); return false;">
-              <span class="ic">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16zM14 7l3 3"/></svg>
-              </span>
-              <h3>Grammar practice</h3>
-              <p>Tenses, complex sentence structures, passives, conditionals, and Band 8 collocations.</p>
-            </a>
-          </div>
-
-          <!-- Additional Skill Resources (3 Cards: Vocabulary, YouTube Resources & IELTS Cambridge) -->
-          <div class="practice-sub-grid">
-            <!-- 6. Vocabulary & Lexical Resource -->
-            <a class="mini practice-featured-card" href="#" onclick="window.ieltsApp.showVocabularyView(); return false;">
-              <div class="practice-card-head">
-                <span class="ic" style="background:#eff6ff; color:#2563eb; width:44px; height:44px; display:inline-flex; align-items:center; justify-content:center; border-radius:10px;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                </span>
-                <div>
-                  <span class="practice-card-tag" style="background:#dbeafe; color:#1e40af;">Lexical Resource</span>
-                  <h3 style="margin:2px 0 0; font-size:1.15rem; font-weight:800; color:var(--ink);">Vocabulary &amp; Idioms</h3>
+            <a class="skill-card" href="#" onclick="window.ieltsApp.showGrammarView(); return false;">
+              <div class="skill-card-head">
+                <div class="skill-icon amber">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
                 </div>
+                <span class="skill-badge amber">Accuracy</span>
               </div>
-              <p style="margin:0 0 12px; font-size:0.92rem; color:var(--muted); line-height:1.5;">600 Band 7.5–9.0 words, 100 phrasal verbs, 100 idioms, flashcards &amp; visual cheat sheets categorized by core exam topics.</p>
-              <div class="practice-card-action" style="color:#2563eb;">
-                <span>Open Vocabulary Lab</span>
-                <span>&rarr;</span>
+              <h3>Academic Grammar Lab</h3>
+              <p>Master complex sentence structures, passive voice, conditionals, inversion, and high-band collocations.</p>
+              <div class="skill-action">
+                <span>Explore Grammar</span>
+                <span class="arrow">&rarr;</span>
               </div>
             </a>
 
-            <!-- 7. YouTube Resources (7 Curated Channels & Sites) -->
-            <a class="mini practice-featured-card" href="#" onclick="window.ieltsApp.openYouTubeResourcesModal(); return false;">
-              <div class="practice-card-head">
-                <span class="ic" style="background:#fee2e2; color:#ef4444; width:44px; height:44px; display:inline-flex; align-items:center; justify-content:center; border-radius:10px;">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                </span>
-                <div>
-                  <span class="practice-card-tag" style="background:#fee2e2; color:#b91c1c;">Top 7 Channels &amp; Sites</span>
-                  <h3 style="margin:2px 0 0; font-size:1.15rem; font-weight:800; color:var(--ink);">YouTube Resources</h3>
+            <!-- 6. Vocabulary & Idioms (With 3D Flip Cards) -->
+            <a class="skill-card" href="#" onclick="window.ieltsApp.showVocabularyView(); return false;">
+              <div class="skill-card-head">
+                <div class="skill-icon rose">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
                 </div>
+                <span class="skill-badge rose">600+ Items</span>
               </div>
-              <p style="margin:0 0 12px; font-size:0.92rem; color:var(--muted); line-height:1.5;">7 world-renowned IELTS channels: IELTS Liz, FasTrack IELTS, Juva, JForrest, Connor &amp; English with Lucy.</p>
-              <div class="practice-card-action" style="color:#ef4444;">
-                <span>Explore 7 Curated Channels</span>
-                <span>&rarr;</span>
+              <h3>Vocabulary &amp; Idioms</h3>
+              <p>600 Band 7.5–9.0 words, 100 phrasals, 100 idioms, flashcards &amp; visual cheat sheets with 3D flip mastery tracking.</p>
+              <div class="skill-action">
+                <span>Open Vocab Lab</span>
+                <span class="arrow">&rarr;</span>
+              </div>
+            </a>
+
+            <!-- 7. YouTube Resources (7 Curated Channels) -->
+            <a class="skill-card" href="#" onclick="window.ieltsApp.openYouTubeResourcesModal(); return false;">
+              <div class="skill-card-head">
+                <div class="skill-icon red">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </div>
+                <span class="skill-badge red">7 Channels</span>
+              </div>
+              <h3>YouTube Resources</h3>
+              <p>Curated channels: IELTS Liz, FasTrack IELTS, Juva, JForrest English, Connor, and English with Lucy.</p>
+              <div class="skill-action">
+                <span>Explore 7 Channels</span>
+                <span class="arrow">&rarr;</span>
               </div>
             </a>
 
             <!-- 8. IELTS Cambridge (Engnovate) -->
-            <a class="mini practice-featured-card" href="https://engnovate.com/ielts/" target="_blank" rel="noopener noreferrer">
-              <div class="practice-card-head">
-                <span class="ic" style="background:#fef3c7; color:#d97706; width:44px; height:44px; display:inline-flex; align-items:center; justify-content:center; border-radius:10px;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                </span>
-                <div>
-                  <span class="practice-card-tag" style="background:#fef3c7; color:#92400e;">Authentic Tests &bull; Engnovate</span>
-                  <h3 style="margin:2px 0 0; font-size:1.15rem; font-weight:800; color:var(--ink);">IELTS Cambridge</h3>
+            <a class="skill-card" href="https://engnovate.com/ielts/" target="_blank" rel="noopener noreferrer">
+              <div class="skill-card-head">
+                <div class="skill-icon gold">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
                 </div>
+                <span class="skill-badge gold">Authentic Tests</span>
               </div>
-              <p style="margin:0 0 12px; font-size:0.92rem; color:var(--muted); line-height:1.5;">Official Cambridge Academic &amp; General mock tests on Engnovate with live timer, passage layout &amp; scoring.</p>
-              <div class="practice-card-action" style="color:#d97706;">
+              <h3>IELTS Cambridge Portal</h3>
+              <p>Official Cambridge Academic &amp; General mock tests on Engnovate with live timer, passage layout &amp; scoring.</p>
+              <div class="skill-action">
                 <span>Visit Cambridge Portal</span>
-                <span>&nearr;</span>
+                <span class="arrow">&nearr;</span>
               </div>
             </a>
           </div>
