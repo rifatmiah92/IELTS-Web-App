@@ -2929,11 +2929,11 @@
 
     // Theme matching Image 2: Step/Ticket card layout with perforated notch & top-right icon badge
     const stepColors = [
-      { name: 'orange', bg: '#f97316', light: '#fff7ed', text: '#ea580c', icon: '🔍' },
-      { name: 'teal', bg: '#0d9488', light: '#f0fdfa', text: '#0f766e', icon: '💡' },
-      { name: 'green', bg: '#65a30d', light: '#f7fee7', text: '#4d7c0f', icon: '🎯' },
-      { name: 'blue', bg: '#0284c7', light: '#f0f9ff', text: '#0369a1', icon: '📖' },
-      { name: 'purple', bg: '#9333ea', light: '#faf5ff', text: '#7e22ce', icon: '⚡' }
+      { name: 'crimson', bg: '#8B1E2D', light: '#FDF2F4', text: '#6C151E', icon: '📖' },
+      { name: 'teal', bg: '#134B45', light: '#F0F9F8', text: '#0F3D3A', icon: '💡' },
+      { name: 'amber', bg: '#C05621', light: '#FDF6EC', text: '#9C4221', icon: '🎯' },
+      { name: 'navy', bg: '#1E3A8A', light: '#EFF6FF', text: '#1E3A8A', icon: '🔍' },
+      { name: 'forest', bg: '#2D6A4F', light: '#F0FDF4', text: '#1E4633', icon: '⚡' }
     ];
 
     let html = '';
@@ -3278,32 +3278,18 @@
 
       html += '<div class="vocab-flip-card vocab-theme1-card ' + (isDone ? 'is-completed' : '') + '" id="vocab-card-' + day.day + '">' +
         '<div class="vocab-flip-inner">' +
-          // FRONT FACE (Theme of Image 1)
+          // FRONT FACE (Theme of Image 1 - Strictly Serial, Topic & Status Toggle)
           '<div class="vocab-flip-front vocab-theme1-front" onclick="window.ieltsApp.openVocabDayModal(' + day.day + ')">' +
-            // Top colored arch with serial number badge
             '<div class="vocab-theme1-top" style="background:' + p.topBg + ';">' +
               '<div class="vocab-theme1-num-badge" style="background:' + p.circleBg + ';">' + day.day + '</div>' +
             '</div>' +
-            // White card content area
             '<div class="vocab-theme1-body">' +
-              '<div class="vocab-theme1-header-label" style="color:' + p.text + ';">' +
-                '<span>TOPIC ' + day.day + ' &bull; ' + escapeHtml(day.category || 'IELTS') + '</span>' +
-              '</div>' +
               '<h3 class="vocab-theme1-title">' + escapeHtml(day.theme) + '</h3>' +
-              '<p class="vocab-theme1-desc">' + escapeHtml(wordsPreview) + '...</p>' +
-              '<div class="vocab-theme1-chips">' +
-                '<span class="vocab-theme1-chip">10 Words</span>' +
-                '<span class="vocab-theme1-chip">3 Phrasals</span>' +
-                '<span class="vocab-theme1-chip">2 Idioms</span>' +
-                '<span class="vocab-theme1-chip band" style="color:' + p.text + '; background:' + p.tag + ';">Band 7.5-9.0</span>' +
-              '</div>' +
-              // Front Status Row: Serial number, Topic & Complete/Incomplete Toggle
               '<div class="vocab-theme1-status-row">' +
                 '<button type="button" class="vocab-theme1-status-btn ' + (isDone ? 'is-done' : 'is-pending') + '" onclick="event.stopPropagation(); ' + (isDone ? 'window.ieltsApp.markVocabIncomplete(' + day.day + ')' : 'window.ieltsApp.markVocabComplete(' + day.day + ')') + '">' +
                   '<span class="status-icon">' + (isDone ? '✓' : '○') + '</span>' +
                   '<span>' + (isDone ? 'Completed' : 'Incomplete') + '</span>' +
                 '</button>' +
-                '<span class="vocab-theme1-icon-badge">' + p.icon + '</span>' +
               '</div>' +
             '</div>' +
           '</div>' +
@@ -3313,13 +3299,11 @@
               '<div class="vocab-theme1-num-badge" style="background:#16a34a;">✓</div>' +
             '</div>' +
             '<div class="vocab-theme1-body" style="text-align:center;">' +
-              '<div style="font-size:2rem; line-height:1; margin:6px 0;">🎉</div>' +
-              '<span style="background:#dcfce7; color:#15803d; font-size:0.75rem; font-weight:800; padding:3px 10px; border-radius:999px; display:inline-block; margin-bottom:8px;">COMPLETED</span>' +
-              '<h3 class="vocab-theme1-title" style="color:#065f46; font-size:1.1rem; margin-bottom:6px;">' + escapeHtml(day.theme) + '</h3>' +
-              '<p style="font-size:0.84rem; color:#166534; margin:0 0 16px;">All 15 lexical items mastered for Topic ' + day.day + '.</p>' +
+              '<h3 class="vocab-theme1-title" style="color:#065f46; font-size:1.05rem; margin:2px 0 6px;">' + escapeHtml(day.theme) + '</h3>' +
+              '<span style="background:#dcfce7; color:#15803d; font-size:0.75rem; font-weight:800; padding:2px 10px; border-radius:999px; display:inline-block; margin-bottom:8px;">COMPLETED</span>' +
               '<div style="display:flex; justify-content:center; gap:8px;">' +
-                '<button type="button" class="btn" style="background:#15803d; color:#fff; border:none; padding:7px 14px; font-size:0.82rem; font-weight:700; border-radius:8px;" onclick="event.stopPropagation(); window.ieltsApp.openVocabDayModal(' + day.day + ')">Review</button>' +
-                '<button type="button" class="btn alt" style="background:#fff; color:#dc2626; border:1px solid #fca5a5; padding:7px 12px; font-size:0.8rem; font-weight:700; border-radius:8px;" onclick="event.stopPropagation(); window.ieltsApp.markVocabIncomplete(' + day.day + ')">↺ Incomplete</button>' +
+                '<button type="button" class="btn" style="background:#15803d; color:#fff; border:none; padding:5px 12px; font-size:0.8rem; font-weight:700; border-radius:8px;" onclick="event.stopPropagation(); window.ieltsApp.openVocabDayModal(' + day.day + ')">Review</button>' +
+                '<button type="button" class="btn alt" style="background:#fff; color:#dc2626; border:1px solid #fca5a5; padding:5px 10px; font-size:0.78rem; font-weight:700; border-radius:8px;" onclick="event.stopPropagation(); window.ieltsApp.markVocabIncomplete(' + day.day + ')">↺ Incomplete</button>' +
               '</div>' +
             '</div>' +
           '</div>' +

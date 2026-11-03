@@ -5978,8 +5978,8 @@ header.top {
 
 .vocab-topic-macro-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important;
+  gap: 14px !important;
   margin-bottom: 36px;
 }
 
@@ -5989,8 +5989,8 @@ header.top {
    ========================================================================== */
 .vocab-topic-macro-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important;
+  gap: 14px !important;
   margin-bottom: 36px;
 }
 
@@ -6771,7 +6771,8 @@ input[type=text].cd-gap-input:focus,
    ========================================================================== */
 .vocab-theme1-card {
   perspective: 1000px;
-  min-height: 380px;
+  min-height: 200px !important;
+  height: 200px !important;
 }
 
 .vocab-theme1-card .vocab-flip-inner {
@@ -6846,7 +6847,7 @@ input[type=text].cd-gap-input:focus,
 }
 
 .vocab-theme1-body {
-  padding: 32px 20px 20px;
+  padding: 28px 16px 16px !important;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -7160,6 +7161,8 @@ input[type=text].cd-gap-input:focus,
    ========================================================================== */
 .writing-theme3-card {
   display: flex;
+  width: 100% !important;
+  box-sizing: border-box !important;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
@@ -7606,3 +7609,91 @@ input[type=text].cd-gap-input:focus,
     grid-template-columns: 1fr;
   }
 }
+
+.writing-grid,
+#task2-grid,
+#task1-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  max-width: 980px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+  margin-top: 24px;
+}
+
+
+/* Writing Masterclass Styling - Exact 1 card per row */
+.writing-grid,
+#task2-grid,
+#task1-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  max-width: 980px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+}
+
+.writing-theme3-card {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin-bottom: 0 !important;
+}
+
+
+
+/* Vocab Theme 1: Compact Clean Front Card (Serial Number, Topic & Complete/Incomplete) */
+.vocab-topic-macro-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important;
+  gap: 14px !important;
+  margin-bottom: 36px !important;
+}
+
+.vocab-theme1-card {
+  perspective: 1000px !important;
+  min-height: 200px !important;
+  height: 200px !important;
+}
+
+.vocab-theme1-body {
+  padding: 28px 16px 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  justify-content: space-between !important;
+  text-align: center !important;
+  align-items: center !important;
+}
+
+.vocab-theme1-title {
+  font-family: 'Bricolage Grotesque', sans-serif !important;
+  font-size: 1.12rem !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  margin: 6px 0 !important;
+  line-height: 1.35 !important;
+}
+
+.vocab-theme1-status-row {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding-top: 8px !important;
+  border-top: 1px solid #f1f5f9 !important;
+  margin-top: auto !important;
+  width: 100% !important;
+}
+
+/* Safe margin for Bottom Navigation against floating Netlify Badge */
+.bottom-nav {
+  padding-right: 175px !important;
+}
+
+.bottom-right {
+  margin-right: 15px !important;
+}
+
