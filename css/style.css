@@ -6425,3 +6425,204 @@ header.top {
 .bottom-right {
   margin-right: 15px !important;
 }
+
+/* ==========================================================================
+   THEME 4: LISTENING SECTION CARDS (IMAGE 4 THEME)
+   Modern mobile audio player cards with quotation icon, progress pill, and dock
+   ========================================================================== */
+.listening-theme4-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  gap: 28px !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  align-items: stretch !important;
+}
+
+.listening-player-card {
+  border-radius: 28px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  min-height: 460px !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.16) !important;
+  text-decoration: none !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+.listening-player-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 28px 55px rgba(0, 0, 0, 0.22) !important;
+}
+
+.listening-player-card.card-amber {
+  background: linear-gradient(150deg, #f59e0b 0%, #ea580c 100%) !important;
+}
+
+.listening-player-card.card-emerald {
+  background: linear-gradient(150deg, #059669 0%, #064e3b 100%) !important;
+}
+
+.listening-player-card.card-indigo {
+  background: linear-gradient(150deg, #3b82f6 0%, #1d4ed8 50%, #1e3a8a 100%) !important;
+}
+
+.player-card-body {
+  padding: 36px 32px 20px !important;
+  color: #ffffff !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+}
+
+.player-quote-icon {
+  font-family: Georgia, serif !important;
+  font-size: 4.2rem !important;
+  line-height: 0.9 !important;
+  color: #ffffff !important;
+  opacity: 0.92 !important;
+  margin-bottom: 16px !important;
+}
+
+.player-card-text {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+}
+
+.player-kicker {
+  font-size: 0.74rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  display: block !important;
+  margin-bottom: 8px !important;
+}
+
+.player-title {
+  font-family: 'Bricolage Grotesque', sans-serif !important;
+  font-size: 1.85rem !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
+  line-height: 1.2 !important;
+  margin: 0 0 14px !important;
+  letter-spacing: -0.02em !important;
+}
+
+.player-desc {
+  font-size: 0.96rem !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  line-height: 1.6 !important;
+  margin: 0 0 24px !important;
+}
+
+.player-progress-bar-wrap {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin-top: auto !important;
+  margin-bottom: 16px !important;
+}
+
+.player-progress-bar {
+  flex: 1 !important;
+  height: 3px !important;
+  background: rgba(255, 255, 255, 0.35) !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+}
+
+.player-progress-fill {
+  height: 100% !important;
+  background: #ffffff !important;
+  border-radius: 999px !important;
+}
+
+.player-progress-pill {
+  font-size: 0.75rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  padding: 3px 10px !important;
+  border-radius: 999px !important;
+  white-space: nowrap !important;
+}
+
+.player-meta-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-transform: uppercase !important;
+}
+
+.player-meta-socials {
+  display: flex !important;
+  gap: 8px !important;
+  font-size: 0.9rem !important;
+}
+
+.player-controller-dock {
+  background: #ffffff !important;
+  border-radius: 20px !important;
+  margin: 16px !important;
+  padding: 10px 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+.player-time-pill {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+  padding: 6px 14px !important;
+  border-radius: 999px !important;
+  font-size: 0.84rem !important;
+  font-weight: 800 !important;
+}
+
+.player-dock-icons {
+  display: flex !important;
+  gap: 12px !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  color: #64748b !important;
+}
+
+.player-play-btn {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+.player-play-btn.amber-play {
+  background: #ea580c !important;
+}
+
+.player-play-btn.emerald-play {
+  background: #059669 !important;
+}
+
+.player-play-btn.indigo-play {
+  background: #2563eb !important;
+}
+
+@media (max-width: 640px) {
+  .listening-theme4-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
